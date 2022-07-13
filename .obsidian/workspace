@@ -10,7 +10,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "工作区/设计模式/单一原则.md"
+            "file": "README.md"
           }
         },
         "group": "3a78b08948e6f3d6"
@@ -22,7 +22,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "工作区/设计模式/单一原则.md",
+            "file": "README.md",
             "mode": "source",
             "backlinks": true
           }
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "工作区/设计模式/单一原则.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "工作区/设计模式/单一原则.md"
+                "file": "README.md"
               }
             }
           },
@@ -138,15 +138,15 @@
   },
   "active": "397072fd834581e1",
   "lastOpenFiles": [
-    "工作区/设计模式/单一原则.md",
+    "README.md",
+    "模版/日记模板.md",
     "工作区/开发工具/github.md",
-    "工作区/开发工具/git.md",
-    "日记/2022-07-13 的日记.md",
     "工作区/开发工具/Vim的学习使用.md",
+    "工作区/开发工具/git.md",
+    "工作区/设计模式/单一原则.md",
+    "日记/2022-07-13 的日记.md",
     "工作区/框架技术/Vue/Vuex/README.md",
     "工作区/算法/LeetCode（简单）.md",
-    "工作区/工程化/打包工具/webpack/webpack学习笔记.md",
-    "工作区/工程化/打包工具/webpack/webpack Chunk加载分析.md",
-    "工作区/工程化/打包工具/webpack/webpack打包器运行时分析.md"
+    "工作区/工程化/打包工具/webpack/webpack学习笔记.md"
   ]
 }
