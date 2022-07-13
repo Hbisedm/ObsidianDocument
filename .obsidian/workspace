@@ -1,0 +1,152 @@
+{
+  "main": {
+    "id": "ca7b7cde97d0e39b",
+    "type": "split",
+    "children": [
+      {
+        "id": "c8befe5dc25db21b",
+        "type": "leaf",
+        "dimension": 22.78481012658228,
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "工作区/设计模式/单一原则.md"
+          }
+        },
+        "group": "3a78b08948e6f3d6"
+      },
+      {
+        "id": "397072fd834581e1",
+        "type": "leaf",
+        "dimension": 77.21518987341773,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "工作区/设计模式/单一原则.md",
+            "mode": "source",
+            "backlinks": true
+          }
+        },
+        "group": "3a78b08948e6f3d6"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5230f94dc6a4e37f",
+    "type": "split",
+    "children": [
+      {
+        "id": "0ea5ce33e68b4e77",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0be20153fcbf2c23",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "3777e046875eaf99",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#Vue",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3a43a5bff99aa902",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 320.0036315917969
+  },
+  "right": {
+    "id": "d92e80b3109f9130",
+    "type": "split",
+    "children": [
+      {
+        "id": "a892601c59dca2f6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "94c807371241354e",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "b78ee34682b5388c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "工作区/设计模式/单一原则.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e950265ce1108e4f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "工作区/设计模式/单一原则.md"
+              }
+            }
+          },
+          {
+            "id": "39b3cc99050e72be",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 100,
+    "collapsed": true
+  },
+  "active": "397072fd834581e1",
+  "lastOpenFiles": [
+    "工作区/设计模式/单一原则.md",
+    "工作区/开发工具/github.md",
+    "工作区/开发工具/git.md",
+    "日记/2022-07-13 的日记.md",
+    "工作区/开发工具/Vim的学习使用.md",
+    "工作区/框架技术/Vue/Vuex/README.md",
+    "工作区/算法/LeetCode（简单）.md",
+    "工作区/工程化/打包工具/webpack/webpack学习笔记.md",
+    "工作区/工程化/打包工具/webpack/webpack Chunk加载分析.md",
+    "工作区/工程化/打包工具/webpack/webpack打包器运行时分析.md"
+  ]
+}

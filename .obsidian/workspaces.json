@@ -1,0 +1,240 @@
+{
+  "workspaces": {
+    "复盘、阅读": {
+      "main": {
+        "id": "ca7b7cde97d0e39b",
+        "type": "split",
+        "children": [
+          {
+            "id": "cc1b2ad0ef4639e4",
+            "type": "leaf",
+            "dimension": 25.461254612546124,
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "测试文件夹/测试文档.md"
+              }
+            }
+          },
+          {
+            "id": "0846ea96692c6c51",
+            "type": "leaf",
+            "dimension": 74.53874538745387,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "测试文件夹/测试文档.md",
+                "mode": "preview"
+              }
+            }
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "5230f94dc6a4e37f",
+        "type": "split",
+        "children": [
+          {
+            "id": "0ea5ce33e68b4e77",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0be20153fcbf2c23",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {}
+                }
+              },
+              {
+                "id": "3777e046875eaf99",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 200.0036334991455
+      },
+      "right": {
+        "id": "d92e80b3109f9130",
+        "type": "split",
+        "children": [
+          {
+            "id": "60eea64afe8aea7d",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "7f45795b70a0a047",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "测试文件夹/测试文档.md",
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 188.74954223632812,
+        "collapsed": true
+      },
+      "active": "cc1b2ad0ef4639e4"
+    },
+    "写文档布局": {
+      "main": {
+        "id": "ca7b7cde97d0e39b",
+        "type": "split",
+        "children": [
+          {
+            "id": "a2255be4275ea254",
+            "type": "leaf",
+            "dimension": 76.81159420289855,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "工作区/框架技术/Vue/基本知识.md",
+                "mode": "source",
+                "backlinks": true
+              }
+            },
+            "group": "efc290706f1cb505"
+          },
+          {
+            "id": "86c56a20b189d0c2",
+            "type": "leaf",
+            "dimension": 23.18840579710145,
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "工作区/框架技术/Vue/基本知识.md"
+              }
+            },
+            "group": "efc290706f1cb505"
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "5230f94dc6a4e37f",
+        "type": "split",
+        "children": [
+          {
+            "id": "0ea5ce33e68b4e77",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0be20153fcbf2c23",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {}
+                }
+              },
+              {
+                "id": "3777e046875eaf99",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 216.5036334991455,
+        "collapsed": true
+      },
+      "right": {
+        "id": "d92e80b3109f9130",
+        "type": "split",
+        "children": [
+          {
+            "id": "e185d59975dc0f76",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "ebce1ef0c5abd294",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "工作区/框架技术/Vue/基本知识.md"
+                  }
+                }
+              },
+              {
+                "id": "ad393359bb1fa08e",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {}
+                }
+              },
+              {
+                "id": "a8957c5b72e63ee1",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "工作区/框架技术/Vue/基本知识.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "68080397a1d48a47",
+                "type": "leaf",
+                "state": {
+                  "type": "advanced-tables-toolbar",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 188.74954223632812,
+        "collapsed": true
+      },
+      "active": "a2255be4275ea254"
+    }
+  },
+  "active": "写文档布局"
+}

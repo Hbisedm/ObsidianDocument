@@ -1,0 +1,3 @@
+- offsetLeft基于非static定位的父元素计算
+- 如果遇到float元素，会让出一部分空间
+- 但如果margin够大，就不算遇到float元素了
