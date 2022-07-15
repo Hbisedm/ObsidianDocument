@@ -6,10 +6,7 @@ excerpt: 预处理
 ---
 
 
-
-
-
-#JavaScript  #面试题 
+#JavaScript  #面试题 #Function
 
 函数的预处理和全局的预处理大致一致，区别在于函数有参数。（变量提升）
 

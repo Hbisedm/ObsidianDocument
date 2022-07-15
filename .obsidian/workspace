@@ -4,30 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "c8befe5dc25db21b",
-        "type": "leaf",
-        "dimension": 22.78481012658228,
-        "state": {
-          "type": "outline",
-          "state": {
-            "file": "README.md"
-          }
-        },
-        "group": "3a78b08948e6f3d6"
-      },
-      {
         "id": "397072fd834581e1",
         "type": "leaf",
-        "dimension": 77.21518987341773,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "README.md",
+            "file": "工作区/基本知识/JavaScript/执行上下文与作用域.md",
             "mode": "source",
             "backlinks": true
           }
-        },
-        "group": "3a78b08948e6f3d6"
+        }
       }
     ],
     "direction": "vertical"
@@ -54,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Vue",
+                "query": "tag:#JavaScript",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 320.0036315917969
+    "width": 271.0036334991455
   },
   "right": {
     "id": "d92e80b3109f9130",
@@ -99,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "工作区/基本知识/JavaScript/执行上下文与作用域.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +102,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "工作区/基本知识/JavaScript/执行上下文与作用域.md"
               }
             }
           },
@@ -138,15 +124,15 @@
   },
   "active": "397072fd834581e1",
   "lastOpenFiles": [
-    "README.md",
-    "模版/日记模板.md",
-    "工作区/开发工具/github.md",
-    "工作区/开发工具/Vim的学习使用.md",
-    "工作区/开发工具/git.md",
-    "工作区/设计模式/单一原则.md",
-    "日记/2022-07-13 的日记.md",
-    "工作区/框架技术/Vue/Vuex/README.md",
-    "工作区/算法/LeetCode（简单）.md",
-    "工作区/工程化/打包工具/webpack/webpack学习笔记.md"
+    "工作区/基本知识/JavaScript/执行上下文与作用域.md",
+    "日记/2022-07-15 的日记.md",
+    "工作区/感悟/README.md",
+    "工作区/基本知识/JavaScript/原型、原型链.md",
+    "工作区/未命名.md",
+    "工作区/算法/KMP算法.md",
+    "工作区/算法/双指针法.md",
+    "工作区/算法/JS算法模板.md",
+    "工作区/算法/README.md",
+    "工作区/算法/LeetCode（简单）.md"
   ]
 }

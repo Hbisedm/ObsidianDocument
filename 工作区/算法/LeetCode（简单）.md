@@ -878,5 +878,105 @@ var daysBetweenDates = function(date1, date2) {
 };
 ```
 
+## [1013. 将数组分成和相等的三个部分](https://leetcode.cn/problems/partition-array-into-three-parts-with-equal-sum/)
+### 题解：
+由题目可以知道，当前这个数组肯定可以被三求余为0，然后使用count记录遍历arr累加的值是否等于平均值，若是则count++，最后判断count是否大于等于3。
+> 不一定等于3，例如[1,-1,1,-1,1,-1,1,-1]
+
+```javascript
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var canThreePartsEqualSum = function(arr) {
+    let sum = arr.reduce((prev, curr) => prev + curr)
+    if(sum % 3 !== 0) {
+        return false
+    }
+    let avg = sum / 3
+    let swap = 0
+    let count = 0
+    for(let i = 0; i < arr.length; i++) {
+        swap +=arr[i]
+        if(swap === avg) {
+            swap = 0
+            count++
+        }
+    }
+    return count >= 3
+};
+```
+### 别人的题解：
+使用双指针的写法，先判断是否可以分为三等份，然后遍历一次数组，将数组left + 1 < right作为循环跳出条件。判断`当前左边的求和 是否 等于平均值` 逻辑与`当前右边的求和 是否 等于平均值` 若相等则就是三份了。为什么呢。因为一开始就判断了能不能分为三份，所以中间那份不用算。 
+
+```java
+class Solution {
+    public boolean canThreePartsEqualSum(int[] A) {
+        int sum = 0;
+        for(int i : A){
+            sum += i;
+        }
+        if(sum%3 != 0){
+            // 总和不是3的倍数，直接返回false
+            return false;
+        }
+
+        // 使用双指针,从数组两头开始一起找，节约时间
+        int left = 0;
+        int leftSum = A[left];
+        int right = A.length - 1;
+        int rightSum = A[right];
+
+        // 使用left + 1 < right 的原因，防止只能将数组分成两个部分
+        // 例如：[1,-1,1,-1]，使用left < right作为判断条件就会出错
+        while(left + 1 < right){
+            if(leftSum == sum/3 && rightSum == sum/3){
+                // 左右两边都等于 sum/3 ，中间也一定等于
+                return true;
+            }
+            if(leftSum != sum/3){
+                // left = 0赋予了初值，应该先left++，在leftSum += A[left];
+                leftSum += A[++left];
+            }
+            if(rightSum != sum/3){
+                // right = A.length - 1 赋予了初值，应该先right--，在rightSum += A[right];
+                rightSum += A[--right];
+            }
+        }
+        return false;  
+    }
+}
+
+```
+
+
+
+
+## [1331. 数组序号转换](https://leetcode.cn/problems/rank-transform-of-an-array/)
+### 题解：
+- 使用Set去重后，正序排序
+- 使用Map集合记录每个元素的index
+- 使用for遍历传入的实参，与map集合做对比，相等就push索引到result数组
+
+```javascript
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
+var arrayRankTransform = function(arr) {
+    let swap = [...new Set(arr)].sort((a,b)=>a-b)
+    const map = new Map()
+    const result = []
+    for(let i = 0; i < swap.length; i++) {
+        if(!map.has(swap[i])) {
+            map.set(swap[i], i + 1)    
+        }
+    }
+    for(let i = 0; i < arr.length; i++) {
+        result.push(map.get(arr[i]))
+    }
+    return result
+};
+```
 
 ## todo
