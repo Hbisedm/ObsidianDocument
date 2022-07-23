@@ -1,6 +1,6 @@
 
 ---
-title: vscode-vue-plugins
+title: vscodePlugins
 date: 2022-07-13 13:31:26
 tags: ["vscode", "vue", "plugins"]
 ---

@@ -290,7 +290,7 @@ vim里面符号算做一个单词、一个连续字符在空格之前被vim当�
 学习处理包裹字符的符号
 - vim-surround
 	- `c + s + <existing> + <desired>`修改包裹字符
-	- `y + s + <motion> + <desired>`增加包裹字符
+	- `y + s + <motion> + <desired>`增加包裹字符 motion -> iw ie ...
 	- `d + s + <existing>`删除包裹字符
 	- `S + <desired>` 可视化模式下大写S处理包裹字符
 ### 问题
@@ -310,3 +310,197 @@ vim里面符号算做一个单词、一个连续字符在空格之前被vim当�
 gd 跳转到定义or实现
 
 处理包裹字符的符号
+
+## day16
+### 收获&学习心得&心路历程
+> 目的：学习替换字符串
+
+> vim替换字符串公式
+>`:[range]s[ubstitute]/{pattern}/{string}/[ﬂags]`
+
+`[]`为可选的
+- range 范围
+	- % 全文
+	- $ 当前到文件尾部
+	- num,num 指定行数范围
+- substitute 一般简写s
+- flags 
+	- g 全部替换当前范围内匹配的字符串
+	- c 可选替换当前范围内匹配的字符串
+
+可视化模式： 选中的范围
+
+gb 多选当前单词 ：按n次gb匹配n次当前单词
+
+### 问题
+
+`gcl`注释当前行代码
+公式需要脑海记下，运用多次后才可以达到肌肉记忆。
+平时记录使用obsidian 没有vim-surround
+
+## day17
+### 收获&学习心得&心路历程
+
+> 目的：学习键盘模拟鼠标悬浮、切换大小写、注释代码
+
+- 悬浮
+	- gh
+- 切换大小写
+	- gu + 范围 范围内容转为小写
+	- gU + 范围 范围内容转为大写
+	- 可视化模式下
+		- u 选中内容转为小写
+		- U 选中内容转为大写
+	- ~ 当前当前光标的字符大小写
+- 注释代码
+	- gc 注释单行 -> `//`
+	- gC 注释多行 -> `/* */`
+	- tip： 可视化模式与normal通用。
+
+
+## day18
+### 收获&学习心得&心路历程
+
+> 学习如何切换窗口，
+
+- 新建窗口
+	- C-w v
+	- C-w s
+- 切换窗口
+	- C-w hjkl
+	- C-w w
+- 关闭窗口
+	- C-w c
+	- C-w o 保留当前窗口，关闭其他窗口
+
+使用vscode改键，快速上手
+- 新建窗口 
+	- Command + \
+	- Command + Ctrl + \
+- 关闭窗口
+	- Command + w
+	- Comanand + k + w
+- 切换窗口
+	- shift + 方向键
+
+### 问题
+遇到窗口内tab如何切换的问题。问了群里的小伙伴，哦，还有个gt gT的切换
+
+
+## day19
+
+### 收获&学习心得&心路历程
+
+目的： 学习删除一个函数
+
+- % 用于匹配括号
+- vim-indent-object 
+
+- dap 基于段落 => 段落：空格隔开为一个段落
+- daI 基于缩进， 需要在函数体内
+	- 改键 i maps I 少按shift
+- `V$%d` 
+	- 改键 `<leader> d f` -> `V $ % d`
+	- 缺点：需要在函数的定义那一行使用，且需要参数都要在同一行。
+以后删除就用：
+- 函数定义的行使用 `<leader> d f`
+- 函数内部使用`dai`
+
+
+## day20
+
+### 收获&学习心得&心路历程
+
+> 学习宏操作。
+> 宏：可以录制一系列操作。
+
+- 开始录制：q + 寄存器名称 如 qa
+- 结束录制：q
+- 查看录制好的宏：`:reg<空格><寄存器名称>` 如`:reg a` 
+- 使用： `@寄存器名称` 如`@a`
+- 调用最后一次执行的宏 `@@`
+- 重复执行： 数字键 + @ + 寄存器   如 `5@a`  五次执行宏a
+- 安全机制：调用失败会有个报错提示
+- 追加宏： qA
+- 修改宏： （vscode插件没效果，切换到终端的vim没问题）
+	- 取出来
+		- `"<寄存器名称>p` 如`"ap` 复制a的宏操作过程出来
+		- `:put<空格><寄存器名称>` 如`:put a`
+	- 修改：
+		- `"<寄存器名称>yw`
+		- `"<寄存器名称>yy`
+- 录制技巧：
+	- 定好光标位置
+	- 移动时候使用相对位置
+		- 如：w、e 、f ....
+		- hjkl是绝对位置
+
+
+
+
+
+
+
+## day21
+
+### 收获&学习心得&心路历程
+
+> 今日学习如何配置vscode的命令。
+
+![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202207220947640.png)
+
+这里可以查看vscode的命令列表
+
+```json
+"vim.normalModeKeyBindingsNonRecursive": [
+
+	{
+      "before": ["<Leader>", "f", "d"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<Leader>", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+     {
+      "before": ["<Leader>", "["],
+      "commands": [
+        {
+          "command": "editor.fold"
+        },
+        {
+          "command": "vim.remap",
+          "args": {
+            "after": ["$", "%"]
+          }
+        }
+      ]
+    }
+]
+```
+
+举个例子： 配置上面的formatDocument，先在vscode命令里面找到，命令ID 即`editor.action.formatDocument`，然后diy normal模式下的值 `<Leader>+f+d`。
+其他命令类似如此的配置。
+
+## day22
+
+### 收获&学习心得&心路历程
+
+> 操作文件
+
+- 切到 ﬁles explorer 区域
+	- `ctrl + ;`  互相切换editor 区域与 files explorer
+	- `ctrl + '`  切换到editor
+- 新建文件
+	- `a`
+	- `Leader + n + f`
+	- 插件 file Utils
+- 新建文件夹
+	- `A`
+	- `Leader + n + d`
+- 重命名文件
+	- `r`
+- 删除文件
+	- `d`
+
+主要在vscode中查找对应的命令，接着在`keybinding.json`中添加自定义按键

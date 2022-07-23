@@ -979,4 +979,389 @@ var arrayRankTransform = function(arr) {
 };
 ```
 
+## [628. 三个数的最大乘积](https://leetcode.cn/problems/maximum-product-of-three-numbers/)
+
+### 题解：
+正序排序整个数组，三个数乘积，可以理解成一个最大的数×其他2个数的最大乘积（负负得正）。当然最大的数有可能是负数，这需要判断。
+- max（负数）取出乘积最大数
+- max（正数）取出乘积最小数 
+
+```javascript
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maximumProduct = function(nums) {
+    nums = nums.sort((a, b) => a - b)
+    let swap = 0
+    let max = nums.pop()
+    
+    let len = nums.length
+    let first =  nums[0] * nums[1]
+    let last = nums[len-2] * nums[len-1]
+    if(max>0 ) {
+        if(first > last){
+            swap = first
+        }else {
+            swap = last
+        }
+    }else {
+        
+        if(first > last){
+            swap = last
+        }else {
+            swap = first
+        }
+    }
+    
+    return max * swap
+};
+```
+
+
+
+
+## [492. 构造矩形](https://leetcode.cn/problems/construct-the-rectangle/)
+### 题解
+遍历整个数，将除以的数为整数，然后取作差的绝对值，最接近的值为结果
+
+```js
+/**
+ * @param {number} area
+ * @return {number[]}
+ */
+var constructRectangle = function(area) {
+    let result = []
+    let min = area
+    let res = area
+    for(let i = 1; i < area; i++) {
+        let curr = area / i
+        if(curr % 1 ===0 && Math.abs(i - curr) < min) {
+            min = Math.abs(i - curr)
+            res = curr
+        }
+    }
+    
+   return res > area/res ? [res, area/res]: [area/res, res]
+};
+```
+
+但是跑起来的速度太慢了。
+
+看了其他人的解法：
+将这个数开平方后，若area除以平方数不是整数，则减一，直到结果为整数为止。
+
+```js
+/**
+ * @param {number} area
+ * @return {number[]}
+ */
+var constructRectangle = function(area) {
+    
+    
+    for(let i = Math.floor(Math.sqrt(area));;i--) {
+        if(area % i === 0){
+            return [area/i, i]
+        }
+    }
+    
+};
+```
+
+## [1859. 将句子排序](https://leetcode.cn/problems/sorting-the-sentence/)
+
+### 题解
+将字符串转为数组，新建个数组临时空间，遍历整个数组，将当前字符串最后的数字-1作为临时数组的下标，值为当前字符串除开后面的数字。最后返回临时数组的join(' ')
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var sortSentence = function(s) {
+    let sArr = s.split(" ")
+    let len = sArr.length
+    let result = []
+    for(let i = 0; i < len; i++) {
+        let oVal = sArr[i]
+        let cLen = oVal.length - 1
+        let val = oVal.substr(0, cLen)
+        let index = oVal[cLen]
+        result[index - 1] = val
+    }
+    return result.join(' ')
+};
+```
+
+下面2个方法是先排序，再用正则替换尾部的数字。
+
+```js
+
+var sortSentence = function (s) {
+  return s.split(' ').sort((a, b) => a[a.length - 1] - b[b.length - 1]).join(' ').replace(/\d/g, '')
+};
+
+```
+
+
+```js
+var sortSentence = function (s) {
+  const arr = s.split(' ')
+  const tar = new Array(arr.length)
+  arr.forEach(item => {
+    tar[item[item.length - 1] * 1 - 1] = item
+  })
+  return tar.join(' ').replace(/\d/g, '')
+};
+```
+
+## [819. 最常见的单词](https://leetcode.cn/problems/most-common-word/)
+
+### 题解：
+将字符串分割成数组，正则去掉符号，然后遍历这个生成的数组，使用禁用单词列表数组banned的`includes`判断后使用个对象去存储。拿出value为最大值的key
+
+
+```js
+/**
+ * @param {string} paragraph
+ * @param {string[]} banned
+ * @return {string}
+ */
+var mostCommonWord = function(paragraph, banned) {
+    let changeParagraph = paragraph.split(/\W|' '/).map(_ => {
+        if(_ !== '') {
+            return _.toLowerCase()   
+        }
+        
+    })
+    let swap = {}
+    changeParagraph.forEach(item => {
+        if(item !== undefined && !banned.includes(item)) {
+            if(swap[item]) {
+                swap[item]++
+            }else {
+                swap[item] = 1
+            }
+        }
+    })
+    
+    let res = {
+        value: 0,
+        name: ''
+    }
+    
+    for(let key in swap) {
+        if(swap[key] > res.value) {
+            res.value = swap[key]
+            res.name = key
+        }
+    }
+    return res.name
+};
+```
+
+别人的写法，道理都差不多只是用了map和set这些数据结构去处理
+
+```js
+var mostCommonWord = function(paragraph, banned) {
+    var bannedSet = new Set();
+    banned.forEach((v) => {
+        bannedSet.add(v);
+    });
+    var ans = "";
+    var count = new Map();
+    paragraph.split(/[!\?',;\.' ]+/).forEach((v) => {// 根据标点符号或空格切割成多个单词，转小写，计数
+        if (v == "") return;
+        v = v.toLocaleLowerCase();
+        if (bannedSet.has(v)) {
+            return;
+        }
+        count.set(v, count.has(v) ? count.get(v) + 1 : 1);
+    });
+    let maxC = 0;
+    [...count.entries()].forEach(([k, v]) => {// 找次数最多的单词
+        if (maxC < v) {
+            maxC = v;
+            ans = k;
+        }
+    })
+    return ans;
+};
+```
+
+## [965. 单值二叉树](https://leetcode.cn/problems/univalued-binary-tree/)
+
+### 题解：
+深度优先遍历（DFS），利用递归
+```js
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isUnivalTree = function (root) {
+  let val = root.val;
+  var check = function (node) {
+    if (!node) return true;
+    return node.val === val && check(node.left) && check(node.right);
+  };
+  return check(root);
+};
+
+```
+广度优先遍历（BFS），利用队列
+```js
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isUnivalTree = function (root) {
+  let q = [root],
+    val = root.val;
+  while (q.length) {
+    let node = q.shift();
+    if (node.val !== val) return false;
+    node.left && q.push(node.left);
+    node.right && q.push(node.right);
+  }
+  return true;
+};
+```
+
+## [824. 山羊拉丁文](https://leetcode.cn/problems/goat-latin/)
+
+题解： 根据题意解题
+
+```js
+/**
+ * @param {string} sentence
+ * @return {string}
+ */
+var toGoatLatin = function(sentence) {
+    const vowelArr = ['a', 'e', 'i', 'o', 'u']
+    let sentenceArr = sentence.split(' ')
+    let result = ''
+
+    let generate = (num) => {
+        let str = 'a'
+        while(num>0) {
+            str += 'a'
+            num--
+        }
+        return str
+    }
+
+    for(let i = 0; i < sentenceArr.length; i++) {
+        if(vowelArr.includes(sentenceArr[i][0].toLowerCase())) {
+            result += `${sentenceArr[i]}m${generate(i+1)} `
+        }else {
+            result +=   `${sentenceArr[i].slice(1)}${sentenceArr[i][0]}m${generate(i+1)} `
+        }
+    }
+
+    return result.slice(0, result.length-1)
+};```
+
+## [392. 判断子序列](https://leetcode.cn/problems/is-subsequence/)
+
+### 题解
+使用双指针
+
+```js
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isSubsequence = function(s, t) {
+    let n = s.length,
+        m = t.length
+        i = 0,
+        j = 0
+    
+    while(i < n && j < m) {
+        if(s[i] === t[j]) {
+            i++
+        }
+        j++
+    }
+    return i===n
+};
+```
+
+
+## [203. 移除链表元素](https://leetcode.cn/problems/remove-linked-list-elements/)
+### 题解
+
+先判断头部的val是否是等于目标值，再算后面的等于的情况。
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} val
+ * @return {ListNode}
+ */
+var removeElements = function(head, val) {
+    while(head){
+        if(head.val === val) {
+            head = head.next
+        }else {
+            break
+        }    
+    }
+    let res = head
+    while(head && head.next) {
+        if(head.next.val === val) {
+            head.next = head.next.next
+            continue
+        }
+        head = head.next
+    }
+    return res 
+};```
+
+官方题解
+
+使用递归，判断每个节点当前的情况，若val为目标val的话，则选择下个节点
+
+```js
+var removeElements = function(head, val) {
+    if (head === null) {
+            return head;
+        }
+        head.next = removeElements(head.next, val);
+        return head.val === val ? head.next : head;
+};
+
+```
+
+使用个辅助头节点，先存 原始的头head，这样的话，就不用判断判断一次头，直接遍历一次即可，也就是说，第一个解法可以while一次就行。
+
+```js
+var removeElements = function(head, val) {
+    const dummyHead = new ListNode(0);
+    dummyHead.next = head;
+    let temp = dummyHead;
+    while (temp.next !== null) {
+        if (temp.next.val == val) {
+            temp.next = temp.next.next;
+        } else {
+            temp = temp.next;
+        }
+    }
+    return dummyHead.next;
+
+```
+
+
+
+
+
+
 ## todo

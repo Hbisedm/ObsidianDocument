@@ -20,3 +20,19 @@
 至此，整个 pull request 的过程就结束了。
 
 理解了 pull request 的含义和流程，具体操作也就简单了。
+
+## 统计功能
+
+[一个访客统计的徽章（ badge ）服务](https://visitor-badge.glitch.me/)
+
+原理很简单，徽章是一个 svg，你只需要在你的 issues 或者 readme 中添加一个 markdown 的图片：
+
+```markdown
+![]( https://visitor-badge.glitch.me/badge?page_id=<your_page_id>)
+```
+
+当有人打开你的 issue 或者 github 仓库时，浏览器会加载这个图片，服务器就会发出一个请求。
+
+之后根据请求里的 page_id 来计数，并将最新的数量生成到一个 svg 图片中，将这个 svg 返回，浏览器就可以显示出来了。
+
+注意这里的参数：page_id, 需要自己手动给一个唯一的字符串，没有特定规则，只要能唯一标识当前页面即可。

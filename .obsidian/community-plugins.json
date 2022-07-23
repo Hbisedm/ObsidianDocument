@@ -4,5 +4,6 @@
   "markdown-prettifier",
   "table-editor-obsidian",
   "obsidian-image-auto-upload-plugin",
-  "obsidian-vimrc-support"
+  "obsidian-vimrc-support",
+  "obsidian-plugin-prettier"
 ]

@@ -160,6 +160,11 @@ a = 3
 可参考一个最简编译器的实现 [the super tiny compiler](https://github.com/jamiebuilds/the-super-tiny-compiler)
 
 
+
+
+
+> 下面介绍下 JS AST -> 字节码 -> 解释编译执行代码的过程
+
 ## 生成字节码
 js代码生成为AST，若要执行需要通过V8 的解释器(也叫Ignition)转为字节码再转为机器码
 > 为啥不直接转机器码？
