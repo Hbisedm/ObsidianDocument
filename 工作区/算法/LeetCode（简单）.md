@@ -1364,4 +1364,145 @@ var removeElements = function(head, val) {
 
 
 
+## [112. 路径总和](https://leetcode.cn/problems/path-sum/)
+### 题解
+深度遍历到叶子节点，算出当前的val累加值 与 target 是否相等
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} targetSum
+ * @return {boolean}
+ */
+var hasPathSum = function(root, targetSum) {
+    let result = false
+    if(!root) {return result}
+    let dps = function(root, num) {
+        if(root) {
+            num +=root.val
+        }else {
+            return 
+        }
+        if(root.left) {
+            dps(root.left, num)
+            
+        }
+        if(root.right) {
+            dps(root.right, num)
+        }
+        if(!root.left && !root.right && num === targetSum) {
+            result = true
+        }
+    }
+    dps(root, 0)
+    return result
+};
+```
+
+## [258. 各位相加](https://leetcode.cn/problems/add-digits/)
+### 题解
+判断当前值是否小于10，不满足则进入循环，当前值除以10是否大于等于1 -> 当前值最低还有十位，所以需要进入循环变量求余想加
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var addDigits = function(num) {
+    while(num >= 10) {
+        let res = 0
+        while (num / 10 >= 1) { //不是个位
+            let g = num % 10 //拿个位的值
+            num = Math.floor( num / 10) //转int
+            res += g //加当前的个位数
+        }
+        num += res
+    }
+    return num
+};```
+
+
+
+## [404. 左叶子之和](https://leetcode.cn/problems/sum-of-left-leaves/)
+### 题解
+深度遍历二叉树，通过判断当前节点是不是叶子节点，取出叶子的值，将所有左叶子累加起来，若不是叶子节点，return 0
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var sumOfLeftLeaves = function(root) {
+    let result = 0
+    
+    let isLeaf = (root) => {
+        return (!root.left && !root.right)
+    }
+
+    let dfs = function(root) {
+        if(!root) {
+            return 0
+        } 
+        if(isLeaf(root)) {
+            return root.val
+        }else {
+
+            let left = root.left ? dfs(root.left) : 0
+            if(root.right) dfs(root.right) 
+            result += left
+            return 0
+        }
+        
+    }
+    if(isLeaf(root)) return 0
+    dfs(root)
+    return result 
+};```
+```
+```
+## [643. 子数组最大平均数 I](https://leetcode.cn/problems/maximum-average-subarray-i/)
+### 题解
+滑动窗口
+初始化前k个的总和，每次移动，删除第一个、增加最后一个
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var findMaxAverage = function(nums, k) {
+    let len = nums.length
+    let swapMax = 0
+    for(let i = 0; i < k; i++) {
+        swapMax += nums[i]
+    }
+    let currMax = swapMax
+    for(let i = k; i < len; i++){
+        swapMax = swapMax + nums[i] - nums[i - k]
+        currMax = Math.max(currMax, swapMax)
+    }
+    return currMax / k
+};```
+
+
+
+
+
+
+
+
 ## todo

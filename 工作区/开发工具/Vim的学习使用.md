@@ -504,3 +504,73 @@ gb 多选当前单词 ：按n次gb匹配n次当前单词
 	- `d`
 
 主要在vscode中查找对应的命令，接着在`keybinding.json`中添加自定义按键
+
+
+## day23
+
+### 收获&学习心得&心路历程
+
+> 学习vscode的窗口操作
+
+- 新建项目 `shift + command + n`
+- 进入指定的项目 `ctrl + r`
+- 切换项目 command + `
+- 关闭项目 `command + w`
+
+这个学习后，直接不用每次都去找项目了。直接`ctrl + r`超级快捷
+
+
+## day24
+
+### 收获&学习心得&心路历程
+
+> 学习vscode的搜索
+
+- 全局搜索
+	- shift + command + f
+	- 搜索输入框的移动 command + up / down
+	- 搜索详情的打开关闭 shift + command + j
+- 工作区搜索
+	- command + t
+- 当前文件搜索
+	- command + shift + o
+		- @ + : 会排序变量和函数
+- 搜索命令
+	- command + shift + p
+- 搜索文件
+	- command + p
+- 切换文件
+	- vim gt、gT
+	- ctrl + tab（ctrl 按住 tab按一次切一次）
+
+- `>` 搜索命令
+- `@` 搜索当前文件
+- `#` 全局搜索
+
+## day25
+
+### 收获&学习心得&心路历程
+
+> 学习快捷地编码
+
+- 显示编码动作
+	- 如输入一个外部文件，需要引入的代码，是可以这个
+	- `command + .`
+- 显示输入建议
+	- 如函数参数的输入建议
+	- `shift + command + enter`
+- 触发建议
+	- 如当前编码时的建议变量
+	- `command + i`
+- 移动行
+	- `option + up/down`
+- 增加行
+	- `comand + enter` 向下增加
+	- `command + shift + enter` 向上增加
+- 删除前面的单词
+	- `option + delete`
+	- `option + ctrl + delete`
+- 跳转到错误的地方： `F8` (这是基于整个工作区的跳转，不是当前文件)
+- 选择所有出现的当前单词
+	- `command + F2`
+	- `gb` 是一个一个的选择
