@@ -1,9 +1,10 @@
 ---
-title: this的指向
-date: 2022-06-09 17:25:33
+title: this的指向的笔记
 tags: ["this", "javaScript"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:23:47 下午
 ---
-#tag
+#JavaScript #this
 
 # this的指向的笔记
 
@@ -57,9 +58,9 @@ return o1.o2
 
 > 上面的返回的obj为啥testt是32？
 
-因为第一行代码的age没有给`var`, `let`,  `const`这些修饰符
-所以如果我们没有开启严格模式的话`'use strict'` 
-那么`age = 32` => `window.age = 32` 
+因为第一行代码的age没有给`var`, `let`, `const`这些修饰符
+所以如果我们没有开启严格模式的话`'use strict'`
+那么`age = 32` => `window.age = 32`
 正常执行这个test()时，当前的this指向window。
 
 如果使用new test()的话，当前函数就变成了构造函数了，所以this就是当前创建出来的实例对象了。

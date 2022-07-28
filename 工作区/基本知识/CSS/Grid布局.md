@@ -1,9 +1,10 @@
 ---
-title: Grid布局
-date: 2022-06-18 20:24:17
+title: Grid布局的笔记
 tags: ["Grid", "CSS"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:21:03 下午
 ---
-#tag
+#CSS #Grid #布局
 
 # Grid布局的笔记
 > Grid 布局的属性分成两类。一类定义在容器上面，称为容器属性；另一类定义在项目上面，称为项目属性。这部分先介绍容器属性。
@@ -50,7 +51,7 @@ div {
 ```
 > 注意，设为网格布局以后，容器子元素（项目）的`float`、`display: inline-block`、`display: table-cell`、`vertical-align`和`column-*`等设置都将失效。
 
-### grid-template-columns 属性与grid-template-rows 属性
+### Grid-template-columns 属性与grid-template-rows 属性
 容器指定了网格布局以后，接着就要划分行和列。`grid-template-columns`属性定义每一列的**列宽**，`grid-template-rows`属性定义每一行的**行高**。
 ```css
 .container {
@@ -90,7 +91,7 @@ div {
 
 [上面代码](https://jsbin.com/cokohu/edit?css,output)定义了6列，第一列和第四列的宽度为`100px`，第二列和第五列为`20px`，第三列和第六列为`80px`。
 
-#### auto-fill 关键字
+#### Auto-fill 关键字
 有时，单元格的大小是固定的，但是容器的大小不确定。如果希望每一行（或每一列）容纳尽可能多的单元格，这时可以使用`auto-fill`关键字表示自动填充。
 
 ```css
@@ -157,7 +158,7 @@ grid-template-columns: 100px auto 100px;
  grid-template-columns: repeat(12, 1fr);
 ```
 
-###  grid-row-gap 属性与grid-column-gap 属性与grid-gap 属性*
+### Grid-row-gap 属性与grid-column-gap 属性与grid-gap 属性*
 
 `grid-row-gap`属性设置行与行的间隔（行间距），`grid-column-gap`属性设置列与列的间隔（列间距）。
 ```css
@@ -188,7 +189,7 @@ grid-gap: <grid-row-gap> <grid-column-gap>;
 **根据最新标准，上面三个属性名的`grid-`前缀已经删除，`grid-column-gap`和`grid-row-gap`写成`column-gap`和`row-gap`，`grid-gap`写成`gap`。**
 
 
-### grid-template-areas 属性
+### Grid-template-areas 属性
 网格布局允许指定"区域"（area），一个区域由单个或多个单元格组成。`grid-template-areas`属性用于定义区域。
 
  ```css
@@ -237,7 +238,7 @@ grid-template-areas: 'a . c'
 上面代码中，中间一列为点，表示没有用到该单元格，或者该单元格不属于任何区域。
 
 > 注意，区域的命名会影响到网格线。每个区域的起始网格线，会自动命名为`区域名-start`，终止网格线自动命名为`区域名-end`。
-> 
+>
 > 比如，区域名为`header`，则起始位置的水平网格线和垂直网格线叫做`header-start`，终止位置的水平网格线和垂直网格线叫做`header-end`。
 
 ### grid-auto-flow属性
@@ -264,7 +265,7 @@ grid-auto-flow: column dense;
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206182151708.png)
 上图会先填满第一列，再填满第2列，所以3号项目在第一列，4号项目在第二列。8号项目和9号项目被挤到了第四列。
 
-### justify-items 属性与align-items 属性与place-items 属性
+### Justify-items 属性与align-items 属性与place-items 属性
 `justify-items`属性设置单元格内容的水平位置（左中右），`align-items`属性设置单元格内容的垂直位置（上中下）。
 ```css
 .container {
@@ -273,10 +274,10 @@ grid-auto-flow: column dense;
 }
 ```
 这两个属性的写法完全相同，都可以取下面这些值。
--   start：对齐单元格的起始边缘。
--   end：对齐单元格的结束边缘。
--   center：单元格内部居中。
--   stretch：拉伸，占满单元格的整个宽度（默认值）。
+- start：对齐单元格的起始边缘。
+- end：对齐单元格的结束边缘。
+- center：单元格内部居中。
+- stretch：拉伸，占满单元格的整个宽度（默认值）。
 
 ```css
 .container {
@@ -295,7 +296,7 @@ place-items: <align-items> <justify-items>;
 place-items: start end;
 ```
 **如果省略第二个值，则浏览器认为与第一个值相等。**
-### justify-content 属性与align-content 属性与place-content 属性
+### Justify-content 属性与align-content 属性与place-content 属性
 
 `justify-content`属性是整个内容区域在容器里面的水平位置（左中右），`align-content`属性是整个内容区域的垂直位置（上中下）。
 
@@ -306,13 +307,13 @@ place-items: start end;
 }
 ```
 这两个属性的写法完全相同，都可以取下面这些值。（下面的图都以`justify-content`属性为例，`align-content`属性的图完全一样，只是将水平方向改成垂直方向。）
--   start - 对齐容器的起始边框。
--   end - 对齐容器的结束边框。
--   center - 容器内部居中。
--   stretch - 项目大小没有指定时，拉伸占据整个网格容器。
--   space-around - 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与容器边框的间隔大一倍。
--   space-between - 项目与项目的间隔相等，项目与容器边框之间没有间隔。
--   space-evenly - 项目与项目的间隔相等，项目与容器边框之间也是同样长度的间隔。
+- start - 对齐容器的起始边框。
+- end - 对齐容器的结束边框。
+- center - 容器内部居中。
+- stretch - 项目大小没有指定时，拉伸占据整个网格容器。
+- space-around - 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与容器边框的间隔大一倍。
+- space-between - 项目与项目的间隔相等，项目与容器边框之间没有间隔。
+- space-evenly - 项目与项目的间隔相等，项目与容器边框之间也是同样长度的间隔。
 
 `place-content`属性是`align-content`属性和`justify-content`属性的合并简写形式。
 
@@ -328,27 +329,27 @@ place-items: start end;
 
 如果省略第二个值，浏览器就会假定第二个值等于第一个值。
 
-### grid-auto-columns 属性与grid-auto-rows 属性
+### Grid-auto-columns 属性与grid-auto-rows 属性
 有时候，一些项目的指定位置，在现有网格的外部。比如网格只有3列，但是某一个项目指定在第5行。这时，浏览器会自动生成多余的网格，以便放置项目。
 
 `grid-auto-columns`属性和`grid-auto-rows`属性用来设置，浏览器自动创建的多余网格的列宽和行高。它们的写法与`grid-template-columns`和`grid-template-rows`完全相同。如果不指定这两个属性，浏览器完全根据单元格内容的大小，决定新增网格的列宽和行高。
 
 
-### grid-template 属性与grid 属性
+### Grid-template 属性与grid 属性
 `grid-template`属性是`grid-template-columns`、`grid-template-rows`和`grid-template-areas`这三个属性的合并简写形式。
 
 `grid`属性是`grid-template-rows`、`grid-template-columns`、`grid-template-areas`、 `grid-auto-rows`、`grid-auto-columns`、`grid-auto-flow`这六个属性的合并简写形式。
 
 ## 项目属性
 
-###  grid-column-start 属性与grid-column-end 属性与grid-row-start 属性与grid-row-end 属性
+### Grid-column-start 属性与grid-column-end 属性与grid-row-start 属性与grid-row-end 属性
 
 项目的位置是可以指定的，具体方法就是指定项目的四个边框，分别定位在哪根网格线。
 
--   `grid-column-start`属性：左边框所在的垂直网格线
--   `grid-column-end`属性：右边框所在的垂直网格线
--   `grid-row-start`属性：上边框所在的水平网格线
--   `grid-row-end`属性：下边框所在的水平网格线
+- `grid-column-start`属性：左边框所在的垂直网格线
+- `grid-column-end`属性：右边框所在的垂直网格线
+- `grid-row-start`属性：上边框所在的水平网格线
+- `grid-row-end`属性：下边框所在的水平网格线
 
 ```css
 .item-1 {
@@ -366,7 +367,7 @@ place-items: start end;
 
 使用这四个属性，如果产生了项目的重叠，则使用`z-index`属性指定项目的重叠顺序。
 
-### grid-column 属性与grid-row 属性
+### Grid-column 属性与grid-row 属性
 `grid-column`属性是`grid-column-start`和`grid-column-end`的合并简写形式，`grid-row`属性是`grid-row-start`属性和`grid-row-end`的合并简写形式。
 ```css
 .item {
@@ -409,7 +410,7 @@ place-items: start end;
   grid-row: 1;
 }
 ```
-### grid-area 属性
+### Grid-area 属性
 `grid-area`属性指定项目放在哪一个区域
  [[#grid-template-areas 属性]]
  ```css
@@ -438,7 +439,7 @@ place-items: start end;
   grid-area: 1 / 1 / 3 / 3;
 }
 ```
-### justify-self 属性与align-self 属性与place-self 属性
+### Justify-self 属性与align-self 属性与place-self 属性
 
 `justify-self`属性设置单元格内容的水平位置（左中右），跟`justify-items`属性的用法完全一致，但只作用于单个项目。
 
@@ -451,10 +452,10 @@ place-items: start end;
 }
 ```
 
--   start：对齐单元格的起始边缘。
--   end：对齐单元格的结束边缘。
--   center：单元格内部居中。
--   stretch：拉伸，占满单元格的整个宽度（默认值）。
+- start：对齐单元格的起始边缘。
+- end：对齐单元格的结束边缘。
+- center：单元格内部居中。
+- stretch：拉伸，占满单元格的整个宽度（默认值）。
 
 `place-self`属性是`align-self`属性和`justify-self`属性的合并简写形式。
 

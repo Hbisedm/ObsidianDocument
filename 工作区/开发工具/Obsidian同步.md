@@ -8,8 +8,39 @@ tags: ["Obsidian同步"]
 # Obsidian同步的笔记
 > 同步于ipad与 Mac
 
-## Mac 
 安装 Obsidian git插件
+
+> 完成同步以及一些插件的使用配置
+
+### 配置一些快捷键
+
+![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202207281002509.png)
+
+![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202207281002470.png)
+
+### 配置文章输入模板
+
+![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202207281004723.png)
+
+### 配置日记
+
+![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202207281005601.png)
+
+
+### 配置图床
+
+picGo启动后会有个本地的服务器，安装picGo插件即可，默认配的就是那个端口号**36677**
+![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202207281007075.png)
+
+### 安装表格插件 Advanced Tables
+
+| 安装 | 即可 |
+| ---- | ---- |
+| 能用 | 就行     |
+
+### 安装vim插件 vimrc Support
+
+![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202207281013002.png)
 
 
 

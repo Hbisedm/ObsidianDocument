@@ -4,7 +4,6 @@ title: margin与padding的使用
 
 date: 2022-05-26 12:42:26
 
-tags: ["CSS"]
 
 excerpt: margin与padding分别适合使用的场景
 
