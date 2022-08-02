@@ -1,9 +1,10 @@
 ---
-title: TypeScript内一些好用的类型
-date: 2022-06-19 20:00:30
+title: TypeScript内一些好用的类型的笔记
 tags: ["TypeScript内一些好用的类型"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:33:49 下午
 ---
-#tag
+#TypeScript #类型
 
 # TypeScript内一些好用的类型的笔记
 
@@ -28,4 +29,3 @@ const p2: AnonymousPeople = {
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206192002513.png)
 
-	

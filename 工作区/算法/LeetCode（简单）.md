@@ -1,9 +1,10 @@
 ---
-title: LeetCode（简单）
-date: 2022-06-23 20:11:52
+title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期二, 八月 2日 2022, 5:27:25 下午
 ---
-#刷题
+#刷题 #算法 #LeetCode
 
 # LeetCode（简单）的笔记
 
@@ -114,7 +115,7 @@ class Solution {
 ## [剑指 Offer 32 - II. 从上到下打印二叉树 II](https://leetcode.cn/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/)
 
 ### 别人的题解：
-思路就是，每一层都有一个容器，并且每一个节点要知道自己在那一层，将自己的元素放到对应的容器中  然后继续遍历，遍历简单 DFS
+思路就是，每一层都有一个容器，并且每一个节点要知道自己在那一层，将自己的元素放到对应的容器中 然后继续遍历，遍历简单 DFS
 
 ```java
 class Solution {
@@ -434,7 +435,7 @@ const maxDepth = (root) => {
 ### 题解
 分析题目后，需要考虑三个情况
 - 正常＋1
-	> 123 -> 124 
+	> 123 -> 124
 - ＋1进位
 	> 129 -> 130
 - 末位＋1进位
@@ -612,7 +613,7 @@ var singleNumber = function(nums) {
 };
 ```
 
-##  [290. 单词规律](https://leetcode.cn/problems/word-pattern/)
+## [290. 单词规律](https://leetcode.cn/problems/word-pattern/)
 ### 题解：
 一个map创建2个key进行正反映射起来。
 - 当判断第一个key有的话，则判断里面的值是否正确
@@ -907,7 +908,7 @@ var canThreePartsEqualSum = function(arr) {
 };
 ```
 ### 别人的题解：
-使用双指针的写法，先判断是否可以分为三等份，然后遍历一次数组，将数组left + 1 < right作为循环跳出条件。判断`当前左边的求和 是否 等于平均值` 逻辑与`当前右边的求和 是否 等于平均值` 若相等则就是三份了。为什么呢。因为一开始就判断了能不能分为三份，所以中间那份不用算。 
+使用双指针的写法，先判断是否可以分为三等份，然后遍历一次数组，将数组left + 1 < right作为循环跳出条件。判断`当前左边的求和 是否 等于平均值` 逻辑与`当前右边的求和 是否 等于平均值` 若相等则就是三份了。为什么呢。因为一开始就判断了能不能分为三份，所以中间那份不用算。
 
 ```java
 class Solution {
@@ -984,7 +985,7 @@ var arrayRankTransform = function(arr) {
 ### 题解：
 正序排序整个数组，三个数乘积，可以理解成一个最大的数×其他2个数的最大乘积（负负得正）。当然最大的数有可能是负数，这需要判断。
 - max（负数）取出乘积最大数
-- max（正数）取出乘积最小数 
+- max（正数）取出乘积最小数
 
 ```javascript
 /**
@@ -1426,7 +1427,8 @@ var addDigits = function(num) {
         num += res
     }
     return num
-};```
+};
+```
 
 
 
@@ -1471,9 +1473,9 @@ var sumOfLeftLeaves = function(root) {
     if(isLeaf(root)) return 0
     dfs(root)
     return result 
-};```
+};
 ```
-```
+
 ## [643. 子数组最大平均数 I](https://leetcode.cn/problems/maximum-average-subarray-i/)
 ### 题解
 滑动窗口
@@ -1496,13 +1498,237 @@ var findMaxAverage = function(nums, k) {
         currMax = Math.max(currMax, swapMax)
     }
     return currMax / k
+};
+```
+
+## [1346. 检查整数及其两倍数是否存在](https://leetcode.cn/problems/check-if-n-and-its-double-exist/)
+
+### 题解
+0是个特殊情况，需要出现2次，其他的话，先将arr丢到容器内，遍历判断有没有2倍的值在容器里面。
+```js
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var checkIfExist = function(arr) {
+    let set = new Set(arr)
+    let zeroNum = 0
+    for(let i = 0; i < arr.length; i++) {
+        if(set.has(arr[i] * 2) && arr[i] !== 0) {
+            return true
+        }
+        if(arr[i] === 0) zeroNum++
+    }
+    
+    return zeroNum >= 2
 };```
 
 
+## [507. 完美数](https://leetcode.cn/problems/perfect-number/)
+
+从2开始遍历，以num/i为上界
+
+> 我们知道正因数总是成对的出现，因此我们可以仅枚举每队正因数的较小数，即从 \[1,sqrt{num}\]范围内进行枚举（其中 nums > 1）
+> 
+同时为避免使用 sqrt 库函数和溢出，使用 i <= num / i  作为上界判断。
+
+
+```js
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+var checkPerfectNumber = function(num) {
+    if(num === 1) return false
+    let res = 1
+    for(let i = 2; i < num / i; i++) {
+        if(num%i === 0){
+            res += i
+            if(i*i !== num) {
+                res += num / i
+            }
+        }
+    }
+    return res === num
+};
+```
+
+
+## [101. 对称二叉树](https://leetcode.cn/problems/symmetric-tree/)
+
+使用递归的方式
+
+比较 left 的左节点和 right 的右节点，再比较 left 的右节点和 right 的左节点
+比如看下面这两个子树(他们分别是根节点的左子树和右子树)，能观察到这么一个规律：
+左子树 22 的左孩子 == 右子树 22 的右孩子
+左子树 22 的右孩子 == 右子树 22 的左孩子
+
+```
+    2         2
+   / \       / \
+  3   4     4   3
+ / \ / \   / \ / \
+8  7 6  5 5  6 7  8
+
+```
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isSymmetric = function(root) {
+    if(!root) {
+        return true
+    }
+     let dfs = (left, right) => {
+         if(!left && !right) {
+             return true
+         }
+         if(!left || !right) {
+             return false
+         }
+         if(left.val !== right.val) {
+             return false
+         }
+         return dfs(left.left, right.right) && dfs(left.right, right.left)
+
+  }
+    return dfs(root.left, root.right)
+};```
+
+
+## [1374. 生成每种字符都是奇数个的字符串](https://leetcode.cn/problems/generate-a-string-with-characters-that-have-odd-counts/)
+
+
+### 题解
+一个偶数等于奇数+1
+判断当前n是不是奇数
+	是： 返回奇数个字符
+	不是： 返回n-1个字符，与1个其他字符
+
+```js
+/**
+ * @param {number} n
+ * @return {string}
+ */
+var generateTheString = function(n) {
+    if(n% 2 === 1) {
+        return 's'.repeat(n) 
+    }else {
+        return 's'.repeat(n-1) + 'm'
+    }
+};
+
+```
+
+
+## [622. 设计循环队列](https://leetcode.cn/problems/design-circular-queue/)
+
+### 题解
+循环队列使用array数组模拟，使用2个变量模拟当前循环队列的**收尾索引**，`front`、`rear`
+- 当front === rear 说明循环队列为空或者队列是满
+- 假设数组有maxLen个空间，那么规定maxLen-1是队列满的条件，将队列空和队列满的判断分开，那么rear+1 === manLen =>队列满
+- 当前队列的长度为 `(rear - front + maxLen) % maxLen`
+
+```js
+/**
+ * @param {number} k
+ */
+var MyCircularQueue = function(k) {
+    // 加1 方便判空
+    this.maxLen = k + 1
+    this.queue = []
+    this.front = 0
+    this.rear = 0
+};
+
+/** 
+ * @param {number} value
+ * @return {boolean}
+ */
+MyCircularQueue.prototype.enQueue = function(value) {
+    if(!this.isFull()) {
+        this.queue[this.rear] = value
+        this.rear  = (this.rear + 1) % this.maxLen
+        return true
+    }
+    return false
+};
+
+/**
+ * @return {boolean}
+ */
+MyCircularQueue.prototype.deQueue = function() {
+    if(!this.isEmpty()) {
+        this.front = (this.front + 1) % this.maxLen
+        return true
+    }
+    return false
+};
+
+/**
+ * @return {number}
+ */
+MyCircularQueue.prototype.Front = function() {
+    if(!this.isEmpty()){
+        return this.queue[this.front]
+    }
+    return -1
+};
+
+/**
+ * @return {number}
+ */
+MyCircularQueue.prototype.Rear = function() {
+    if(!this.isEmpty()) {
+        return this.queue[((this.rear - 1) + this.maxLen) % this.maxLen]
+    }
+    return -1
+};
+
+/**
+ * @return {boolean}
+ */
+MyCircularQueue.prototype.isEmpty = function() {
+    return this.rear === this.front
+};
+
+/**
+ * @return {boolean}
+ */
+MyCircularQueue.prototype.isFull = function() {
+    return ((this.rear + 1) % this.maxLen) === this.front
+};
+
+/**
+ * Your MyCircularQueue object will be instantiated and called as such:
+ * var obj = new MyCircularQueue(k)
+ * var param_1 = obj.enQueue(value)
+ * var param_2 = obj.deQueue()
+ * var param_3 = obj.Front()
+ * var param_4 = obj.Rear()
+ * var param_5 = obj.isEmpty()
+ * var param_6 = obj.isFull()
+ */
+```
+
+这里的加1，额外的空间目的是为了将判断空和判断满分开，
+- 当rear === front 为空
+- 当((rear + 1) % maxLen)=== front 为满
 
 
 
 
 
+## Todo
 
-## todo
+

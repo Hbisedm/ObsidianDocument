@@ -1,13 +1,14 @@
 ---
-title: tsconifg配置文件
-date: 2022-07-17 21:50:28
+title: tsconifg的笔记
 tags: ["tsconifg"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:38:01 下午
 ---
-#tag
+#TypeScript
 
 # tsconifg的笔记
 
-### files 
+## Files
 > 字段用于指明需要 tsc 编译的一个或多个 ts 文件
 ```json
 { 
@@ -17,7 +18,7 @@ tags: ["tsconifg"]
 当指定的文件或文件夹不存在时，会提示 ❌ 错误
 
 
-### include
+## Include
 > include 字段用于指明需要被 tsc 编译的文件或文件夹列表
 ```json
 { 
@@ -28,7 +29,7 @@ tags: ["tsconifg"]
 } 
 ```
 
-### exclude
+## Exclude
 > exclude 字段用于排除不需要 tsc 编译的文件或文件夹列表
 
 ```json
@@ -38,7 +39,7 @@ tags: ["tsconifg"]
 ```
 注意： exclude 字段中的声明只对 include 字段有排除效果，对 files 字段无影响，即与 include 字段中的值互斥。
 
-### extends
+## Extends
 
 字段用于指明继承已有的 tsconfig 配置规则文件。
 
@@ -73,14 +74,14 @@ tsconfig 推荐默认配置可以参考官方的包：@tsconfig/recommended
 ```
 
 
-### compilerOptions
+## compilerOptions
 > 编译选项
 
-### target
+## Target
 target 字段指明经过 TSC 编译后的 ECMAScript 代码语法版本，根据 ECMAScript 语法标准，默认值为 ES3。
 
 
-### lib
+## Lib
 
 lib 字段是用于为了在我们的代码中显示的指明需要支持的 ECMAScript 语法或环境对应的类型声明文件。
 例如我们的代码会使用到浏览器中的一些对象 window、document，这些全局对象 API 对于 TypeScript Complier 来说是不能识别的：
@@ -97,7 +98,7 @@ lib 字段是用于为了在我们的代码中显示的指明需要支持的 ECM
 来显式引入在 DOM 即浏览器环境下的一些默认类型定义，即可在代码中使用，window、document 等浏览器环境中的对象，TS 在运行时以及编译时就不会报类型错误。
 
 
-### module
+## Module
 module 字段指明 tsc 编译后的代码应该符合何种“模块化方案”，可以指定的枚举值有：none, commonjs, amd, system, umd, es2015, es2020, 或 ESNext，默认值为 none。
 
 

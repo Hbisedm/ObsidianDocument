@@ -1,12 +1,13 @@
 ---
-title: vue3中使用computed与watch
-date: 2022-06-13 22:26:32
+title: vue3中使用computed与watch的笔记
 tags: ["Vue3", "computed", "watch"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:36:05 下午
 ---
-#tag
+#Vue #computed #watch
 
 # vue3中使用computed与watch的笔记
-## computed
+## Computed
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206132235734.png)
 
@@ -56,7 +57,7 @@ tags: ["Vue3", "computed", "watch"]
 </script>
 ```
 
-## watch
+## Watch
 ### watchEffect
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206141411940.png)
 
@@ -69,7 +70,7 @@ tags: ["Vue3", "computed", "watch"]
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206141444368.png)
 
 
-### watch 
+### Watch
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206141448114.png)
 

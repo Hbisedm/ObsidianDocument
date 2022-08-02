@@ -1,9 +1,10 @@
 ---
-title: DevServe与VueCLI
-date: 2022-06-07 17:15:48
+title: Webpack的DevServe、VueCLI、Vite的笔记
 tags: ["Vue", "dev"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:37:28 下午
 ---
-#tag
+#Vue #dev #VueCli #Vite
 
 # Webpack的DevServe、VueCLI、Vite的笔记
 
@@ -21,7 +22,7 @@ devServe: {
 ## VueCli
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206072124427.png)
 
-#### 安装与使用
+### 安装与使用
 ```bash
 // 安装
 npm install @vue/cli -g
@@ -129,7 +130,7 @@ resolvePlugins (inlinePlugins, useBuiltIn) {
 
 现在我们知道了这些插件对象在哪里生成的了，但在哪里引入的呢？ init
 
-#### init
+#### Init
 Service.run方法中有个初始化init方法，这个方法中主要做了四件事：加载环境变量、加载用户配置、应用插件以及应用 `webpack` 配置。
 ```js
 init (mode = process.env.VUE_CLI_MODE) {
@@ -242,7 +243,7 @@ npx vite
 > 使用vite后，import导入模块时，不需要用`.js`后缀了，直接可以使用文件名，因为vite帮我们做了处理，导入第三方后，如lodash库，若没有使用构建工具去处理的话，我们可能需要导入lodash里面好多依赖的方法，但使用了vite后，只需要导入正在使用的js文件即可。
 #### css支持
 vite不像webpack，引入css需要配置`css-loader`, `style-loader`直接使用即可。
-#### less
+#### Less
 编写less文件
 ```less
 @fontSize: 18px;
@@ -282,7 +283,7 @@ module.exports = {
 };
 ```
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206082215784.png)
-#### ts
+#### Ts
 创建个ts
 ```ts
 export default function (num1: number, num2: number): number {
@@ -299,7 +300,7 @@ xxx(1, 2)
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206091059703.png)
 #### connect服务器
 查看浏览器的network发现，加载了ts与less的静态资源。嗯？浏览器是不会解析这种文件，点击ts、less查看文件，发现是esm的js代码。为啥呢？
-> 原来是vite的本地服务器connect帮我们做了转换，我们的静态资源到浏览器的时候，vite的connect服务器帮这些浏览器不识别的后缀文件做了esmodule的js的转换（浏览器可以加载这种js文件）。  所以浏览器加载后，可以使用这些js代码，并执行执行。
+> 原来是vite的本地服务器connect帮我们做了转换，我们的静态资源到浏览器的时候，vite的connect服务器帮这些浏览器不识别的后缀文件做了esmodule的js的转换（浏览器可以加载这种js文件）。 所以浏览器加载后，可以使用这些js代码，并执行执行。
 #### Vue
 看看vite对vue的支持
 > 首先安装vue3的依赖

@@ -1,17 +1,11 @@
 ---
-title: webpack的学习笔记
-
-date: 2022-05-26 12:42:26
-
+title: 安装webpack
 tags: ["打包工具", "webpack"]
-
 excerpt: webpack的配置详解
-
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:41:12 下午
 ---
-
-
-
-#webpack #打包器 
+#webpack #打包器
 
 # 安装webpack
 
@@ -74,7 +68,7 @@ module.exports = {
 }
 ```
 
-## webpack-dev-server
+## Webpack-dev-server
 
 配置文件中mode改为development
 
@@ -88,12 +82,12 @@ module.exports = {
 
 四种类型资源
 
--   asset/resource 他会发送一个单独的文件并导出URL（文件地址URL）
--   asset/inline 导出一个资源的Data URL（Base64）
--   asset/source 导出资源的源代码 （copy的理解）
--   asset 导出一个Data URL和发送一个单独文件之间进行选择
+- asset/resource 他会发送一个单独的文件并导出URL（文件地址URL）
+- asset/inline 导出一个资源的Data URL（Base64）
+- asset/source 导出资源的源代码 （copy的理解）
+- asset 导出一个Data URL和发送一个单独文件之间进行选择
 
-### Resource资源
+## Resource资源
 
 ```jsx
 			{
@@ -105,7 +99,7 @@ module.exports = {
             },
 ```
 
-### Inline资源
+## Inline资源
 
 ```jsx
 			{
@@ -114,7 +108,7 @@ module.exports = {
             },
 ```
 
-### Source资源
+## Source资源
 
 ```jsx
 			{
@@ -123,7 +117,7 @@ module.exports = {
             },
 ```
 
-### Asset资源
+## Asset资源
 
 ```jsx
 			{
@@ -197,7 +191,7 @@ plugins: [
 使用npx webpack 运行后，
 
 - 发现dist文件夹下多了个main.css
-- app.html内也没有了style标签多了个link标签引入了这个main.css，也就是html与css分离了 
+- app.html内也没有了style标签多了个link标签引入了这个main.css，也就是html与css分离了
 
 #### 更改文件夹与文件名
 
@@ -290,7 +284,7 @@ block.textContent = txtsrc
 
 JSON、CSV、TSV、XML等等
 
-安装对应依赖  `npm install csv-loader xml-loader -D`
+安装对应依赖 `npm install csv-loader xml-loader -D`
 
 准备2个文件(xml、csv)
 
@@ -405,9 +399,9 @@ console.log(json5.owner.name);
 
 
 
-# babel
+# Babel
 
-## babel-loader
+## Babel-loader
 
 webpack中使用babel-loader将es6语法降低以致于适配低版本的浏览器
 
@@ -487,7 +481,7 @@ babel与webpack的结合就需要个babel-loader
 
 ![image-20220523215709452](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205232157510.png)
 
-app.html 中加入了我们刚才entry入口配置的那2个bundle.js 
+app.html 中加入了我们刚才entry入口配置的那2个bundle.js
 
 
 
@@ -714,7 +708,7 @@ Webpack v4.6.0+ 增加了对预获取和预加载的支持。
 
 
 
-#### prefetch
+#### Prefetch
 
 ```js
 button.addEventListener('click', () => { 
@@ -733,9 +727,9 @@ button.addEventListener('click', () => {
 
 ![image-20220524201703506](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205242017543.png)
 
-当点击按钮后，再去加载我们的math.bundle.js，但此时这个文件其实已经下载好了。  
+当点击按钮后，再去加载我们的math.bundle.js，但此时这个文件其实已经下载好了。
 
-#### preload
+#### Preload
 
 ```js
 button.addEventListener('click', () => { 
@@ -853,7 +847,7 @@ output: {
 
 这样呢，如果修改了业务代码，但是对应的js文件名不变的话，会使用浏览器本地缓存好的文件。这样就有错误！拿不到最新的内容
 
-- 修改输出文件的文件名来解决这个问题  使用可替换模版字符串的方法来替换
+- 修改输出文件的文件名来解决这个问题 使用可替换模版字符串的方法来替换
 - 缓存第三方库 通过修改`optimization.splitChunks`这个属性来实现，使用cacheGroups缓存组，将我们使用第三方代码都打包到同一个文件内，在浏览器缓存，由于这个文件不频繁更新，所以可以提高首屏加载速度。
 - 将所有js打包到同一个文件夹中，以致样式、脚本、文本、图片各个不同类型的资源文件放到不同的文件夹中。
 
@@ -957,7 +951,7 @@ npx webpack --env development
 
 ## 拆分配置文件
 
-创建个conifg文件夹下创建个webpack.config.dev.js 
+创建个conifg文件夹下创建个webpack.config.dev.js
 
 ./config/webpack.config.dev.js
 
@@ -1550,7 +1544,7 @@ module.exports = (env) => {
 
 # 提高开发效率与完善团队开发规范
 
-## source-map
+## Source-map
 
 > 何为source-map，是我们打包后的bundle.js在浏览器若发生报错，我们可以**快速定位到开发时的js文件的位置**。
 
@@ -1573,7 +1567,7 @@ module.exports = (env) => {
 
 
 
-#### eval
+### Eval
 
 webpack的devtool的默认模式
 
@@ -1633,7 +1627,7 @@ module.exports = {
 
 
 
-#### source-map
+### Source-map
 
 将devtool设置为`source-map`
 
@@ -1651,7 +1645,7 @@ module.exports = {
 
 
 
-#### hidden-source-map
+### Hidden-source-map
 
 将devtool设置为hidden-source-map
 
@@ -1667,7 +1661,7 @@ module.exports = {
 
 说明使用hidden-source-map模式虽然也是会生产map文件，但是已经不会和我们的main.js作关联了。
 
-#### inline-source-map
+### Inline-source-map
 
 devtool设置为inline-source-map
 
@@ -1687,7 +1681,7 @@ devtool设置为inline-source-map
 
 
 
-#### eval-source-map
+### Eval-source-map
 
 devtool设置为eval-source-map
 
@@ -1708,7 +1702,7 @@ devtool设置为eval-source-map
 
 
 
-#### cheap-source-map
+### Cheap-source-map
 
 会生成一个没有列信息的sourcemap
 
@@ -1726,7 +1720,7 @@ devtool设置为eval-source-map
 
 这个同样是可以定位到源代码的。
 
-#### cheap-module-source-map
+### Cheap-module-source-map
 
 和上面的效果一样，但是这个模式还会加载一些第三方库。上面的cheap-source-map却不会。
 
@@ -1754,7 +1748,7 @@ const a = new A()
 a.sayHello()
 ```
 
-运行`npx webpack` 
+运行`npx webpack`
 
 ![image-20220525143145094](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205251431236.png)
 
@@ -1911,7 +1905,7 @@ devServer: {
 
 
 
-### https
+### Https
 
 ```
 devServer: {
@@ -1930,7 +1924,7 @@ devServer: {
 
 重新运行`npx webpack server`
 
-此时http:// => https:// 
+此时http:// => https://
 
 但是，由于默认配置使用的是自签名证书，所以浏览器会告诉你是不安全的，但我们依然可以访问它，当然我们在配置中，配置自己的证书就不会出现这个问题了。
 
@@ -1956,7 +1950,7 @@ When using the [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/
 
 
 
-### host
+### Host
 
 ```js
 devServer: {
@@ -1976,7 +1970,7 @@ devServer: {
 
 > 注意点：配置的loader,会自动进行热替换，若没有配置相应loader的话
 >
-> 如引入个js文件，使用这个js时，去修改js，会导致这个资源文件的变化 
+> 如引入个js文件，使用这个js时，去修改js，会导致这个资源文件的变化
 >
 > https://webpack.js.org/api/hot-module-replacement/
 
@@ -1984,7 +1978,7 @@ devServer: {
 
 
 
-## eslint
+## Eslint
 
 安装依赖
 
@@ -2117,7 +2111,7 @@ module.exports = {
 
 
 
-#### 实现提交代码前检查代码
+### 实现提交代码前检查代码
 
 ![image-20220525172458780](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205251724859.png)
 
@@ -2232,7 +2226,7 @@ npx eslint ./src
 
 所以在团队开发时，定义一套eslint规范，当提交代码前，验证通不通过规范，保证团队代码的规范与整洁
 
-#### 问题
+### 问题
 
 每次都要开发人员自己去修改.git/hooks/xxxx文件太麻烦了
 
@@ -2250,11 +2244,11 @@ npx eslint ./src
 
 上面的操作都是手工去操作的，太麻烦了，可以使用husky工具帮我们完成
 
-#### husky
+### Husky
 
 先把上面自己自定义的hooksPath给删掉，`vim .git/config`编辑下删除
 
-安装husky依赖    [husky官网教程](https://typicode.github.io/husky/#/?id=manual)
+安装husky依赖 [husky官网教程](https://typicode.github.io/husky/#/?id=manual)
 
 ```bash
 npm i husky -D
@@ -2283,7 +2277,7 @@ npx husky install
 
 
 
-#### 小结
+### 小结
 
 首先手工配置.git/hook/pre-commit文件做到提交前检查代码，接着优化成使用我们自己创建的文件`.myGitHooks/pre-commit`去完成提交前检查代，最后使用husky工具，帮助我们简化操作上面的操作方式。
 
@@ -2389,7 +2383,7 @@ plugins: [
 
 - 删除index.html
 - 删除HtmlWebpackPlugin内配置的template
-- 修改externals 
+- 修改externals
 
 ![image-20220525215918428](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205252159510.png)
 
@@ -2501,7 +2495,7 @@ npm install autoprefixer -D
 
 在根目录新建postcss.config.js文件，使用autoprefixer插件
 
-#### autoprefixer
+#### Autoprefixer
 
 > PostCSS插件，用于解析CSS，并使用我可以使用的值将供应商前缀添加到CSS规则。它也是由谷歌推荐的，并在Twitter和阿里巴巴使用。
 
@@ -2607,9 +2601,9 @@ document.body.appendChild(div)
 
 也可以开启CSS模块模式，比如全局样式可以冠以`.global`前缀，如：
 
-- *.global.css        css普通模式
+- *.global.css css普通模式
 
-- *.css                    css module模式
+- *.css css module模式
 
 这里统一用global关键字进行识别。用正则表达式匹配文件：
 
@@ -2909,7 +2903,7 @@ module.exports = {
 
 ![image-20220526154230759](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205261542858.png)
 
- 创建个app3.js 并引入lodash依赖 
+ 创建个app3.js 并引入lodash依赖
 
 ```js
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -2938,7 +2932,7 @@ module.exports = {
 
 ![image-20220526155021713](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205261550802.png)
 
-能不能将mian.js放在一个html、main2.js放在另外一个html 
+能不能将mian.js放在一个html、main2.js放在另外一个html
 
 先在根目录创建个`index.html`，修改webpack.config.js
 
@@ -3156,7 +3150,7 @@ import './xxxx.css'
 
 
 
-### shimming 预置依赖
+### Shimming 预置依赖
 
 配置webpack.config.js
 
@@ -3189,7 +3183,7 @@ console.log(_.join(['hello', 'Zoe'], ' '));
 
 可以看出lodash的大小在打包后的main.js内
 
- #### 细粒度 Shimming
+#### 细粒度 Shimming
 
 修改index.js
 
@@ -3242,7 +3236,7 @@ const helpers = {
 npm install exports-loader -D
 ```
 
-配置webpack.config.js.     [exports-loader官方文档](https://webpack.js.org/loaders/exports-loader/)
+配置webpack.config.js. [exports-loader官方文档](https://webpack.js.org/loaders/exports-loader/)
 
 ```js
 						{
@@ -3345,7 +3339,7 @@ module.exports = {
 
 
 
-### 创建library 
+### 创建library
 
 创建`src/index.js`
 
@@ -3646,7 +3640,7 @@ import ('nav/Header').then((Header) => {
 
 ![image-20220529151919976](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205291519024.png)
 
-#### search
+#### Search
 
 引用nav与home应用
 
@@ -3691,7 +3685,7 @@ module.exports = {
 
 #### 注意点
 
-search应用导入nav应用  
+search应用导入nav应用
 
 `import('nav/Header')`这个语句中 nav Header 怎么来的？
 
@@ -3720,9 +3714,9 @@ search应用导入nav应用
 
 
 
-##### 通用环境
+#### 通用环境
 
-1.  提升环境版本，webpack、node版本
+1. 提升环境版本，webpack、node版本
 
 2. 将loader应用于最少数量的必要模块
 
@@ -3736,7 +3730,7 @@ search应用导入nav应用
    - 如果你不使用 symlinks（例如 npm link 或者 yarn link），可以设置 resolve.symlinks: false。
    - 如果你使用自定义 resolve plugin 规则，并且没有指定 context上下文，可以设置 resolve.cache WithContext: false。
 
-5.  小就是快
+5. 小就是快
 
    减少编译结果的整体大小，以提高构建性能。尽量保持 chunk 体积小。
 

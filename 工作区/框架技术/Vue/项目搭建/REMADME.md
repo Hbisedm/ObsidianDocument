@@ -1,9 +1,10 @@
 ---
-title: REMADME
-date: 2022-06-25 10:17:37
+title: 项目搭建
 tags: ["项目搭建"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:38:48 下午
 ---
-#tag
+#Vue #项目搭建
 
 # 项目搭建
 
@@ -86,7 +87,7 @@ npm install prettier -D
    }
 ```
 
-### 3. eslint
+### 3. Eslint
 > 代码规范工具
 1. 当与prettier发生冲突时，安装2个开发依赖
 ```bash
@@ -105,7 +106,7 @@ npm install eslint-plugin-prettier eslint-config-prettier -D
 ```
 3. 重启vscode
 
-### 4. husky
+### 4. Husky
 > git钩子拦截工具
 
 虽然我们已经要求项目使用eslint，但是不能保证组员提交代码之前都将eslint中的问题解决掉了：

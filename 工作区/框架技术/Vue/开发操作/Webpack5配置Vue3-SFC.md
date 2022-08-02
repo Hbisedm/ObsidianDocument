@@ -1,9 +1,10 @@
 ---
-title: Webpack5配置Vue3-SFC
-date: 2022-06-07 16:37:20
-tags: ["vue"]
+title: Webpack5配置Vue3-SFC的笔记
+tags: ["vue", "webpack"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:36:47 下午
 ---
-#tag
+#webpack #Vue #VueCli
 
 # Webpack5配置Vue3-SFC的笔记
 

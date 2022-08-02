@@ -1,9 +1,10 @@
 ---
-title: vue动画
-date: 2022-06-11 21:07:41
+title: vue动画的笔记
 tags: ["Vue", "动画"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:35:25 下午
 ---
-#tag
+#Vue #动画 #Animate
 
 # vue动画的笔记
 Vue里面内置一个组件`transition`很好帮助开发者进行动画的操作
@@ -13,17 +14,17 @@ Vue里面内置一个组件`transition`很好帮助开发者进行动画的操�
 ## 过渡class
 在进入/离开的过渡中，会有 6 个 class 切换。
 
-1.  `v-enter-from`：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。
-    
-2.  `v-enter-active`：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。
-    
-3.  `v-enter-to`：定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 `v-enter-from` 被移除)，在过渡/动画完成之后移除。
-    
-4.  `v-leave-from`：定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。
-    
-5.  `v-leave-active`：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。
-    
-6.  `v-leave-to`：离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 `v-leave-from` 被移除)，在过渡/动画完成之后移除。
+1. `v-enter-from`：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。
+
+2. `v-enter-active`：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。
+
+3. `v-enter-to`：定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 `v-enter-from` 被移除)，在过渡/动画完成之后移除。
+
+4. `v-leave-from`：定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。
+
+5. `v-leave-active`：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。
+
+6. `v-leave-to`：离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 `v-leave-from` 被移除)，在过渡/动画完成之后移除。
 
 这里的每个 class 都将以过渡的名字添加前缀。如果你使用了一个没有名字的 `<transition>`，则 `v-` 是这些 class 名的默认前缀。举例来说，如果你使用了 `<transition name="my-transition">`，那么 `v-enter-from` 会替换为 `my-transition-enter-from`。
 
@@ -80,14 +81,14 @@ Vue 为了知道过渡何时完成，必须设置相应的事件监听器。它�
 当`transition`组件内有2个组件需要进行切换时，这个2个的显隐是同时进行的，会显的很丑，那么我们想要第一个元素/组件隐藏后，再显示第二个元素/组件的话。
 可以使用`transition`组件的attr：**mode**
 mode有2个值，分别是：
--   `in-out`: 新元素先进行进入过渡，完成之后当前元素过渡离开。
--   `out-in`: 当前元素先进行离开过渡，完成之后新元素过渡进入。
+- `in-out`: 新元素先进行进入过渡，完成之后当前元素过渡离开。
+- `out-in`: 当前元素先进行离开过渡，完成之后新元素过渡进入。
 
 > TIP
 > 你很快就会发现 `out-in` 是你大多数时候想要的状态 😃
 
 
-## appear
+## Appear
 当我们页面加载的第一次是没有动画效果的，但大部分情况我们想要它有渲染到页面这么个动画效果的话。
 设置`transition`attr：appear
 默认是`false`
@@ -133,12 +134,12 @@ createApp(App).mount("#app");
 使用`transition`的自定义过渡class类名
 
 我们可以通过以下 attribute 来自定义过渡类名：
--   `enter-from-class`
--   `enter-active-class`
--   `enter-to-class`
--   `leave-from-class`
--   `leave-active-class`
--   `leave-to-class`
+- `enter-from-class`
+- `enter-active-class`
+- `enter-to-class`
+- `leave-from-class`
+- `leave-active-class`
+- `leave-to-class`
 
 ```html
 <transition
@@ -192,7 +193,7 @@ createApp(App).mount("#app");
 
 当只用 JavaScript 过渡的时候，在 **`enter` 和 `leave` 钩子中必须使用 `done` 进行回调**。否则，它们将被同步调用，过渡会立即完成。**添加 `:css="false"` 也会让 Vue 会跳过 CSS 的检测，除了性能略高之外，这也可以避免过渡过程中受到 CSS 规则的意外影响。**
 
-## gsap
+## Gsap
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206121511575.png)
 [gsap官网](https://greensock.com/gsap/)
 ### 安装

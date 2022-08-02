@@ -1,9 +1,10 @@
 ---
-title: template的使用
-date: 2022-06-06 21:51:36
+title: template的使用的笔记
 tags: ["template的使用"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:33:05 下午
 ---
-#tag
+#template #Vue
 
 # template的使用的笔记
 ```html

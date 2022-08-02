@@ -1,9 +1,10 @@
 ---
-title: Vue3-源码学习
-date: 2022-06-15 17:21:15
+title: Vue3-源码学习的笔记
 tags: ["Vue3", "源码"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:37:43 下午
 ---
-#tag
+#Vue #源码
 
 # Vue3-源码学习的笔记
 
@@ -124,7 +125,7 @@ index.html
 
 VNode => 一个JavaScript对象里面有很多属性，最核心就3个属性，分别是 tag、props、children
 
-#### patch
+#### Patch
 一个简单的patch函数
 - 判断tag是否相同
 - 判断props是否相同
@@ -325,7 +326,7 @@ function watchEffect(effect) {
   activeEffect = null;
 }
 ```
-##### reactive
+#### Reactive
 ```js
 class Dep {
   constructor() {
@@ -422,10 +423,10 @@ div.width = 33;
 
 
 reactive： 做数据劫持
-getDep：根据对象和key拿到对应的dep实例 
+getDep：根据对象和key拿到对应的dep实例
 
 
-##### reactive vue3
+#### Reactive vue3
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206161549020.png)
 
 ```js

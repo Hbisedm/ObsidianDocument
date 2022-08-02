@@ -1,7 +1,8 @@
 ---
-title: Vim的学习使用
-date: 2022-07-02 19:53:06
+title: Vim的学习使用的笔记
 tags: ["Vim的学习使用"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期二, 八月 2日 2022, 8:59:01 晚上
 ---
 #vim
 
@@ -11,24 +12,24 @@ tags: ["Vim的学习使用"]
 
 ## day1
 ### 收获&学习心得&心路历程：
-- normal模式下使用`HJKL`移动。 
-- normal与insert模式的切换。 
+- normal模式下使用`HJKL`移动。
+- normal与insert模式的切换。
 - 使用Karabiner-Element切换键盘的Caps与Control，并配置Rule 使用左Control＋HJKL成为方向键的功能。
-- vscode配置setting.json达到 insert模式下control ＋ C 不会变成 normal模式。 
+- vscode配置setting.json达到 insert模式下control ＋ C 不会变成 normal模式。
 ### 问题：
 在vscode中使用`Control＋[`不能切换到normal模式，原因是setting.json中禁用了`vim.useCtrlKeys`键
 ## day2
-### 收获&学习心得&心路历程： 
-- yy复制 p粘贴 dd剪切 
+### 收获&学习心得&心路历程：
+- yy复制 p粘贴 dd剪切
 - A 是blank的insert行首
- - I 不是blank的insert行尾 
- - 改键：`ctrl+H` -> ^ `ctrl+L` ->g _ 
- - 进入不是blank行尾可以使用 shift + L ＋i 
- - o 以insert进入下一行 
- - O 以insert进入上一行 
- ### 问题： 
+ - I 不是blank的insert行尾
+ - 改键：`ctrl+H` -> ^ `ctrl+L` ->g _
+ - 进入不是blank行尾可以使用 shift + L ＋i
+ - o 以insert进入下一行
+ - O 以insert进入上一行
+### 问题：
  还是不习惯，需要多敲，形成肌肉记忆。
- 
+
 ## day3
 ### 收获&学习心得&心路历程：
 - 学习vim的语法(操纵＋范围)
@@ -67,7 +68,7 @@ vim里面符号算做一个单词、一个连续字符在空格之前被vim当�
 将这4天的按键还是不太熟悉，再慢慢练习。
 
 ## day6
-### 收获&学习心得&心路历程： 
+### 收获&学习心得&心路历程：
 - 学习**可视化模式**
 	- v 进入可视化
 	- V 可视化行
@@ -94,13 +95,13 @@ vim里面符号算做一个单词、一个连续字符在空格之前被vim当�
 
 
 ## day7
-### 收获&学习心得&心路历程： 
+### 收获&学习心得&心路历程：
 - 文本对象的概念
 	- 文本是结构化，可以快速选择
 	- 用`范围`来解释，较通俗易懂
 - 语法
 	- 操作 + 内部/外部 + 文本对象
-	- 可视化模式 + 内部/外部 + 文本对象 
+	- 可视化模式 + 内部/外部 + 文本对象
 - 啥是内部、外部
 	- 内部就是在一个`文本对象内`
 	- 外部就是包含了这个`文本对象`
@@ -124,8 +125,8 @@ vim里面符号算做一个单词、一个连续字符在空格之前被vim当�
 ### 问题：
 仍然需要多多练习，每次中文输入后，记得切shift后ctrl+`[`
 
-## day8 
-### 收获&学习心得&心路历程： 
+## day8
+### 收获&学习心得&心路历程：
 - 如何快速翻页，更加脱离鼠标了。
   - `ctrl + f`forward 向下翻一页
   - `ctrl + b`backward 向上翻一页
@@ -151,7 +152,7 @@ vim里面符号算做一个单词、一个连续字符在空格之前被vim当�
 
 
 ## day9
-### 收获&学习心得&心路历程： 
+### 收获&学习心得&心路历程：
 今天主要学习到了vim的搜索功能，分为单行搜索与文件内搜索
 - 单行搜索
 	- `f + 搜索的字符` 当前向后搜索到对应的字符
@@ -160,7 +161,7 @@ vim里面符号算做一个单词、一个连续字符在空格之前被vim当�
 	- `T + 搜索的字符` 当前向前搜索到对应的字符的上一个
 	- `;` 重复上述的操作
 	- `,`反转方向重复上述操作
-	- 技巧： 
+	- 技巧：
 		- 移动光标的时候使用f
 		- 剪切的时候使用t
 - 全局搜
@@ -188,8 +189,8 @@ vim里面符号算做一个单词、一个连续字符在空格之前被vim当�
 - vim-sneak
 	- s + 2个字符 等于f的功能
 	- 改建f -> s/z
-		- 可视化、normal模式下 
-		- operation模式下 
+		- 可视化、normal模式下
+		- operation模式下
 ### 问题
 配置好每一个改键的作用，写一份json文件
 ```json
@@ -264,10 +265,10 @@ vim里面符号算做一个单词、一个连续字符在空格之前被vim当�
 ### 收获&学习心得&心路历程：
 今日学习如何快速在单文件与多文件内快速跳转。
 - 标记
-	- 单文件标记：`m+大写字符` 
+	- 单文件标记：`m+大写字符`
 	- 多文件标记：`m+大写字符`
 - 跳转标记
-	- `'+标记字符`跳转到当前行	
+	- `'+标记字符`跳转到当前行
 	- `+标记字符`跳转到当前行与列
 	- gd 跳转到定义
 		- function定义
@@ -297,14 +298,14 @@ vim里面符号算做一个单词、一个连续字符在空格之前被vim当�
 比较常用的是 normal下的增删改操作，若需要处理多个再用可视化模式下的`S`
 
 
-## day 15
+## Day 15
 ### 复习日
 文本对象 p -> 段落
 
 行数 + gg / G 跳转到对应的行数
 
 `.`的使用
-快速替换 进入搜索模式匹对后，ciw 修改 返回normal 使用n/N ＋ `.`  
+快速替换 进入搜索模式匹对后，ciw 修改 返回normal 使用n/N ＋ `.`
 
 标记 单文件与多文件 快速跳转到位置
 gd 跳转到定义or实现
@@ -324,7 +325,7 @@ gd 跳转到定义or实现
 	- $ 当前到文件尾部
 	- num,num 指定行数范围
 - substitute 一般简写s
-- flags 
+- flags
 	- g 全部替换当前范围内匹配的字符串
 	- c 可选替换当前范围内匹配的字符串
 
@@ -374,7 +375,7 @@ gb 多选当前单词 ：按n次gb匹配n次当前单词
 	- C-w o 保留当前窗口，关闭其他窗口
 
 使用vscode改键，快速上手
-- 新建窗口 
+- 新建窗口
 	- Command + \
 	- Command + Ctrl + \
 - 关闭窗口
@@ -394,12 +395,12 @@ gb 多选当前单词 ：按n次gb匹配n次当前单词
 目的： 学习删除一个函数
 
 - % 用于匹配括号
-- vim-indent-object 
+- vim-indent-object
 
 - dap 基于段落 => 段落：空格隔开为一个段落
 - daI 基于缩进， 需要在函数体内
 	- 改键 i maps I 少按shift
-- `V$%d` 
+- `V$%d`
 	- 改键 `<leader> d f` -> `V $ % d`
 	- 缺点：需要在函数的定义那一行使用，且需要参数都要在同一行。
 以后删除就用：
@@ -416,10 +417,10 @@ gb 多选当前单词 ：按n次gb匹配n次当前单词
 
 - 开始录制：q + 寄存器名称 如 qa
 - 结束录制：q
-- 查看录制好的宏：`:reg<空格><寄存器名称>` 如`:reg a` 
+- 查看录制好的宏：`:reg<空格><寄存器名称>` 如`:reg a`
 - 使用： `@寄存器名称` 如`@a`
 - 调用最后一次执行的宏 `@@`
-- 重复执行： 数字键 + @ + 寄存器   如 `5@a`  五次执行宏a
+- 重复执行： 数字键 + @ + 寄存器 如 `5@a` 五次执行宏a
 - 安全机制：调用失败会有个报错提示
 - 追加宏： qA
 - 修改宏： （vscode插件没效果，切换到终端的vim没问题）
@@ -489,8 +490,8 @@ gb 多选当前单词 ：按n次gb匹配n次当前单词
 > 操作文件
 
 - 切到 ﬁles explorer 区域
-	- `ctrl + ;`  互相切换editor 区域与 files explorer
-	- `ctrl + '`  切换到editor
+	- `ctrl + ;` 互相切换editor 区域与 files explorer
+	- `ctrl + '` 切换到editor
 - 新建文件
 	- `a`
 	- `Leader + n + f`
@@ -574,3 +575,88 @@ gb 多选当前单词 ：按n次gb匹配n次当前单词
 - 选择所有出现的当前单词
 	- `command + F2`
 	- `gb` 是一个一个的选择
+
+## day26
+
+### 收获&学习心得&心路历程
+
+> 学习发现使用快捷键的场景
+
+- 显示、隐藏资源管理器 `command + b`
+- live server
+	- 启动服务 `command + I command + O`
+	- 关闭服务 `command + I command + C`
+- 预览Markdown文件
+	- 分屏预览 `command + k + v`
+	- 直接预览 `command + shift + v`
+- 显示当前文件的路径的Finder `command + K + R`
+- copy当前文件的绝对路径 `command + K + P`
+
+## day27
+
+### 收获&学习心得&心路历程
+
+> 学习[[git]]的一些使用
+
+- 打开source control面板
+	- `shift + control + g`
+	- `<Leader> + g + g`
+- stage change `<Leader> + g + s`
+- commit `<Leader> + g + c`
+- diff `<Leader> + g + d + f`
+- unstage change `<Leader> + g + u`
+- discard change `<Leader> + g + cl`
+- edamagit(一个插件)
+
+
+# day28
+
+## 收获&学习心得&心路历程
+
+- 只用homebrew安装lazygit
+- zsh配置文件配置下别名`alias lg='lazygit`
+- 在一个含有`.git`的目录下使用终端输入`lg`
+- 进入lazygit
+- 使用`x` or `?` 查看命令
+- 使用`H` `L`可以移动区域
+- 使用`J` `K` 进入区域内进行移动
+- 空格切换状态
+- 暂存区使用`a`选择全部进行暂存切换
+- 使用`c`进行提交
+- `p`拉取远程
+- `P`推送远程
+- `M`合并到当前HEAR
+
+## day29
+
+## 收获&学习心得&心路历程
+
+> 学习vscode snippets
+
+- 安装一些插件
+	- 使用vscode的插件，搜索snippets
+	- 安装需要的snippets
+	- vue snippets 、ES6
+- 使用插件里面的prefix快速生成需要的代码
+- 可以用户自定义snippets[官网链接](https://code.visualstudio.com/docs/editor/userdefinedsnippets)
+
+
+
+## day30
+
+## 收获&学习心得&心路历程
+
+> 学习快捷的重构操作
+
+vscode提供了一些重构操作，但往往不够使用
+快捷键
+- `command + .`
+- `ctrl + shift + r`
+
+安装一些插件
+- abracadabra
+- hocus pocus
+	- 先用后赋值
+	- 配置`<Leader> + f + f` `<Leader> + v + v`创建当前需要的函数or变量名
+- javascript booster
+	- 与abracadabra互补

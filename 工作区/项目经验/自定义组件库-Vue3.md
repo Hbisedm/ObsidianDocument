@@ -1,3 +1,8 @@
+---
+title: 自定义组件库的笔记
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 11:08:13 晚上
+---
 
 ---
 title: 自定义组件库
@@ -15,7 +20,7 @@ tags: ["自定义组件库"]
 > 目前很多我们熟知的项目都是采用这种模式，如Vant，ElementUI，Vue3等
 >
 
-## pnpm
+## Pnpm
 
 > 打造一个menorepo环境的工具有很多，如：lerna、pnpm、yarn等，这里我们将使用pnpm来开发我们的UI组件库。
 > 因为它简单高效，它没有太多杂乱的配置
@@ -107,7 +112,8 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
     plugins:[vue()]
-})```
+})
+```
 
 ### 新建html文件
 @vitejs/plugin-vue 会默认加载examples下的index.html
@@ -124,7 +130,9 @@ export default defineConfig({
     <div id="app"></div>
     <script src="main.ts" type="module"></script>
 </body>
-</html>```
+</html>
+```
+
 > vite基于esm，所以script标签需要设置`type="module"`
 
 ### app.vue
@@ -133,7 +141,8 @@ export default defineConfig({
     <div>
         启动测试
     </div>
-</template>```
+</template>
+```
 ### main.ts
 ```ts
 import {createApp} from 'vue'
@@ -255,7 +264,7 @@ const result = sum (1,1)
 console.log(result)
 ```
 
-#### esno
+#### Esno
 > esno 用来执行ts文件
 
 ```shell
@@ -271,7 +280,7 @@ esno index.ts
 ```shell
 pnpm install @hbisedm-ui/utils
 ```
-建立联系，pnpm创建软连接指向utils包，此时的`package.json`的结构 
+建立联系，pnpm创建软连接指向utils包，此时的`package.json`的结构
 ```json
 {
   "name": "hbisedm-ui",
@@ -417,7 +426,7 @@ export default Button
 
 到这里组件开发的基本配置已经完成，最后我们对我们的组件库以及工具库进行打包，打包之前如果要发公共包的话记得将我们的各个包的协议改为MIT开源协议
 
-  ## Vite打包
+## Vite打包
 打包们这里选择vite，它有一个库模式专门为我们来打包这种库组件的。
 
 前面已经安装过vite了，所以这里直接在components下直接新建vite.config.ts(配置参数文件中已经注释):
@@ -543,11 +552,11 @@ export default defineConfig(
 ```
 
 > **pkg.module**
-> 
+>
 > 我们组件库默认入口文件是传统的CommonJS模块，但是如果你的环境支持ESModule的话，构建工具会优先使用我们的module入口
-> 
+>
 > **pkg.files**
-> 
+>
 > files是指我们需要发布到npm上的目录，因为不可能components下的所有目录都被发布上去
 
 

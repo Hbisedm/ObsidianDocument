@@ -1,9 +1,10 @@
 ---
-title: Vue中runtime-compiler与runtimeonly的区别
-date: 2022-06-07 16:03:31
+title: Vue打包后不同版本的笔记
 tags: ["Vue"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期四, 七月 28日 2022, 1:35:00 下午
 ---
-#tag
+#Vue
 
 # Vue打包后不同版本的笔记
 
@@ -43,20 +44,20 @@ app.mount("#app");
 import { createApp } from "vue/dist/vue.esm-bundler";
 ```
 ## runtime-compiler与runtimeonly的区别
-- 如果在之后的开发中，你依然使用template，就需要选择runtimecompiler  
+- 如果在之后的开发中，你依然使用template，就需要选择runtimecompiler
 - 如果你之后的开发中，使用的是.vue文件开发，那么可以选择runtimeonly
 
-### runtimecompiler
-Vue中的模板如何最终渲染成真实DOM  
+### Runtimecompiler
+Vue中的模板如何最终渲染成真实DOM
 template -> ast -> render-> vdom -> UI
 
-### runtimeonly
-Vue中的模板如何最终渲染成真实DOM  
+### Runtimeonly
+Vue中的模板如何最终渲染成真实DOM
 render -> vdom -> UI
 
-性能更高  
-代码量更少  
-那么.vue文件中的template是由谁处理的  
+性能更高
+代码量更少
+那么.vue文件中的template是由谁处理的
 是由vue-template-compiler
 
 
@@ -66,20 +67,20 @@ runtime-only比runtime-compiler更快，因为它省略了vue内部过程中的�
 
 
 下一步：不使用`<template>`这种方式，使用SFC的方式开发Vue
-	
+
 [[Webpack5配置Vue3-SFC]]
 
 
 使用SFC的方式后就可以使用runtimeonly版本了!
 
-	
+
 ```js
 import { createApp } from "vue/dist/vue.esm-bundler";
 	=>
 import { createApp } from "vue";
 ```
-	
-	
+
+
 ## 参考链接
 [区别](https://blog.csdn.net/a1345954104/article/details/104987494)
 
