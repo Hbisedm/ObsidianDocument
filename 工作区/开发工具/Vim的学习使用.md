@@ -2,7 +2,7 @@
 title: Vim的学习使用的笔记
 tags: ["Vim的学习使用"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期二, 八月 2日 2022, 8:59:01 晚上
+修改时间: 星期三, 八月 3日 2022, 9:37:24 上午
 ---
 #vim
 
@@ -660,3 +660,41 @@ vscode提供了一些重构操作，但往往不够使用
 	- 配置`<Leader> + f + f` `<Leader> + v + v`创建当前需要的函数or变量名
 - javascript booster
 	- 与abracadabra互补
+
+## day31
+
+## 收获&学习心得&心路历程
+
+> 学习Vspace code插件的使用过
+
+- 安装vspace code
+	- 初始化操作
+		- 配置setting.json的
+		- 可视化 "vim.visualModeKeyBindingsNonRecursive"
+		- normal "vim.normalModeKeyBindingsNonRecursive"
+
+```json
+		{
+	      "before": ["<space>", ";"],
+	      "commands": ["vspacecode.space"]
+	    }
+```
+
+  - 配置keybindings.json
+```json
+	    {
+    "key": "space",
+    "command": "vspacecode.space",
+    "when": "activeEditorGroupEmpty && focusedView == '' && !whichkeyActive && !inputFocus"
+  },
+  // Trigger vspacecode when sidebar is in focus
+  {
+    "key": "space",
+    "command": "vspacecode.space",
+    "when": "sideBarFocus && !inputFocus && !whichkeyActive"
+  },
+``` 
+
+编辑区是用`空格+;` 不是编辑区使用`空格`
+
+也可以修改默认的配置，具体参考[官方文档](https://vspacecode.github.io/docs/menu-customization)

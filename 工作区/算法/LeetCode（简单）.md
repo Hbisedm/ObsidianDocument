@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期二, 八月 2日 2022, 5:27:25 下午
+修改时间: 星期三, 八月 3日 2022, 2:15:51 下午
 ---
 #刷题 #算法 #LeetCode
 
@@ -1726,9 +1726,37 @@ MyCircularQueue.prototype.isFull = function() {
 - 当((rear + 1) % maxLen)=== front 为满
 
 
+## [771. 宝石与石头](https://leetcode.cn/problems/jewels-and-stones/)
+
+### 题解
+
+使用Set作为辅助空间。
+
+```js
+/**
+ * @param {string} jewels
+ * @param {string} stones
+ * @return {number}
+ */
+var numJewelsInStones = function(jewels, stones) {
+    const set = new Set()
+    if(stones.length === 0) return 0
+    for(let curr of jewels) {
+        set.add(curr)
+    }
+    let res = 0
+    for(let curr of stones){
+        if(set.has(curr)) {
+            res++
+        }
+    }
+    return res
+};
+```
 
 
 
 ## Todo
+
 
 
