@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期三, 八月 3日 2022, 2:15:51 下午
+修改时间: 星期日, 八月 7日 2022, 12:02:21 凌晨
 ---
 #刷题 #算法 #LeetCode
 
@@ -1752,6 +1752,134 @@ var numJewelsInStones = function(jewels, stones) {
     }
     return res
 };
+```
+
+
+
+## [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
+
+### 题解
+确定递归函数，判断当前2棵树是否相等的函数。
+然后从根节点递归到叶子
+```js
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} subRoot
+ * @return {boolean}
+ */
+var isSubtree = function(root, subRoot) {
+    if(!root) return false
+
+    let compare = (tree1, tree2) => {
+        if(!tree1 && !tree2) {
+            return true
+        }
+        if(!tree1 || !tree2){
+            return false
+        }
+        if(tree1.val !== tree2.val) {
+            return false
+        }
+        return compare(tree1.left, tree2.left) && compare(tree1.right,  tree2.right)
+    }
+    
+    if(compare(root, subRoot)) return true
+    
+    // 递归遍历每个子节点
+    return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)
+};
+```
+
+## [892. 三维形体的表面积](https://leetcode.cn/problems/surface-area-of-3d-shapes/)
+
+### 题解
+
+分析题意： 是个n×n的区域，里面每个n代表一个区域，每个区域的正方体有的有，有的没有；那么把每一个区域当做一个单位，每个单位的表面积做加法，触碰面做减法。
+
+- 加法：则一个单位的表面积为`4 × grid[i][j] + 2` (4个面＋上下2个面)
+- 减法：相隔的2个表面积为2个单位减去之间触碰的最小面
+	- 3 与 1：最小触碰面为1×2
+	- 4 与 8 最小触碰面为4×2
+- 减法具体细节：将这个二维数组的触碰面抽象成
+	- x轴：与上一个立体取最小值
+	- y轴：与上一个立体取最小值
+	- z轴不用管
+
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var surfaceArea = function(grid) {
+    const len = grid.length
+    let area = 0
+    for( let i = 0; i < len; i++ ) {
+        for(let j = 0; j < len; j++ ) {
+            const curr = grid[i][j]
+            if(curr > 0) {
+	            // 加法
+                area += curr * 4 + 2
+                // 减法
+                area -= j > 0 ? Math.min(grid[i][j - 1], curr) * 2 : 0
+                area -= i > 0 ? Math.min(grid[i - 1][j], curr) * 2 : 0
+            }
+        }
+    }
+    return area
+};```
+
+
+
+
+## 数组拆分
+
+  [561. 数组拆分](https://leetcode.cn/problems/array-partition/)
+
+### 题解
+
+排序后 取每2个的最小值进行累加
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var arrayPairSum = function(nums) {
+    nums = nums.sort((a,b) => a - b)
+    let result = 0
+    const len = nums.length
+    if(len === 0) return result
+    for(let i = 0; i < len; i = i + 2) {
+        const curr = Math.min(nums[i], nums[i+1])
+        result += curr
+    }
+    return result
+};
+```
+
+可以使用filter，过滤第2n个数出来进行累加
+
+```js
+var arrayPairSum = function(nums) {
+    let result = nums.sort((a,b)=>{
+        return a-b
+    }).filter((item,index)=>{
+        return index%2 == 0
+    }).reduce((a,b)=>{
+        return a+b
+    })
+    return result
+};
+
 ```
 
 

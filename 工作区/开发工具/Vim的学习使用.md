@@ -2,7 +2,7 @@
 title: Vim的学习使用的笔记
 tags: ["Vim的学习使用"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期三, 八月 3日 2022, 9:37:24 上午
+修改时间: 星期六, 八月 6日 2022, 3:44:41 下午
 ---
 #vim
 
@@ -13,7 +13,7 @@ tags: ["Vim的学习使用"]
 ## day1
 ### 收获&学习心得&心路历程：
 - normal模式下使用`HJKL`移动。
-- normal与insert模式的切换。
+- normal与insert模式的切换j。
 - 使用Karabiner-Element切换键盘的Caps与Control，并配置Rule 使用左Control＋HJKL成为方向键的功能。
 - vscode配置setting.json达到 insert模式下control ＋ C 不会变成 normal模式。
 ### 问题：
@@ -629,7 +629,7 @@ gb 多选当前单词 ：按n次gb匹配n次当前单词
 
 ## day29
 
-## 收获&学习心得&心路历程
+### 收获&学习心得&心路历程
 
 > 学习vscode snippets
 
@@ -644,7 +644,7 @@ gb 多选当前单词 ：按n次gb匹配n次当前单词
 
 ## day30
 
-## 收获&学习心得&心路历程
+### 收获&学习心得&心路历程
 
 > 学习快捷的重构操作
 
@@ -663,7 +663,7 @@ vscode提供了一些重构操作，但往往不够使用
 
 ## day31
 
-## 收获&学习心得&心路历程
+### 收获&学习心得&心路历程
 
 > 学习Vspace code插件的使用过
 
@@ -698,3 +698,72 @@ vscode提供了一些重构操作，但往往不够使用
 编辑区是用`空格+;` 不是编辑区使用`空格`
 
 也可以修改默认的配置，具体参考[官方文档](https://vspacecode.github.io/docs/menu-customization)
+
+
+# day32
+
+## 收获&学习心得&心路历程
+
+> 学习vscode内的终端快捷操作
+
+1. 打开终端
+	- `command + j`
+	- `ctrl + 波浪线`
+	- 改键`workbench.action.terminal.toggleTerminal` 为`ctrl + ,`
+3. 清空终端
+	- `command + k`
+3. 分屏
+	- `command + \`
+4. 分屏切换
+	- 改键
+		- `workbench.action.terminal.focusNextPane`
+		- `workbench.action.terminal.focusPreviousPane`
+	- `command + [`
+	- `command + ]`
+6. 关闭终端
+	- 改键 `workbench.action.terminal.kill`
+	- `shift + alt + q`
+8. 新建终端
+	- 改键 `workbench.action.terminal.new`
+	- `shift + alt + n`
+10. 窗口切换
+	- `shift + command + [`
+	- `shift + command + ]`
+11. 直接打开外部终端
+	- 使用iterm2作为外部终端
+	- `shift + cmd +c`
+
+- 如何查找想要的配置的快捷键
+- google
+- vscode github
+- 知道默认快捷键的前提下，复制对应的命令进行配置
+
+常用：
+- 切换终端
+- 开启外部终端
+- 清空终端
+
+
+
+# day33
+
+## 收获&学习心得&心路历程
+
+> 使用vscode进行debug的快捷操作
+
+常规操作和其他ide差不多都是`F5 F8 F9 F10 F11`
+
+但是键盘离得太远了。不太方便按
+
+- 开始debug `F5`
+- 停止debug `shift F5`
+- 重新debug `shift + commmand + 0` 0表示重零开始
+	- workbench.action.debug.restart
+- 打断点 `shift + command + 9`
+	- editor.debug.action.toggleBreakpoint
+- 进入下一步 `command + '`
+	- workbench.action.debug.stepOver
+- 进入函数内下一步 `command + shift + '`
+	- workbench.action.debug.stepInto
+- 跳过断点 `F5`
+- 也可以使用Vspacecoce `command + ; + d + d` 快速进入debug模式

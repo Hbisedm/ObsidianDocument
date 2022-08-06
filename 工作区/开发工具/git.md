@@ -7,6 +7,10 @@ tags: ["git"]
 
 # git的理解使用
 
+## Git 撤回操作
+
+[look this](https://ohshitgit.com/zh)
+
 ## Git Message 提交规范
 feat: 新功能、新特性 
 fix: 修改 bug perf: 更改代码，以提高性能 
