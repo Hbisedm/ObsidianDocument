@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期日, 八月 7日 2022, 12:02:21 凌晨
+修改时间: 星期一, 八月 8日 2022, 9:13:09 上午
 ---
 #刷题 #算法 #LeetCode
 
@@ -1882,6 +1882,103 @@ var arrayPairSum = function(nums) {
 
 ```
 
+
+
+## [2255. 统计是给定字符串前缀的字符串数目](https://leetcode.cn/problems/count-prefixes-of-a-given-string/)
+
+
+### 题解
+s遍历出他的前缀字符串列表出来，然后与words配对
+
+```js
+/**
+ * @param {string[]} words
+ * @param {string} s
+ * @return {number}
+ */
+var countPrefixes = function(words, s) {
+    let res = [s[0]]
+    let count = 0
+    s.split('').reduce((a, b) => {
+        const c = a + b
+        res.push(c)
+        return c
+    })
+    
+    words.forEach(item => {
+        if(res.includes(item)) count++
+    })
+    return count
+};
+
+```
+
+
+
+## [657. 机器人能否返回原点](https://leetcode.cn/problems/robot-return-to-origin/)
+
+### 题解
+
+> 判断上下、左右出现的个数即可
+
+```js
+/**
+ * @param {string} moves
+ * @return {boolean}
+ */
+var judgeCircle = function(moves) {
+    let r = 0
+        l = 0
+        u = 0
+        d = 0
+    
+    moves.split('').forEach(i => {
+        switch(i) {
+            case "R": {
+                r++
+                break
+            }
+            case "L": {
+                l++
+                break
+            }
+            case "U": {
+                u++
+                break
+            }
+            case "D": {
+                d++
+                break
+            }
+        }
+    })
+
+    return l === r && u === d 
+};
+```
+
+
+可以判断一对的话，进行加减
+
+```js
+
+// 时间复杂度：O(n)
+// 空间复杂度：如果采用 toCharArray，则是 O（n）;如果使用 charAt，则是 O(1)
+class Solution {
+    public boolean judgeCircle(String moves) {
+        int x = 0;
+        int y = 0;
+        for (char c : moves.toCharArray()) {
+            if (c == 'U') y++;
+            if (c == 'D') y--;
+            if (c == 'L') x++;
+            if (c == 'R') x--;
+        }
+        return x == 0 && y == 0;
+    }
+}
+
+```
 
 
 ## Todo
