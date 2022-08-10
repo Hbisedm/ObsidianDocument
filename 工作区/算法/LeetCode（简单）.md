@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期一, 八月 8日 2022, 9:13:09 上午
+修改时间: 星期三, 八月 10日 2022, 11:54:18 中午
 ---
 #刷题 #算法 #LeetCode
 
@@ -1981,7 +1981,81 @@ class Solution {
 ```
 
 
+## [1413. 逐步求和得到正数的最小值](https://leetcode.cn/problems/minimum-value-to-get-positive-step-by-step-sum/)
+
+### 题解
+
+根据题意直接双层遍历
+```js
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minStartValue = function(nums) {
+    for(let i = 1; i <= 10000; i++ ) {
+        let swap = i
+        for(let j = 0; j < nums.length ; j++ ) {
+            swap += nums[j]
+            if( swap < 1) {
+                break
+            }
+            if(j === nums.length - 1) {
+                return  i
+            }
+        }
+    }
+    return -1
+};
+```
+
+## [543. 二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree/)
+
+### 题解
+
+使用深度遍历算法，记录每次节点的深度，然后累加起来，但是可能某个子树的直径高于根的直径。所以定义个全局变量，进行记录比较。
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var diameterOfBinaryTree = function(root) {
+    let dfs =  function(root ) {
+        if(!root) return 0
+        let left = 0;
+        let right = 0;
+        if(root.left) left =  dfs(root.left)
+        if(root.right) right =  dfs(root.right)
+        res = Math.max(res, (left + right)) // 这里匹配最高的直径长度
+        return Math.max(left, right) + 1 // 这里取哪个子树最大加上自己的1
+    }
+    /** 由于可能是不穿过根节点 */
+    let res = 0
+    if(root) {
+       dfs(root)
+    }
+    return res 
+    
+};
+```
+
+
+
+
+
+
 ## Todo
+
+
 
 
 
