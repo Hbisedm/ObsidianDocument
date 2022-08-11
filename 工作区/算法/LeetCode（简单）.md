@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期三, 八月 10日 2022, 11:54:18 中午
+修改时间: 星期四, 八月 11日 2022, 2:39:16 下午
 ---
 #刷题 #算法 #LeetCode
 
@@ -2051,9 +2051,118 @@ var diameterOfBinaryTree = function(root) {
 
 
 
+## [485. 最大连续 1 的个数](https://leetcode.cn/problems/max-consecutive-ones/)
+
+### 题解
+
+常规方法就是去记录下1的个数 取最大
+
+```js
+
+var findMaxConsecutiveOnes = function(nums) {
+    let maxCount = 0, count = 0;
+    const n = nums.length;
+    for (let i = 0; i < n; i++) {
+        if (nums[i] === 1) {
+            count++;
+        } else {
+            maxCount = Math.max(maxCount, count);
+            count = 0;
+        }
+    }
+    maxCount = Math.max(maxCount, count);
+    return maxCount;
+};
+
+```
+
+以0为分割去遍历，遍历完毕后，还需要计算数组长度与最后一个0之间的1的个数
+
+
+[1, 1, 0, 1, 1, 1] => '110111' => ['11', '111']
+
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMaxConsecutiveOnes = function(nums) {
+    let prevIndex = -1;
+    let maxCount = 0
+    nums.forEach((item, index) => {
+        if(item === 0) {
+            maxCount = Math.max(index - prevIndex - 1, maxCount)
+            prevIndex = index
+        }
+    })
+    maxCount = Math.max(nums.length - prevIndex - 1 ,  maxCount)
+    return maxCount
+};
+```
+
+
+```js
+var findMaxConsecutiveOnes = function(nums) {
+    // 将数组以0分割 ['11', '111']
+    var temp = nums.join('').split('0');
+    // 获取数组中最长的字符串
+    var max = temp.sort((a, b) => b.length - a.length)[0]
+
+    return max.length;
+};
+```
+
+```js
+var findMaxConsecutiveOnes = function(nums) {
+    // 将数组以0分割 ['11', '111']
+    var temp = nums.join('').split('0');
+
+    return Math.max(...(temp.map(item => item.length)));
+};
+
+
+```
+
+
+## [495. 提莫攻击](https://leetcode.cn/problems/teemo-attacking/)
+
+题解
+
+- 中毒时间
+- 上次累积的持续时间 (重点)
+
+遍历数组，每次若判断为持续时间内，则加`timeSeries[i] - timeSeries[i-1]`
+否则的话，就是已经超出中毒时间了，那么加上上一个持续时间的最后中毒时间
+这样的后，遍历到最后，再次算上中毒时间即可。
+
+```js
+
+/**
+ * @param {number[]} timeSeries
+ * @param {number} duration
+ * @return {number}
+ */
+var findPoisonedDuration = function(timeSeries, duration) {
+    const len = timeSeries.length
+    let res = 0
+    for(let i = 1;  i < len; i ++) {
+        const sub = timeSeries[i] - timeSeries[i-1]
+        if(sub > duration ) {
+            res += duration
+        }else {
+            res += sub
+        }
+    }
+    res += duration
+    return res
+};
+
+```
 
 
 ## Todo
+
 
 
 
