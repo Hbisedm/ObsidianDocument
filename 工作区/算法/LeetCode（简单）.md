@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期四, 八月 11日 2022, 2:39:16 下午
+修改时间: 星期五, 八月 12日 2022, 8:27:15 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -2124,7 +2124,6 @@ var findMaxConsecutiveOnes = function(nums) {
 
 ```
 
-
 ## [495. 提莫攻击](https://leetcode.cn/problems/teemo-attacking/)
 
 题解
@@ -2159,6 +2158,39 @@ var findPoisonedDuration = function(timeSeries, duration) {
 };
 
 ```
+
+## [414. 第三大的数](https://leetcode.cn/problems/third-maximum-number/)
+
+### 题解
+
+```js
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var thirdMax = function(nums) {
+    if(nums.length < 3){
+        return Math.max(...nums)
+    }
+    nums = nums.sort((a,b) => b - a)
+    const arr = []
+    
+    for(let i = 0; i < nums.length; i++) {
+        if(arr.length  === 3) {
+            break
+        }else {
+            if(arr.includes(nums[i])) {
+                continue
+            }
+            arr.push(nums[i])
+        }
+    }
+    return arr.length < 3 ? Math.max(...arr) : arr[2] ?? arr[1] ?? arr[0]
+
+};
+```
+
 
 
 ## Todo
