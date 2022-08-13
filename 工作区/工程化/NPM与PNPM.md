@@ -2,7 +2,7 @@
 title: NPM与PNPM的笔记
 tags: ["NPM与PNPM"]
 创建时间: 星期六, 八月 13日 2022, 9:18:29 晚上
-修改时间: 星期六, 八月 13日 2022, 11:45:38 晚上
+修改时间: 星期日, 八月 14日 2022, 12:05:48 凌晨
 ---
 #pnpm #npm #工程化
 
@@ -454,6 +454,12 @@ pnpm 使用类似 maven 一样将所有的包都存放在一个 .pnpm 缓存目�
 很遗憾 vscode 目前好像没有这功能。
 
  pnpm 跟 webstorm 跟配哟～
+
+
+## 对比
+
+![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202208140005578.png)
+
 
 
 ## 参考链接
