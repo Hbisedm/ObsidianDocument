@@ -871,3 +871,22 @@ vscode提供了一些重构操作，但往往不够使用
 - 暂停vim的使用 i
 - 连续点击 `option + f`
 - 从文本框取消与恢复焦点 `F2`
+
+
+
+## day38
+
+### 收获&学习心得&心路历程
+
+> 学习使用快捷键操作谷歌浏览器的devtool
+
+- 打开devtool
+	- 显示隐藏当前 `command + option + i`
+	- 显示隐藏控制台 `command + option + j`
+	- 进入元素选择 `command + shift + c`
+- 焦点聚焦控制台  `ctrl + 点`
+- 清空控制台 `command + k`
+- 搜索文件 `command + p`
+- 切换面板 `command + [` `command + ]`
+- element or source 显示 控制台 `esc`
+- devTool开启vscode快捷键

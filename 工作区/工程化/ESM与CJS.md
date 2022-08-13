@@ -1,18 +1,14 @@
 ---
 
-title: ESM与CJS
+title: commonJS
 
-date: 2022-05-25 18:16:56
 
 tags: ["工程化"]
-
 excerpt: 模块化规范.
-
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期六, 八月 13日 2022, 9:17:09 晚上
 ---
-
-
-
-#工程化
+#工程化 #ESC #CJS
 
 # commonJS
 
@@ -81,7 +77,7 @@ sayHello('kobe');
 
 - 结论：和exports对象没有任何关系了，exports你随便玩自己的吧；
 - module.exports我现在导出一个自己的对象，不带着你玩了；
-- 新的对象取代了exports对象的导出，那么就意味着require导入的对象是新的对象； 
+- 新的对象取代了exports对象的导出，那么就意味着require导入的对象是新的对象；
 
 
 
@@ -175,7 +171,7 @@ console.log(foo.name)
 
 如果从一个模块中导入的内容，我们希望再直接导出出去，这个时候可以直接使用export来导出。
 
-#### bar.js 抛出一个函数
+### bar.js 抛出一个函数
 
 ```
 export const func = function(a, b) {
@@ -183,13 +179,13 @@ export const func = function(a, b) {
 }
 ```
 
-#### foo.js导入bar.js 并抛出去 做了个中转
+### foo.js导入bar.js 并抛出去 做了个中转
 
 ```
 export {func} from './bar.js'
 ```
 
-#### main.js直接从foo中导入：
+### main.js直接从foo中导入：
 
 ```
 import {func} from './module/foo.js'
@@ -217,7 +213,7 @@ export {func as fooFunc} from './bar.js'
 - 在导入时不需要使用 {}，并且可以自己来指定名字；
 - 它也方便我们和现有的CommonJS等规范相互操作；
 
-#### 导出：
+### 导出：
 
 ```
 export default function sub(num1, num2) {
@@ -225,7 +221,7 @@ export default function sub(num1, num2) {
 }
 ```
 
-#### 导入
+### 导入
 
 ```
 import a from './module/foo.js'

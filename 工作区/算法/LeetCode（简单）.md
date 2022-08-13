@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期五, 八月 12日 2022, 8:27:15 晚上
+修改时间: 星期六, 八月 13日 2022, 9:11:51 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -2192,8 +2192,72 @@ var thirdMax = function(nums) {
 ```
 
 
+## [645. 错误的集合](https://leetcode.cn/problems/set-mismatch/)
+
+### 题解
+
+- 先排序
+- 遍历一次拿没有的值
+- 遍历一次拿重复的值
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findErrorNums = function(nums) {
+    let rep = 0
+    let correct = 0
+    nums = nums.sort((a,b) => a - b)
+
+    for(let i = 0; i < nums.length; i++){
+        if(!nums.includes(i+1)) {
+            correct = i+1
+        }
+    }
+
+    for(let i = 0; i < nums.length; i++){
+        if(i !== nums.length - 1 && nums[i] === nums[i+1]){
+            rep = nums[i]
+        }
+    }
+    return [rep, correct]
+};
+```
+
+```js
+
+var findErrorNums = function(nums) {
+    let num1;
+    let num2;
+    nums.sort((a,b)=> a-b);
+    nums.some((val, index)=>{
+		/** 最后一个的索引 不等于 index 说明啊 从这个元素开始后就重复了 */
+        if(index !== nums.lastIndexOf(val)){
+            num1 = val;
+        }
+        /**排序后，index + 1 的索引=== -1 就是正确的值 */
+        if(nums.indexOf(index+1) === -1){
+            num2 = index+1;
+        }
+        if(num1 && num2){
+            return true
+        }
+    })
+    return [num1, num2];
+};
+
+
+```
+
+
+
+
+
+
 
 ## Todo
+
 
 
 
