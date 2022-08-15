@@ -2,7 +2,7 @@
 title: Vim的学习使用的笔记
 tags: ["Vim的学习使用"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期五, 八月 12日 2022, 10:11:44 上午
+修改时间: 星期一, 八月 15日 2022, 9:28:54 上午
 ---
 #vim
 
@@ -884,9 +884,28 @@ vscode提供了一些重构操作，但往往不够使用
 	- 显示隐藏当前 `command + option + i`
 	- 显示隐藏控制台 `command + option + j`
 	- 进入元素选择 `command + shift + c`
-- 焦点聚焦控制台  `ctrl + 点`
+- 焦点聚焦控制台 `ctrl + 点`
 - 清空控制台 `command + k`
 - 搜索文件 `command + p`
 - 切换面板 `command + [` `command + ]`
 - element or source 显示 控制台 `esc`
 - devTool开启vscode快捷键
+
+
+## day39
+
+### 收获&学习心得&心路历程
+
+> 学习使用Chrome的Debug
+
+打断点、取消断点 `command + b`
+跳过断点 `command + shift + b`
+step over `cmd + '` `F10`
+step into `cmd + ;` `F11`
+停止当前的断点 `F5` `cmd + \`
+开启or关闭所有的断点 `command + f8`
+选中的代码打印出来 `command + shfit + e`
+跳转函数 `command + shift + o`
+跳转到指定行 `ctrl + g`
+
+有些和之前的vscode debug 一样，比如当时的改键也是根据Chrome的 `step over` `step into`

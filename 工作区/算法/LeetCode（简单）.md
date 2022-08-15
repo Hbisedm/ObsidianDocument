@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期六, 八月 13日 2022, 9:11:51 晚上
+修改时间: 星期一, 八月 15日 2022, 5:28:42 下午
 ---
 #刷题 #算法 #LeetCode
 
@@ -2251,12 +2251,119 @@ var findErrorNums = function(nums) {
 ```
 
 
+## [697. 数组的度](https://leetcode.cn/problems/degree-of-an-array/)
+
+### 题解
+
+使用map容器，去得到重复出现的值，
+- 每次判断若一样出现的次数的话，判断哪个靠得近
+- 出现大于目前的最大值的话，那就取它的距离
+
+```js
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findShortestSubArray = function(nums) {
+    const map = new Map()
+    let maxCount = 0 
+    let maxIndex = 0
+    let res = nums.length
+    if(nums.length < 2) {
+        return nums.length
+    }
+    nums.forEach(item => {
+        if(map.get(item)){
+            const swap = map.get(item) + 1
+            if((swap > maxCount) ) {
+                maxCount = swap
+                maxIndex = item
+                res = nums.lastIndexOf(maxIndex) - nums.indexOf(maxIndex)
+            }else if(swap == maxCount){
+                maxCount = swap
+                maxIndex = item
+                 res = Math.min (nums.lastIndexOf(maxIndex) - nums.indexOf(maxIndex), res)
+            }
+            map.set(item, swap)
+        }else {
+            map.set(item, 1)
+        }
+    })
+    return res === nums.length ? 1: res + 1
+
+};
+```
+
+```js
+var findShortestSubArray = function(nums) {
+    const mp = {};
+
+    for (const [i, num] of nums.entries()) {
+        if (num in mp) {
+            mp[num][0]++;
+            mp[num][2] = i;
+        } else {
+            mp[num] = [1, i, i];
+        }
+    }
+    
+    let maxNum = 0, minLen = 0;
+    for (const [count, left, right] of Object.values(mp)) {
+        if (maxNum < count) {
+            maxNum = count;
+            minLen = right - left + 1;
+        } else if (maxNum === count) {
+            if (minLen > (right - left + 1)) {
+                minLen = right - left + 1;
+            }
+        }
+    }
+    return minLen;
+};
+
+```
+
+
+这里学到js的操作，`for(const[x] of Object.values(obj))` 前提是 value存的是数组类型
+
+
+
+
+## [448. 找到所有数组中消失的数字](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/)
+
+### 题解
+使用一个容器存下，然后再次遍历找出没有的值。
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findDisappearedNumbers = function(nums) {
+    const set = new Set()
+    nums.forEach(item=>{
+        set.add(item)
+    })
+    const res = []
+    for(let i = 0; i< nums.length; i++) {
+        if(set.has(i+1)){
+            continue
+        }else{
+            res.push(i+1)
+        }
+    }
+    return res
+};```
+
+
 
 
 
 
 
 ## Todo
+
+
 
 
 
