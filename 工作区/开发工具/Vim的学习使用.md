@@ -2,7 +2,7 @@
 title: Vim的学习使用的笔记
 tags: ["Vim的学习使用"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期一, 八月 15日 2022, 9:28:54 上午
+修改时间: 星期二, 八月 16日 2022, 11:37:39 晚上
 ---
 #vim
 
@@ -909,3 +909,22 @@ step into `cmd + ;` `F11`
 跳转到指定行 `ctrl + g`
 
 有些和之前的vscode debug 一样，比如当时的改键也是根据Chrome的 `step over` `step into`
+
+
+## day40
+
+### 收获&学习心得&心路历程
+
+> 学习iterm2的一些导航操作
+
+- 新建窗口
+	- 左右`command + d`
+	- 上下`command + shift + d`
+- 切换窗口
+	- `command + [/]` 更习惯这个
+	- `command + option + 方向键`
+- 新建标签 `command + t`
+- 关闭 `command + w`
+- 切换标签
+	- `command + 数字键`
+	- `command + 方向键`
