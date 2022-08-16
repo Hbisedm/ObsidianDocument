@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期一, 八月 15日 2022, 5:28:42 下午
+修改时间: 星期二, 八月 16日 2022, 8:52:46 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -2353,11 +2353,33 @@ var findDisappearedNumbers = function(nums) {
         }
     }
     return res
-};```
+};
 
+```
 
+## [442. 数组中重复的数据](https://leetcode.cn/problems/find-all-duplicates-in-an-array/)
 
+### 题解
 
+```js
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findDuplicates = function(nums) {
+    let res = []
+    let obj = {}
+    for(let i = 0; i < nums.length; i++) {
+        if(obj[nums[i]]) {
+            res.push(nums[i])
+        }else {
+            obj[nums[i]] = true
+        }
+    }
+    return res 
+};
+```
 
 
 
