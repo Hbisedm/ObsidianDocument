@@ -2,7 +2,7 @@
 title: README
 tags: ["算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期二, 八月 16日 2022, 8:52:51 晚上
+修改时间: 星期三, 八月 17日 2022, 9:59:00 晚上
 ---
 # README
 
@@ -26,3 +26,4 @@ tags: ["算法"]
 - 697 done [[LeetCode（简单）#697 数组的度 https leetcode cn problems degree-of-an-array]]
 - 448 done [[LeetCode（简单）#448 找到所有数组中消失的数字 https leetcode cn problems find-all-numbers-disappeared-in-an-array]]
 - 442 done [[LeetCode（简单）#442 数组中重复的数据 https leetcode cn problems find-all-duplicates-in-an-array]]
+- 41 done [[LeetCode（简单）#41 缺失的第一个正数 https leetcode cn problems first-missing-positive]]

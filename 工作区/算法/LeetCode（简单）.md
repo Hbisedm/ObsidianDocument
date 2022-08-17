@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期二, 八月 16日 2022, 8:52:46 晚上
+修改时间: 星期三, 八月 17日 2022, 9:58:29 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -2383,7 +2383,60 @@ var findDuplicates = function(nums) {
 
 
 
+## [41. 缺失的第一个正数](https://leetcode.cn/problems/first-missing-positive/)
+
+### 题解
+
+以数组作为哈希表
+第0个下标为1
+第1个下标为2
+遍历整个数组，把value方法正确的位置后，
+再次遍历整个数组，从0开始 判断当前是不是正确的整数，不是的话就得出最小的整数
+
+我们要找的数就在 `[1, N + 1]` 里，最后 `N + 1` 这个元素我们不用找。因为在前面的 `N` 个元素都找不到的情况下，我们才返回 `N + 1`；
+
+`[1, 1]`
+
+`while(nums[i] > 0 && nums[i] <= len && nums[i] !== i + 1)`
+如果这种写法，就会进入死循环
+`while(nums[i] > 0 && nums[i] <= len && nums[i] !== nums[nums[i] -1])`
+这样写就不会
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var firstMissingPositive = function(nums) {
+    const len = nums.length
+    const swap = (nums, index1, index2) => {
+        const temp = nums[index1]
+        nums[index1] = nums[index2]
+        nums[index2] = temp
+    }
+    for(let i = 0; i < len; i++) {
+		/** 这里最重要 */
+        while(nums[i] > 0 && nums[i] <= len && nums[i] !== nums[nums[i] -1]) {
+            swap(nums, nums[i] -1, i)
+        }
+    }
+    for(let i = 0; i < len; i++) {
+        if(nums[i] - 1 !== i) {
+            return i + 1
+        }
+    }
+    return len + 1
+};
+
+```
+
+
+
+
+
+
 ## Todo
+
 
 
 
