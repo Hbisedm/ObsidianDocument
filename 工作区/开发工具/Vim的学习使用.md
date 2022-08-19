@@ -2,7 +2,7 @@
 title: Vim的学习使用的笔记
 tags: ["Vim的学习使用"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期三, 八月 17日 2022, 9:16:29 晚上
+修改时间: 星期五, 八月 19日 2022, 10:23:32 晚上
 ---
 #vim
 
@@ -290,7 +290,7 @@ vim里面符号算做一个单词、一个连续字符在空格之前被vim当�
 ### 收获&学习心得&心路历程：
 学习处理包裹字符的符号
 - vim-surround
-	- `c + s + <existing> + <desired>`修改包裹字符
+	- `c + s + <existing> + <desired>`修改包裹字符 "abc" -> `c + s + " + ' ` -> 'abc'
 	- `y + s + <motion> + <desired>`增加包裹字符 motion -> iw ie ...
 	- `d + s + <existing>`删除包裹字符
 	- `S + <desired>` 可视化模式下大写S处理包裹字符
@@ -964,4 +964,77 @@ step into `cmd + ;` `F11`
 	- r 重命名标签
 - 还有很多骚操作，在Zellij里下方 可以看到好多
 
+
+
+## day42
+
+### 收获&学习心得&心路历程
+
+> zellij的一些骚操作
+
+- 会话
+每次进入zellij都进入一个会话，可以将当前的会话保存起来
+`ctrl + o + d` 保存会话，当前这个会话名称是随机的
+也可以自定义会话名称并进入`zl a -c 名称`
+`zl ls` 查看当前的会话列表
+`zl a 名称` 进入指定的会话
+
+- sync 同步操作
+指的是里面每个面板同时操作shell命令
+`ctrl + t + s`
+
+- 清屏
+使用`command + k` or `command + r` 会影响zellij
+最后还是使用`clear`命令
+
+- 滚动
+`ctrl + s` 进入滚动模式
+`j k u d` 都可以滚动和vim里面一样
+
+- 修改键
+因为使用了`ctrl + h` 映射了左方向键
+而zellij里面的移动功能也是`ctrl + h` 优先级没有我们系统改键的高
+所以需要需要zellij的移动功能就需要改键了
+	- 创建文件夹`mkdir ~/.conﬁg/zellij`
+	- 引入默认配置 `zellij setup --dump-conﬁg > ~/.conﬁg/zellij/conﬁg.yaml`
+	-修改 `:/%s/Ctrl 'h'/Ctrl 'f'/g` 使用vim的正则去修改
+[官方的改键提醒](zellij.dev/documentation/keybindings-keys.html)
+
+
+
+
+## day43
+
+### 收获&学习心得&心路历程
+
+> zsh-vi-mode 使用
+
+#### 安装
+`brew install zsh-vi-mode`
+
+#### 配置
+进入`~/.zshrc`
+配置下面的命令
+`source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh`
+执行`source ~/.zshrc` 或 重启终端使得配置生效
+
+#### 操作
+重新进入终端后，就可以使用vim操作了
+
+##### 返回normal模式
+- `esc`
+- `ctrl + [`
+##### 历史模式
+zsh的操作
+- `ctrl + p`
+- `ctrl + n`
+- `ctrl + r`
+vim操作 (normal模式下)
+- `/` 搜索 配置`n` `N` 进行上下搜索
+- `j` or `k`
+##### 使用原生vim
+normal模式下 `vv` 直接进入vim模式
+
+F: 为什么说是原生的vim
+Q: insert模式下 输入`vim` 进入自己配置的`nvim`
 

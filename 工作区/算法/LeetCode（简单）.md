@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期三, 八月 17日 2022, 9:58:29 晚上
+修改时间: 星期五, 八月 19日 2022, 10:08:39 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -2433,9 +2433,70 @@ var firstMissingPositive = function(nums) {
 
 
 
+## [274. H 指数](https://leetcode.cn/problems/h-index/)
+
+### 题解
+
+正排序下整个数组
+定义个h，倒序遍历
+每次判断h是不是大于当前遍历的数
+保证h前小于h，h后大于h
+
+注意这里是倒排
+
+
+```js
+
+/**
+ * @param {number[]} citations
+ * @return {number}
+ */
+var hIndex = function(citations) {
+   citations = citations.sort((a, b) => a - b)
+   let h = 0
+   let i = citations.length - 1
+   while(i >= 0 && h < citations[i]){
+       h++
+       i--
+   }
+    return h
+}
+
+```
+
+
+## [453. 最小操作次数使数组元素相等](https://leetcode.cn/problems/minimum-moves-to-equal-array-elements/)
+
+### 题解
+
+n个数组里面 每次操作`n-1`个数 增加1
+反证法等价于 n个数组里面 所有的数 都减到和最小值一样
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minMoves = function(nums) {
+    // n - 1 都增加1  反证法  nums[i] -1 => min
+    let count = 0
+    const min = Math.min(...nums)
+    nums.forEach(i => {
+        if(i > min) {
+            count += (i - min)
+        }
+    })
+    return count 
+};
+```
+
+
+
 
 
 ## Todo
+
+
 
 
 
