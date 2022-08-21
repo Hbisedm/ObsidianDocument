@@ -1,7 +1,8 @@
 ---
-title: git
-date: 2022-07-15 23:39:13
+title: git的理解使用
 tags: ["git"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期日, 八月 21日 2022, 10:00:53 上午
 ---
 #git
 
@@ -12,22 +13,22 @@ tags: ["git"]
 [look this](https://ohshitgit.com/zh)
 
 ## Git Message 提交规范
-feat: 新功能、新特性 
-fix: 修改 bug perf: 更改代码，以提高性能 
-refactor: 代码重构（重构，在不影响代码内部行为、功能下的代码修改） 
-docs: 文档修改 
-style: 代码格式修改, 注意不是 css 修改（例如分号修改） 
-test: 测试用例新增、修改 
-build: 影响项目构建或依赖项修改 
-revert: 恢复上一次提交 
-ci: 持续集成相关文件修改 
-chore: 其他修改（不在上述类型中的修改） 
+feat: 新功能、新特性
+fix: 修改 bug perf: 更改代码，以提高性能
+refactor: 代码重构（重构，在不影响代码内部行为、功能下的代码修改）
+docs: 文档修改
+style: 代码格式修改, 注意不是 css 修改（例如分号修改）
+test: 测试用例新增、修改
+build: 影响项目构建或依赖项修改
+revert: 恢复上一次提交
+ci: 持续集成相关文件修改
+chore: 其他修改（不在上述类型中的修改）
 release: 发布新版本 workflow: 工作流相关文件修改
 
 
 ### 添加远程仓库
 
-运行 `git remote add <shortname> <url>` 添加一个新的远程 Git 仓库，同时指定一个方便使用的简写. 
+运行 `git remote add <shortname> <url>` 添加一个新的远程 Git 仓库，同时指定一个方便使用的简写.
 
 > 一般shortname为**origin**
 
@@ -86,9 +87,6 @@ git branch -f main HEAD~3
 上面的命令会将 main 分支强制指向 HEAD 的第 3 级父提交。
 
 > 这里的HEAD是当前HEAD所在的分支，不是强制移动分支那个HEAD
-
-
-
 
 
 ## 撤销变更

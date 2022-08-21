@@ -4,6 +4,8 @@ nmap k gk
 " I like using H and L for beginning/end of line
 nmap H ^
 nmap L $
+nmap J 5j
+nmap K 5k
 " Quickly remove search highlights
 nmap <F9> :nohl
 

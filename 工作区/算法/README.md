@@ -2,7 +2,7 @@
 title: README
 tags: ["算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期五, 八月 19日 2022, 10:09:18 晚上
+修改时间: 星期日, 八月 21日 2022, 7:24:38 晚上
 ---
 # README
 
@@ -31,3 +31,5 @@ tags: ["算法"]
 
 ### 数组的改变、移动
 - 453 done [[LeetCode（简单）#453 最小操作次数使数组元素相等 https leetcode cn problems minimum-moves-to-equal-array-elements]]
+- 665 done [[LeetCode（简单）#665 非递减数列 https leetcode cn problems non-decreasing-array]]
+- 283 done [[LeetCode（简单）#283 移动零 https leetcode cn problems move-zeroes]]

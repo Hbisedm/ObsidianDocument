@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期五, 八月 19日 2022, 10:08:39 晚上
+修改时间: 星期日, 八月 21日 2022, 7:23:16 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -2491,11 +2491,111 @@ var minMoves = function(nums) {
 ```
 
 
+## [665. 非递减数列](https://leetcode.cn/problems/non-decreasing-array/)
+
+### 题解
+本以为找出数组中一个前面比后面大的数就可以了
+但是这种情况`[4,2,5]` `[4,2,1]`就不符合上述说的那样了
+
+需要定义一个指针，然后指向当前的数需要与前面的数作对比，若前面的数字大，还需要判断前面的前面的数
+- 大于 `[4, 5, 3]`
+	- `nums[i] = nums[i - 1]`
+- 小于 `[4, 7, 6]`
+	- `nums[i - 1] = nums[i]`
+目的是让数组恢复成一个递减的形式
+
+当然需要判断 临界条件
+当index为1的时候，就不能判断`nums[i - 2]` 直接 `nums[i] = nums[i - 1]` 即可
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var checkPossibility = function(nums) {
+    let count = 0
+    for(let i = 1; i < nums.length; i++) {
+        if(nums[i -1 ] > nums[i]){
+            if( i === 1 ||  nums[i] >=  nums[i - 2]) {
+                nums[i - 1] = nums[i]
+            }else {
+                nums[i] = nums[i - 1]
+            }
+             count++
+        }
+    }
+    return count <= 1
+};
+```
+
+
+
+
+## [283. 移动零](https://leetcode.cn/problems/move-zeroes/)
+
+
+### 题解
+
+遍历一次数组，计算0的个数和删除对应位置
+再一次遍历，添加count个0到数组结尾
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function(nums) {
+    const len = nums.length
+    let count = 0
+
+    for(let i = len - 1; i >= 0; i-- ){
+        if(0 === nums[i]){
+            count++
+            nums.splice(i, 1)
+            console.log(nums)
+        }
+    }
+    for(let i = 0; i < count; i++){
+        nums.push(0)
+    }
+    return nums
+};
+
+```
+
+
+使用双指针
+- 一个指针遍历整个数组，碰到不是0的数就让另一个指针赋值这个数， 这样就会把另一个指针的下标停在前面都不是0的索引上
+
+```js
+
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function(nums) {
+    const len = nums.length
+    let j = 0
+    for(let i = 0; i < len; i++){
+        if(nums[i] !== 0) {
+            nums[j++] = nums[i]
+        }
+    }
+    for(let i = j; i < len; i++){
+        nums[i] = 0
+    }
+    return nums
+};
+```
+
+
+
+
+
 
 
 
 ## Todo
-
 
 
 
