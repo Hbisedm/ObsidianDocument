@@ -98,7 +98,7 @@ tsconfig.json
 ```shell
 cd examples
 pnpm init
-pnpm install vite @vite/plugin-vue -D -w
+pnpm install vite @vitejs/plugin-vue -D -w
 ```
 
 @vitejs/plugin-vue用来支持.vue文件的转译

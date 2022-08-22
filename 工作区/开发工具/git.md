@@ -2,7 +2,7 @@
 title: git的理解使用
 tags: ["git"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期日, 八月 21日 2022, 10:00:53 上午
+修改时间: 星期一, 八月 22日 2022, 2:35:26 下午
 ---
 #git
 
@@ -11,6 +11,12 @@ tags: ["git"]
 ## Git 撤回操作
 
 [look this](https://ohshitgit.com/zh)
+
+
+### Git rebase撤回
+
+1. git reflog 找出目标HEAD
+2. git reset --hard `目标HEAD` 如 `git reset --hard HEAD@{23}`
 
 ## Git Message 提交规范
 feat: 新功能、新特性

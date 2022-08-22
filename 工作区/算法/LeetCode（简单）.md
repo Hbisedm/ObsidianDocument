@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期日, 八月 21日 2022, 7:23:16 晚上
+修改时间: 星期一, 八月 22日 2022, 1:29:16 下午
 ---
 #刷题 #算法 #LeetCode
 
@@ -2591,18 +2591,63 @@ var moveZeroes = function(nums) {
 
 
 
+## [118. 杨辉三角](https://leetcode.cn/problems/pascals-triangle/)
+
+### 题解
+
+1. 先处理二维数组的边缘情况
+2. 从第2个数组开始遍历处理，当前节点等于上一个的数组的左右两边的和
+
+```js
+
+/**
+ * @param {number} numRows
+ * @return {number[][]}
+ */
+var generate = function(numRows) {
+    let res = new Array(numRows)
+    for(let i = 0; i < numRows; i++) {
+        const swapArr = new Array(i + 1)
+        swapArr[0] = 1
+        swapArr[i] = 1
+        res[i] = swapArr
+    }
+    // 以上生成准备好的数组
+    let i = 2
+    if(numRows > i) {
+        
+        while(i < numRows) {
+            for(let j = 1; j < res[i].length - 1; j++){
+                res[i][j] = res[i-1][j-1] + res[i-1][j]
+            }
+            i++
+        }
+    }
+    return res
+}; 
+
+```
 
 
+官方题解
+```js
+
+var generate = function(numRows) {
+    const ret = [];
+
+    for (let i = 0; i < numRows; i++) {
+        const row = new Array(i + 1).fill(1);
+        for (let j = 1; j < row.length - 1; j++) {
+            row[j] = ret[i - 1][j - 1] + ret[i - 1][j];
+        }
+        ret.push(row);
+    }
+    return ret;
+};
+```
 
 
 ## Todo
-
-
-
-
-
-
-
 
 
 

@@ -2,9 +2,18 @@
 title: README
 tags: ["算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期日, 八月 21日 2022, 7:24:38 晚上
+修改时间: 星期一, 八月 22日 2022, 1:32:20 下午
 ---
 # README
+
+>  看到这个句话挺符合我的，哈哈哈
+>
+> - 简单题我重拳出击
+> - 中等题我努力思考
+> - 困难题我复制粘贴
+
+
+
 
 
 [算法模板](https://programmercarl.com/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF.html#%E5%85%B6%E4%BB%96%E8%AF%AD%E8%A8%80%E7%89%88%E6%9C%AC)
@@ -33,3 +42,7 @@ tags: ["算法"]
 - 453 done [[LeetCode（简单）#453 最小操作次数使数组元素相等 https leetcode cn problems minimum-moves-to-equal-array-elements]]
 - 665 done [[LeetCode（简单）#665 非递减数列 https leetcode cn problems non-decreasing-array]]
 - 283 done [[LeetCode（简单）#283 移动零 https leetcode cn problems move-zeroes]]
+
+### 二维数组及滚动数组
+- 118 done [[LeetCode（简单）#118 杨辉三角 https leetcode cn problems pascals-triangle]]
+- 119
