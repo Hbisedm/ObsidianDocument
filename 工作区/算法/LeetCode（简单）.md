@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期一, 八月 22日 2022, 1:29:16 下午
+修改时间: 星期二, 八月 23日 2022, 9:35:43 上午
 ---
 #刷题 #算法 #LeetCode
 
@@ -2645,6 +2645,45 @@ var generate = function(numRows) {
     return ret;
 };
 ```
+
+
+
+## [119. 杨辉三角 II](https://leetcode.cn/problems/pascals-triangle-ii/)
+
+### 题解
+
+使用一个数组，每次遍历当前索引。拿上一个当前索引和当前索引减1的和作为当前的值。
+那么每次只需要将上一个数组平移到下一个数组，数组大小加1。
+```js
+/**
+ * @param {number} rowIndex
+ * @return {number[]}
+ */
+var getRow = function(rowIndex) {
+    if(rowIndex < 0 ) return []
+    const res = [ 1 ]
+    for(let i = 1; i <= rowIndex; i++){
+        let pervVal = 0
+        for(let j = 0; j < i + 1; j++) {
+            const temp = res[j] || 0
+            res[j] = temp + pervVal
+            // 保存上一个位置的值
+            pervVal = temp 
+        }
+    }
+    return res
+};
+
+```
+
+
+
+
+
+
+
+
+
 
 
 ## Todo
