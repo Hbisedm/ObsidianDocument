@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期二, 八月 23日 2022, 9:35:43 上午
+修改时间: 星期四, 八月 25日 2022, 5:03:56 下午
 ---
 #刷题 #算法 #LeetCode
 
@@ -2677,16 +2677,112 @@ var getRow = function(rowIndex) {
 ```
 
 
+## [661. 图片平滑器](https://leetcode.cn/problems/image-smoother/)
+
+### 题解
+
+拿到当前元素的周边8个的平均值
+- 采用遍历的方式
+- 前缀和(还没掌握)
+
+```js
+
+/**
+ * @param {number[][]} img
+ * @return {number[][]}
+ */
+var imageSmoother = function(img) {
+    const m = img.length, n = img[0].length
+    // 初始化一个新数组
+    const result = new Array(m).fill(0).map(() => new Array(n).fill(0))
+    for(let i = 0; i < m; i++) {
+        for(let j = 0; j < n; j++) {
+            let count = 0, sum = 0;
+            // 遍历处理当前元素的边缘情况
+            for(let x = i-1; x <= i+1; x++) {
+                for(let y = j-1; y <= j+1; y++) {
+                    if(x >= 0 && x < m && y>=0 && y < n) {
+                        count++
+                        sum += img[x][y]
+                    }
+                }
+            }
+            result[i][j] = Math.floor(sum / count)
+        }
+    }
+    return result
+};
+```
+
+## [598. 范围求和 II](https://leetcode.cn/problems/range-addition-ii/)
+
+### 题解
+
+暴力遍历解决,但是好像执行时间过长，这个方法不可行
+
+```js
+
+/**
+ * @param {number} m
+ * @param {number} n
+ * @param {number[][]} ops
+ * @return {number}
+ */
+var maxCount = function(m, n, ops) {
+    let max = 0
+    // 生成二维数组
+    const arr = new Array(m).fill(0).map(i => new Array(n).fill(0))
 
 
+    for(let item of ops) {
+        const ai = item[0]
+        const bi = item[1]
+        for(let i = 0; i < ai; i++) {
+            for(let j = 0; j < bi; j++) {
+                arr[i][j]++
+            }
+        }
+        max++
+    }
+    let count = 0
+    arr.forEach(item => {
+        item.forEach(i => {
+            if(i === max) count++
+        })
+    })
+    return count
+}; 
+```
 
 
+看了题解后
+因为每次都是从(0,0)这个点开始计算面积的
+所以计算出ops中的x、y的最小值
+进行相乘的结果就是最终结果
 
-
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @param {number[][]} ops
+ * @return {number}
+ */
+var maxCount = function(m, n, ops) {
+    let minx = m
+    let miny = n
+    ops.forEach(item=>{
+        minx = Math.min(item[0], minx)
+        miny = Math.min(item[1], miny)
+    })
+    return minx * miny
+}; 
+```
 
 
 
 ## Todo
+
+
 
 
 
