@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期四, 八月 25日 2022, 5:03:56 下午
+修改时间: 星期五, 八月 26日 2022, 3:18:49 下午
 ---
 #刷题 #算法 #LeetCode
 
@@ -2779,8 +2779,80 @@ var maxCount = function(m, n, ops) {
 ```
 
 
+## [419. 甲板上的战舰](https://leetcode.cn/problems/battleships-in-a-board/)
 
-## Todo
+### 题解
+
+枚举出甲板上的战舰
+矩阵某个位置设为`[i][j]`, 初始时统计数量为0
+然后计算战舰个数, 满足下面条件 个数＋1
+`board[i][j] === 'X'` 表示当前有战舰
+`board[i - 1][j] === '.'` 表示左边是个空位
+`board[i][j - 1] === '.'` 表示上边是个空位
+
+```js
+/**
+ * @param {character[][]} board
+ * @return {number}
+ */
+var countBattleships = function(board) {
+    const y = board.length
+    const x = board[0].length
+    let result = 0
+    for(let i = 0; i < y; i++) {
+        for(let j = 0; j < x; j++) {
+            if(board[i][j] === 'X'){
+                if(j > 0 && board[i][j - 1] === 'X') {
+                    continue
+                }
+                if(i > 0 && board[i - 1][j] === 'X') {
+                    continue
+                }
+                result++
+            }
+        }
+    }
+    return result
+};
+```
+
+
+当然也可以每次遍历时 将当前位置`board[i][j] === 'X'` 设置为`'.'`
+然后根据当前位置为起始点遍历它的右边或者下边 设置为 `'.'`
+然后统计数量＋1
+
+这样的算法也是可以计算出结果
+
+```js
+var countBattleships = function(board) {
+    const row = board.length;
+    const col = board[0].length;
+    let ans = 0;
+    for (let i = 0; i < row; ++i) {
+        for (let j = 0; j < col; ++j) {
+            if (board[i][j] === 'X') {
+                board[i][j] = '.';
+                for (let k = j + 1; k < col && board[i][k] === 'X'; ++k) {
+                    board[i][k] = '.';
+                }                    
+                for (let k = i + 1; k < row && board[k][j] === 'X'; ++k) {
+                    board[k][j] = '.';
+                }
+                ans++;
+            }
+        }
+    }
+    return ans;
+};
+
+```
+
+
+
+
+
+k## Todo
+
 
 
 

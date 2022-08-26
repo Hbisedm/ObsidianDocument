@@ -2,7 +2,7 @@
 title: README
 tags: ["算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期三, 八月 24日 2022, 10:02:28 上午
+修改时间: 星期五, 八月 26日 2022, 3:15:45 下午
 ---
 # README
 
@@ -47,3 +47,5 @@ tags: ["算法"]
 - 118 done [[LeetCode（简单）#118 杨辉三角 https leetcode cn problems pascals-triangle]]
 - 119 dene [[LeetCode（简单）#119 杨辉三角 II https leetcode cn problems pascals-triangle-ii]]
 - 661 done[[LeetCode（简单）#661 图片平滑器 https leetcode cn problems image-smoother]]
+- 598 done [[LeetCode（简单）#598 范围求和 II https leetcode cn problems range-addition-ii]]
+- 419 done [[LeetCode（简单）#419 甲板上的战舰 https leetcode cn problems battleships-in-a-board]]
