@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期五, 八月 26日 2022, 3:18:49 下午
+修改时间: 星期六, 八月 27日 2022, 11:25:17 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -2849,9 +2849,28 @@ var countBattleships = function(board) {
 
 
 
+## [189. 轮转数组](https://leetcode.cn/problems/rotate-array/)
+
+### 题解
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var rotate = function(nums, k) {
+    let realK = k % nums.length 
+    const a = nums.splice(-realK)
+
+    for(let i = a.length - 1; i >= 0; i--) {
+        nums.unshift(a[i])
+    }
+};
+```
 
 
-k## Todo
+## Todo
 
 
 
