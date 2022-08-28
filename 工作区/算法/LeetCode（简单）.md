@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期六, 八月 27日 2022, 11:25:17 晚上
+修改时间: 星期日, 八月 28日 2022, 3:19:31 下午
 ---
 #刷题 #算法 #LeetCode
 
@@ -2867,6 +2867,91 @@ var rotate = function(nums, k) {
         nums.unshift(a[i])
     }
 };
+```
+
+
+## [396. 旋转函数](https://leetcode.cn/problems/rotate-function/)
+
+### 题解
+
+确认个初始状态
+`F(0) = 0 * nums[0] + ... + nums.length - 1 * nums[nums.length - 1] `
+`F(1) = 1 * nums[0] + ... + 0 * nums[nums.length - 1]`
+
+
+从上一个状态到当前的状态的变化就是 `F(0) + sum - n * nums[nums.length - 1]`
+`sum = _.sum(nums)` nums数组的总和
+
+然后取出F(k)的最大值(0 < k < nums.length)
+
+
+```js
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxRotateFunction = function(nums) {
+
+    let len = nums.length 
+    const sum = _.sum(nums)
+    let init = 0
+    // 拿到F(0)
+    for(let i = 0; i < len ; i++) {
+        init += i * nums[i]
+    }
+    let max = init
+    let start = len - 1
+    let prev = init 
+    while(start > 0) {
+        const curr = prev + sum - len * nums[start]
+        max = Math.max(max, curr)
+        prev = curr
+        start--
+    }
+    return max
+};
+```
+
+官方题解
+
+```js
+
+
+var maxRotateFunction = function(nums) {
+    let f = 0, n = nums.length, numSum = _.sum(nums);
+    for (let i = 0; i < n; i++) {
+        f += i * nums[i];
+    }
+    let res = f;
+    for (let i = n - 1; i > 0; i--) {
+        f += numSum - n * nums[i];
+        res = Math.max(res, f);
+    }
+    return res;
+};
+
+
+```
+
+
+也可以使用dp, 每个数组元素映射为每个状态
+
+```js
+
+var maxRotateFunction = function(nums) {
+  const sum = nums.reduce((acc, cur) => acc + cur);
+  let dp = [...Array(nums.length).fill(0)];
+  dp[0] = nums.reduce((acc, cur, i) => acc + cur * i, 0);
+  let max = dp[0];
+  const length = nums.length;
+  for (let i = 1, j = length - 1; i < length; i++, j--) {
+    dp[i] = dp[i - 1] + sum - length * nums[j];
+    max = Math.max(max, dp[i]);
+  }
+  return max;
+};
+
 ```
 
 

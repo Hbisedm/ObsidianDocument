@@ -2,7 +2,7 @@
 title: README
 tags: ["算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期六, 八月 27日 2022, 11:27:19 晚上
+修改时间: 星期日, 八月 28日 2022, 3:20:06 下午
 ---
 # README
 
@@ -52,3 +52,4 @@ tags: ["算法"]
 
 ### 数组的旋转
 - 189 done [[LeetCode（简单）#189 轮转数组 https leetcode cn problems rotate-array]]s
+- 396 dome [[LeetCode（简单）#396 旋转函数 https leetcode cn problems rotate-function]]
