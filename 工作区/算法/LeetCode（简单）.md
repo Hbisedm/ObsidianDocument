@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期日, 八月 28日 2022, 3:19:31 下午
+修改时间: 星期一, 八月 29日 2022, 9:29:03 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -2955,7 +2955,55 @@ var maxRotateFunction = function(nums) {
 ```
 
 
+## [54. 螺旋矩阵](https://leetcode.cn/problems/spiral-matrix/)
+
+### 题解
+
+从外部向内部逐层遍历打印矩阵，最外面一圈打印完，里面仍然是一个矩阵
+统计矩阵的层数，每一层最多会占据两行或者两列，最少会占据一行或者一列元素，只有一层或者一列，也算一层，
+
+
+打印第i层的矩阵时，要经历4个循环：
+
+第 1 个：从左向右
+第 2 个：从上往下
+第 3 个：从右往左，如果这一层只有1行，那么第一个循环已经将该行打印了，这里就不需要打印了，即 `（m-1-i ）!= i`
+第4个：从下往上，如果这一层只有1列，那么第2个循环已经将该列打印了，这里不需要打印，即`(n-1-i) != i`
+
+```ts
+function spiralOrder(matrix: number[][]): number[] {
+const list: number[] = []
+if(matrix === null || matrix.length === 0) {
+    return list
+}
+const m = matrix.length
+const n = matrix[0].length
+let i = 0 // 当前层数
+const count = Math.floor((Math.min(n, m) + 1) / 2) //统计从外向内的层数
+while(i < count) {
+    
+    for(let j = i; j < n - i; j++) {    
+        list.push(matrix[i][j])
+    }
+    for(let j = i + 1; j < m - i; j++){       
+        list.push(matrix[j][n-1-i])
+    }
+    for(let j = (n-1)-(i+1); j >= i && m - 1 -i !== i; j--){
+        list.push(matrix[m-i-1][j])
+    }
+
+    for(let j = (m-1)-(i+1); j >= i+1 && (n-1-i) !== i; j--){
+        list.push(matrix[j][i])
+    }
+    i++
+}
+return list
+};
+```
+
+
 ## Todo
+
 
 
 
