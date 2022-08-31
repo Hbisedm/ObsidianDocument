@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期一, 八月 29日 2022, 9:29:03 晚上
+修改时间: 星期三, 八月 31日 2022, 9:35:41 上午
 ---
 #刷题 #算法 #LeetCode
 
@@ -3002,7 +3002,80 @@ return list
 ```
 
 
+
+
+## [LCS 02. 完成一半题目](https://leetcode.cn/problems/WqXACV/)
+
+### 题解:
+
+一道贪心的解法
+先拿到记录每个key的次数的对象 如 {3: 2, 4: 3} 3的出现次数是2，4的出现次数是3。
+
+统计每个数的个数，按个数从大到小排序，然后依次选择直到选择个数超过 n/2。
+
+```js
+/**
+ * @param {number[]} questions
+ * @return {number}
+ */
+var halfQuestions = function(questions) {
+    const map = {}, len = questions.length/2
+    questions.reduce((prev, curr) => {
+        map[curr] ? map[curr]++ : map[curr] = 1
+    }, {})
+    const arr = Object.values(map).sort((a, b) => b - a)
+    let count = 0
+    for(let i = 0; i < arr.length; i++) {
+        count += arr[i]
+        if(count >= len) return i + 1
+    }
+};
+
+```
+
+
+## [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/)
+
+### 题解
+
+使用二分法进行搜索且记录当前的位置,搜不到目标值就返回当前的位置＋1
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function(nums, target) {
+    // 二分查找的题目
+    let prev = 0
+    let left = 0, right = nums.length - 1;
+    while(left <= right) {
+        const average = left + Math.floor((right - left) / 2)
+        if(nums[average] > target) { // 左边
+            prev = average - 1
+            right = average - 1
+        }
+        else if(nums[average] < target) { // 右边
+            prev = average 
+            left = average + 1  
+        }
+        else { // 搜到目标
+            return average
+        }
+    }
+    return prev + 1
+};
+```
+
+
+
+
+
+
 ## Todo
+
+
 
 
 
