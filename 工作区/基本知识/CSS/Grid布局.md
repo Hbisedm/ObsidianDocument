@@ -2,7 +2,7 @@
 title: Grid布局的笔记
 tags: ["Grid", "CSS"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期四, 七月 28日 2022, 1:21:03 下午
+修改时间: 星期四, 九月 1日 2022, 10:25:12 晚上
 ---
 #CSS #Grid #布局
 
@@ -467,3 +467,23 @@ place-self: <align-self> <justify-self>;
 place-self: center center;
 ```
 如果省略第二个值，`place-self`属性会认为这两个值相等。
+
+
+## 理解
+
+容器 与 项目 两个概念 等于 父 与 子
+
+容器的`justify-items 和 align-items` 设置**项目内容**的`水平与垂直`摆放方式
+映射到项目就是`justify-self 和 align-self`
+
+容器的`justify-content 和 align-content` 指的是项目的摆放方式
+
+容器的属性一般用于设置整体布局的排放
+项目的属性一般用于当前项目的位置
+
+`column` 列
+`row` 行
+
+一般设置整体布局后再填充内容
+
+flex 和 grid 的目的在于布局 layout

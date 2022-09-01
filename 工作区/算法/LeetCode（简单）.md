@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期三, 八月 31日 2022, 9:35:41 上午
+修改时间: 星期四, 九月 1日 2022, 9:06:56 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -3069,12 +3069,53 @@ var searchInsert = function(nums, target) {
 ```
 
 
+## [345. 反转字符串中的元音字母](https://leetcode.cn/problems/reverse-vowels-of-a-string/)
 
+### 题解
+
+一道双指针的题目
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseVowels = function(s) {
+    const arr = s.split('')
+    
+    let startIndex = 0
+
+    let endIndex = arr.length - 1
+
+    const  vowels = ['a', 'e', 'i', 'o', 'u']
+
+    const swap = (arr, left, right) => {
+        const s = arr[left]
+        arr[left] = arr[right]
+        arr[right] = s
+    }
+
+    while(startIndex < endIndex) {
+        if(vowels.includes(arr[startIndex].toLocaleLowerCase())){
+            if(vowels.includes(arr[endIndex].toLocaleLowerCase())){
+                swap(arr, startIndex, endIndex)
+                startIndex++
+                endIndex--
+            }else {
+                endIndex--
+            }
+        }else {
+            startIndex++
+        }
+    }
+
+    return arr.join('')
+};
+```
 
 
 
 ## Todo
-
 
 
 
