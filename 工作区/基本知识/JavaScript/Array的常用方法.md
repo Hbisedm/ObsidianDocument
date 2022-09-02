@@ -1,8 +1,9 @@
 ---
-title: JavaScript的Array的常用方法
-date: 2022-05-26 12:42:26
+title: 构造函数or普通函数的使用
 tags: ["JavaScript", 数组]
 excerpt: Array的常用方法列表
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期五, 九月 2日 2022, 9:46:57 晚上
 ---
 
 #JavaScript #数组方法 #常用
@@ -33,7 +34,7 @@ new Array(1, 2, 3)// [1, 2, 3]
 
 ![常用方法](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205191738856.png)
 
-### 生成类似[1-100]这样的的数组：
+## 生成类似[1-100]这样的的数组：
 
 测试大量数据的数组时可以这样生成：
 
