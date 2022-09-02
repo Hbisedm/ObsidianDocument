@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期四, 九月 1日 2022, 9:06:56 晚上
+修改时间: 星期六, 九月 3日 2022, 12:10:57 凌晨
 ---
 #刷题 #算法 #LeetCode
 
@@ -3114,8 +3114,48 @@ var reverseVowels = function(s) {
 ```
 
 
+## [374. 猜数字大小](https://leetcode.cn/problems/guess-number-higher-or-lower/)
+
+### 题解
+使用二分法进行处理
+
+```js
+/** 
+ * Forward declaration of guess API.
+ * @param {number} num   your guess
+ * @return 	            -1 if num is lower than the guess number
+ *			             1 if num is higher than the guess number
+ *                       otherwise return 0
+ * var guess = function(num) {}
+ */
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var guessNumber = function(n) {
+    let left = 1
+    let right = n
+    while(left < right) {
+        let swap = left + Math.floor((right - left) / 2)
+        if(guess(swap) === -1) { // 小于
+            right = swap
+        }
+        else if(guess(swap) === 1) { // 大于
+            left = swap + 1       
+        }else {
+            return swap
+        }
+    }
+    return left
+};
+```
+
+好好理解处理边界问题
+
 
 ## Todo
+
 
 
 
