@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期六, 九月 3日 2022, 12:10:57 凌晨
+修改时间: 星期六, 九月 3日 2022, 11:04:06 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -3154,7 +3154,73 @@ var guessNumber = function(n) {
 好好理解处理边界问题
 
 
+
+## [925. 长按键入](https://leetcode.cn/problems/long-pressed-name/)
+
+### 题解
+
+2个指针判断
+
+```js
+
+/**
+ * @param {string} name
+ * @param {string} typed
+ * @return {boolean}
+ */
+var isLongPressedName = function(name, typed) {
+    let nameIndex = 0, typedIndex = 0
+    while(nameIndex < name.length && typedIndex < typed.length) {
+        if(name[nameIndex] === typed[typedIndex]) {
+            nameIndex++
+            typedIndex++
+        }else {
+            if(typed[typedIndex] !== typed[typedIndex - 1]) {
+                return false
+            }else {
+                typedIndex++
+            } 
+        }
+    }
+    while(typedIndex < typed.length){
+        if(name[nameIndex - 1] === typed[typedIndex]){
+            typedIndex++
+        }else {
+            return false
+        }
+    }
+    return nameIndex === name.length
+};
+
+```
+官方例子
+
+```js
+
+var isLongPressedName = function(name, typed) {
+    const n = name.length, m = typed.length;
+    let i = 0, j = 0;
+    while (j < m) {
+        if (i < n && name[i] === typed[j]) {
+            i++;
+            j++;
+        } else if (j > 0 && typed[j] === typed[j - 1]) {
+            j++;
+        } else {
+            return false;
+        }
+    }
+    return i === n;
+};
+
+
+```
+
+
+
+
 ## Todo
+
 
 
 
