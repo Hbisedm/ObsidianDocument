@@ -2,7 +2,7 @@
 title: react-JSX的笔记
 tags: ["react-JSX"]
 创建时间: 星期六, 九月 3日 2022, 5:53:22 下午
-修改时间: 星期六, 九月 3日 2022, 9:59:45 晚上
+修改时间: 星期日, 九月 4日 2022, 3:47:58 下午
 ---
 #jsx #react
 
@@ -248,4 +248,23 @@ render() {
 
 
 ## 本质
+
+jsx -> createElement(函数) -> ReactElement(对象) -> ReactDOM.render -> 真实DOM
+
+为什么需要虚拟DOM (性能)
+
+- 很难跟踪状态发生的改变
+	- 传统开发 使用console.log() / debugger
+	- vue or react 可以使用浏览器对应的devtool插件
+- 操作真实DOM性能较低
+	- 传统开发频繁操作DOM，性能低
+	- DOM操作引起浏览器的回流和重绘
+- 命令式编程 => 生命式编程
+- 虚拟DOM的编程理念
+	- UI以一种理想化或虚拟化的方式存在内存中。
+	- 通过ReactDOM.render 将虚拟DOM和真实DOM同步起来，这个过程叫做协调(Reconciliation)
+-  
+
+
+
 

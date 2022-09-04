@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期六, 九月 3日 2022, 11:04:06 晚上
+修改时间: 星期日, 九月 4日 2022, 10:40:34 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -3219,7 +3219,84 @@ var isLongPressedName = function(name, typed) {
 
 
 
+## [605. 种花问题](https://leetcode.cn/problems/can-place-flowers/)
+
+### 题解
+
+将每个下标的判断情况抽离出来
+然后遍历整个数组
+
+```js
+/**
+ * @param {number[]} flowerbed
+ * @param {number} n
+ * @return {boolean}
+ */
+var canPlaceFlowers = function(flowerbed, n) {
+    const okRaise = (index) => {
+        if(flowerbed[index] === 1) {
+            return false
+        }
+        if(flowerbed[index - 1] && flowerbed[index - 1] === 1) {
+            return false
+        }
+        if(flowerbed[index + 1] && flowerbed[index + 1] === 1) {
+            return false
+        }
+        return true
+    }
+    for(let i = 0; i < flowerbed.length; i++) {
+        if(okRaise(i)) {
+            flowerbed[i] = 1 
+            n--
+        }
+    }
+    return n <= 0
+};
+```
+
+别人的题解
+
+【1】当遍历到index遇到1时，说明这个位置有花，那必然从index+2的位置才有可能种花，因此当碰到1时直接跳过下一格。
+【2】当遍历到index遇到0时，由于每次碰到1都是跳两格，因此前一格必定是0，此时只需要判断下一格是不是1即可得出index这一格能不能种花，如果能种则令n减一，然后这个位置就按照遇到1时处理，即跳两格；如果index的后一格是1，说明这个位置不能种花且之后两格也不可能种花（参照【1】），直接跳过3格。
+
+这样只遍历一次就可以了，而且也不用改变原来的结构，更复合原题目
+
+```js
+/**
+ * @param {number[]} flowerbed
+ * @param {number} n
+ * @return {boolean}
+ */
+var canPlaceFlowers = function(flowerbed, n) {
+    
+    const len = flowerbed.length
+
+    for(let i = 0; i < len && n > 0;) {
+        if(flowerbed[i] === 1){
+            i = i + 2
+            continue
+        }
+        if(flowerbed[i+1] === 0 || i === len - 1) {
+            n--
+            i= i + 2
+            continue
+        }
+        if(flowerbed[i+1] ===1) {
+            i = i + 3
+            continue
+        }
+    }
+    return n <= 0
+};
+```
+
+
+
+
+
 ## Todo
+
 
 
 
