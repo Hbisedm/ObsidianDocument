@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期日, 九月 4日 2022, 10:40:34 晚上
+修改时间: 星期二, 九月 6日 2022, 10:25:11 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -3293,9 +3293,65 @@ var canPlaceFlowers = function(flowerbed, n) {
 
 
 
+## [7. 整数反转](https://leetcode.cn/problems/reverse-integer/)
+
+### 题解
+
+- 每次进入while都需要判断当前的值是否越界了。
+- javaScript的除法是带有小数 需要使用`~~`进行过滤小数，若使用`Math.floor`对负数拿到的值不是我们想要的效果。
+
+```js
+var reverse = function(x) {
+    let res = 0;
+    while(x){
+        res = res * 10 + x % 10;
+        if(res > Math.pow(2, 31) - 1 || res < Math.pow(-2, 31)) return 0;
+        x = ~~(x / 10);
+    }
+    return res;
+};
+
+```
+
+## [682. 棒球比赛](https://leetcode.cn/problems/baseball-game/)
+
+### 题解
+
+```js
+/**
+ * @param {string[]} ops
+ * @return {number}
+ */
+var calPoints = function(ops) {
+    const res = []
+    for(let i = 0; i < ops.length; i++) {
+        switch(ops[i]){
+            case 'C': {
+                res.pop()
+                break
+            }
+            case 'D': {
+                const swap = res[res.length - 1]
+                res.push(swap*2)
+                break
+            }
+            case '+': {
+                res.push(res[res.length - 1] + res[res.length - 2])
+                break
+            }
+            default: {
+                res.push(parseInt(ops[i]))
+            }
+        }
+    }
+    return res.reduce((prev, curr) => prev + curr, 0)
+};
+```
+
 
 
 ## Todo
+
 
 
 
