@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期二, 九月 6日 2022, 10:25:11 晚上
+修改时间: 星期三, 九月 7日 2022, 9:09:57 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -3350,15 +3350,63 @@ var calPoints = function(ops) {
 
 
 
+## [226. 翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/)
+
+### 题解
+
+采用深度优先遍历
+
+```js
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var invertTree = function(root) {
+    const dfs = (root) => {
+        if(!root) return
+        const swap = root.left
+        root.left = root.right
+        root.right = swap
+        if(root.left) dfs(root.left)
+        if(root.right) dfs(root.right)
+    }
+    dfs(root)
+    return root
+};
+```
+
+
+官方题解 采用递归
+
+这是一道很经典的二叉树问题。显然，我们从根节点开始，递归地对树进行遍历，并从叶子节点先开始翻转。如果当前遍历到的节点 root 的左右两棵子树都已经翻转，那么我们只需要交换两棵子树的位置，即可完成以 root 为根节点的整棵子树的翻转。
+
+```js
+var invertTree = function(root) {
+    if (root === null) {
+        return null;
+    }
+    const left = invertTree(root.left);
+    const right = invertTree(root.right);
+    root.left = right;
+    root.right = left;
+    return root;
+};
+
+```
+
+
+
+
 ## Todo
-
-
-
-
-
-
-
-
 
 
 
