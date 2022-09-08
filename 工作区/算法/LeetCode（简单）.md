@@ -3405,6 +3405,53 @@ var invertTree = function(root) {
 
 
 
+## [257. 二叉树的所有路径](https://leetcode.cn/problems/binary-tree-paths/)
+
+### 题解
+
+```js
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {string[]}
+ */
+var binaryTreePaths = function(root) {
+    
+    const res = []
+
+    const dfs = (root, str) => {
+
+        if(!root) return ''
+        
+        if(!root.left && !root.right){
+             str += root.val  
+            res.push(str)
+            return 
+        }else {
+             str += root.val + '->' 
+        }
+
+        if(root.left) dfs(root.left, str)
+        if(root.right) dfs(root.right, str)
+
+    }
+
+    if(root.val) dfs(root, '')
+
+    return res
+
+};
+```
+
+
 
 ## Todo
 
