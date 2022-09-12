@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期三, 九月 7日 2022, 9:09:57 晚上
+修改时间: 星期一, 九月 12日 2022, 5:56:25 下午
 ---
 #刷题 #算法 #LeetCode
 
@@ -3452,9 +3452,76 @@ var binaryTreePaths = function(root) {
 ```
 
 
+## [1002. 查找共用字符](https://leetcode.cn/problems/find-common-characters/)
+
+### 题解
+
+1. 可以采用计数的方法
+
+```js
+
+var commonChars = function (words) {
+	let res = []
+	let size = 26
+	let firstHash = new Array(size)
+	for (let i = 0; i < size; i++) { // 初始化 hash 数组
+		firstHash[i] = 0
+	}
+
+	let a = "a".charCodeAt()
+	let firstWord = words[0]
+	for (let i = 0; i < firstWord.length; i++) { // 第 0 个单词的统计
+		let idx = firstWord[i].charCodeAt()
+		firstHash[idx - a] += 1
+	}
+
+	for (let i = 1; i < words.length; i++) { // 1-n 个单词统计
+		let otherHash = new Array(size)
+		for (let i = 0; i < size; i++) { // 初始化 hash 数组
+			otherHash[i] = 0
+		}
+
+		for (let j = 0; j < words[i].length; j++) {
+			let idx = words[i][j].charCodeAt()
+			otherHash[idx - a] += 1
+		}
+		for (let i = 0; i < size; i++) {
+			firstHash[i] = Math.min(firstHash[i], otherHash[i])
+		}
+	}
+	for (let i = 0; i < size; i++) {
+		while (firstHash[i] > 0) {
+			res.push(String.fromCharCode(i + a))
+			firstHash[i]--
+		}
+	}
+	return res
+};
+
+```
+
+2. 采用JS中数组的API快速实现
+
+```js
+/**
+ * @param {string[]} words
+ * @return {string[]}
+ */
+var commonChars = function(words) {
+    const result = [], first = words[0].split('')
+    for(let char of first) {
+        if(words.every(item=>item.includes(char))) {
+            result.push(char)
+            words = words.map(item => item.replace(char, ''))
+        }
+    }
+    return result
+};
+```
+
+
 
 ## Todo
-
 
 
 
