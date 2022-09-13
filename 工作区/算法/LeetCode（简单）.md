@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期一, 九月 12日 2022, 5:56:25 下午
+修改时间: 星期二, 九月 13日 2022, 9:43:06 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -3519,6 +3519,58 @@ var commonChars = function(words) {
 };
 ```
 
+
+## [1037. 有效的回旋镖](https://leetcode.cn/problems/valid-boomerang/)
+
+### 题解
+
+使用两个点所形成的斜率是否相等 进行判断。
+
+```js
+/**
+ * @param {number[][]} points
+ * @return {boolean}
+ */
+var isBoomerang = function(points) {
+	const [[x1, y1], [x2, y2], [x3, y3]] = points
+	return (x1 - x2) * (y2 - y3) !== (x2 - x3) * (y1 - y2)
+};
+```
+
+
+## [202. 快乐数](https://leetcode.cn/problems/happy-number/)
+
+### 题解
+
+可以使用递归的方式or循环，但是不确定他的循环层数有多大，
+所以取巧 使用快慢指针的方式
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isHappy = function(n) {
+    const getNext = (num) => {
+        let sum = 0
+        while(num > 0){
+            const bit = num % 10
+            sum += bit * bit
+            num = Math.floor(num / 10)
+        }
+        return sum
+    }
+    let slow = n, fast = n
+    slow = getNext(slow)
+    fast = getNext(fast)
+    fast = getNext(fast)
+    while(slow !== fast) {
+        slow = getNext(slow)
+        fast = getNext(fast)
+        fast = getNext(fast)
+    }
+    return slow === 1
+};```
 
 
 ## Todo
