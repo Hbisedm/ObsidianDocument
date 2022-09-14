@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期二, 九月 13日 2022, 9:43:06 晚上
+修改时间: 星期三, 九月 14日 2022, 10:58:19 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -3573,7 +3573,34 @@ var isHappy = function(n) {
 };```
 
 
+
+## [1619. 删除某些元素后的数组均值](https://leetcode.cn/problems/mean-of-array-after-removing-some-elements/)
+
+### 题解
+
+简单取出中间的index,然后计算即可
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {number}
+ */
+var trimMean = function(arr) {
+    arr = arr.sort((a,b) => a-b)
+    const len = arr.length
+    const delIndexRound = Math.floor(len * 0.05)
+    let sum = 0
+    for(let i = delIndexRound; i < len - delIndexRound; i++) {
+        sum += arr[i]
+    }
+    const res = sum / (len - delIndexRound *2)
+    return res
+};
+```
+
 ## Todo
 
 
 
+
+G
