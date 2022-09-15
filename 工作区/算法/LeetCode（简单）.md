@@ -2,7 +2,7 @@
 title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期三, 九月 14日 2022, 10:58:19 晚上
+修改时间: 星期四, 九月 15日 2022, 11:36:21 晚上
 ---
 #刷题 #算法 #LeetCode
 
@@ -3598,9 +3598,47 @@ var trimMean = function(arr) {
 };
 ```
 
+
+
+## [94. 二叉树的中序遍历](https://leetcode.cn/problems/binary-tree-inorder-traversal/)
+
+### 题解
+使用递归
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var inorderTraversal = function(root) {
+    const res = []
+
+    const df = (root) => {
+        if(!root) return 
+        df(root.left);
+        res.push(root.val);
+        df(root.right);
+    }
+
+    df(root)
+    return res
+};
+
+```
+
+
+
+
+
 ## Todo
 
 
 
-
-G
