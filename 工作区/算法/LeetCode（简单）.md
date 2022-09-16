@@ -1,5 +1,11 @@
 ---
 title: LeetCode（简单）的笔记
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期五, 九月 16日 2022, 10:44:46 晚上
+---
+
+---
+title: LeetCode（简单）的笔记
 tags: ["LeetCode", "简单", "算法"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
 修改时间: 星期四, 九月 15日 2022, 11:36:21 晚上
@@ -3636,9 +3642,33 @@ var inorderTraversal = function(root) {
 
 
 
+## [1512. 好数对的数目](https://leetcode.cn/problems/number-of-good-pairs/)
+
+### 题解
+
+`[1, 1, 1, 1]`
+不用关心中间有多少数，主要是判断相同的数，所以抽离出来就是上面的样子，那么每次都是加上次的次数
+
+`[1, 1, 1, 1]`
+`0 + 1 + 2 + 3 => 6`
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var numIdenticalPairs = function(nums) {
+    let res = 0
+    const arr = new Array(100).fill(0)
+    for(num of nums) {
+        res += arr[num - 1]
+        arr[num - 1]++
+    }
+    return res
+};
+```
 
 
 ## Todo
-
 
 
