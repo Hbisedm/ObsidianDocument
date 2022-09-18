@@ -1,7 +1,7 @@
 ---
 title: LeetCode（简单）的笔记
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期五, 九月 16日 2022, 10:44:46 晚上
+修改时间: 星期日, 九月 18日 2022, 3:40:01 下午
 ---
 
 ---
@@ -3668,7 +3668,102 @@ var numIdenticalPairs = function(nums) {
 };
 ```
 
+## [1624. 两个相同字符之间的最长子字符串](https://leetcode.cn/problems/largest-substring-between-two-equal-characters/)
+
+### 题解
+
+使用`lastIndexOf` 获取最后一个索引
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var maxLengthBetweenEqualCharacters = function(s) {
+let res = 0
+for(let i = 0; i < s.length; i++){
+    let index = s.lastIndexOf(s[i])
+    if(index !== -1){
+        res = Math.max(res, index - i)
+    }
+}
+return res -1
+};
+```
+
+
+
+## [589. N 叉树的前序遍历](https://leetcode.cn/problems/n-ary-tree-preorder-traversal/)
+
+### 题解
+
+使用递归的方式
+
+```js
+
+/**
+ * // Definition for a Node.
+ * function Node(val, children) {
+ *    this.val = val;
+ *    this.children = children;
+ * };
+ */
+
+/**
+ * @param {Node|null} root
+ * @return {number[]}
+ */
+var preorder = function(root) {
+    const res = []
+    const df = (root) => {
+        if(root) {
+            res.push(root.val)
+        }
+        if(root?.children) {
+            root.children.forEach(item => {
+                df(item)
+            })
+        }
+    }
+    df(root)
+    return res
+
+};
+```
+
+使用迭代的方式
+
+```js
+/**
+ * // Definition for a Node.
+ * function Node(val, children) {
+ *    this.val = val;
+ *    this.children = children;
+ * };
+ */
+
+/**
+ * @param {Node|null} root
+ * @return {number[]}
+ */
+var preorder = function(root) {
+    const ans = new Array(), nodes = new Array()
+    nodes.push(root)
+    while(nodes.length > 0) {
+        const node = nodes.pop()
+        if(node != null) {
+            ans.push(node.val)
+            for(let i = node.children.length - 1; i >= 0; i--)
+                nodes.push(node.children[i])
+        }
+    }
+    return ans
+};
+```
+
 
 ## Todo
+
+
 
 
