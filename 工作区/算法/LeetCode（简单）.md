@@ -1,7 +1,7 @@
 ---
 title: LeetCode（简单）的笔记
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期日, 九月 18日 2022, 3:40:01 下午
+修改时间: 星期二, 九月 20日 2022, 10:13:52 晚上
 ---
 
 ---
@@ -3762,7 +3762,132 @@ var preorder = function(root) {
 ```
 
 
-## Todo
+
+
+## [520. 检测大写字母](https://leetcode.cn/problems/detect-capital/)
+
+### 题解
+
+将所有情况考虑，列出来
+
+```js
+
+/**
+ * @param {string} word
+ * @return {boolean}
+ */
+var detectCapitalUse = function(word) {
+    
+    const isLower = (str) => {
+        return  str && 'a'.charCodeAt() <= str.charCodeAt()
+    }
+
+    const isUpper = (str) => {
+        
+        return str && 'a'.charCodeAt() > str.charCodeAt()
+    }
+    const len = word.length
+    
+    if(len === 1) {
+        return true
+    }
+
+    if(len === 2) {
+       return isUpper(word[0]) || (isLower(word[0]) && isLower(word[1]))
+    }else {
+
+    if(isUpper(word[0])){
+        if(isUpper(word[1])) {
+            for(let i = 2; i < len; i++) {
+                if(isLower(word[i])) {
+                    return false
+                }
+            }
+        }else {
+            for(let i = 2; i < len; i++) {
+                if(isUpper(word[i])) {
+                    return false
+                }
+            }
+        }
+    }else {
+        for(let i = 1; i < len; i++) {
+            if(isUpper(word[i])) {
+                return false
+            }
+        }
+    }
+    }
+    
+
+return true
+   
+
+
+};
+
+```
+
+
+全是大写，利用toUpperCase函数，将原字符串转换为大写，再与原字符串比较，相同则true
+全是小写，利用toLowerCase函数，将原字符串转换为小写，再与原字符串比较，相同则true
+首字母大写，判断后面的是否全是小写，全是小写则true
+
+
+```js
+
+var detectCapitalUse = function(word) {
+    if(word.length === 0) return false;
+    if(word.length === 1) return true;
+    var uper = word.toUpperCase();
+    var lower = word.toLowerCase();
+    if(uper === word){
+        return true;
+    }else if(lower === word){
+        return true;
+    }
+    if(word[0]<='Z'&&word[0]>='A'){
+        var newWord = word.slice(1);
+        if(newWord === newWord.toLowerCase()){
+            return true;
+        }
+    }
+    return false;
+};
+
+
+
+```
+
+
+
+
+## [832. 翻转图像](https://leetcode.cn/problems/flipping-an-image/)
+
+### 题解
+
+- 使用js数组的相关api 解决
+- 抽离每个逻辑点需要执行的功能
+
+```typescript
+
+function flipAndInvertImage(image: number[][]): number[][] {
+ 
+    const flip = (arr: number[]) => {
+        return arr.reverse()
+    }
+    const reverse = (arr: number[]) => {
+        return arr.map(item => item === 1 ? 0: 1)
+    }
+    return image.map(item => {
+        return reverse(flip(item))
+    })
+};
+```
+
+
+
+
 
 
 

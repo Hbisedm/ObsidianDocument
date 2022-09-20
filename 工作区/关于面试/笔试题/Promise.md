@@ -2,7 +2,7 @@
 title: Promise的笔记
 tags: ["Promise"]
 创建时间: 星期日, 九月 18日 2022, 7:59:11 晚上
-修改时间: 星期日, 九月 18日 2022, 11:42:34 晚上
+修改时间: 星期日, 九月 18日 2022, 11:44:27 晚上
 ---
 #promise #异步
 
@@ -146,3 +146,4 @@ const promise2 = new Promise((resolve, reject) => {
 
 [面试官：“你能手写一个 Promise 吗”](https://juejin.cn/post/6850037281206566919#heading-1)
 [ V8 Promise源码全面解读](https://juejin.cn/post/7055202073511460895#heading-1)
+[Promise A+](https://promisesaplus.com/)
