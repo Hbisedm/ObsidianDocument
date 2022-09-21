@@ -1,7 +1,7 @@
 ---
 title: LeetCode（简单）的笔记
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期二, 九月 20日 2022, 10:13:52 晚上
+修改时间: 星期三, 九月 21日 2022, 11:07:14 晚上
 ---
 
 ---
@@ -3887,8 +3887,46 @@ function flipAndInvertImage(image: number[][]): number[][] {
 
 
 
+## [1576. 替换所有的问号](https://leetcode.cn/problems/replace-all-s-to-avoid-consecutive-repeating-characters/)
+
+### 题解
+
+抽离 生成随机字母的逻辑点
+每次传入当前的下标的前后字符
+
+不用处理边缘情况，因为js找不到下标是返回`undefined` 不会报错
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var modifyString = function(s) {
+    const mark = '?'
+    const len = s.length
+    const arr = s.split('')
+
+    const getCorrectChar = (c1, c2 ) => {
+        let str = 'abcdefghijklmnopqrstuvwxyz'
+        // 过滤前后字符
+        str = str.replace(c1, '')
+        str = str.replace(c2, '')
+        // 生成0-23以内随机数
+        const randoemNum = Math.round(Math.random() * 23)
+        return str[randoemNum]
+    }
 
 
+    for(let i = 0; i < len; i++){
+        if(s[i] === mark) {
+            arr[i] = getCorrectChar(arr[i-1], arr[i + 1])
+        }else {
+            arr[i] =  (s[i])
+        }
+    }
+    return arr.join('')
 
+};
+```
 
 
