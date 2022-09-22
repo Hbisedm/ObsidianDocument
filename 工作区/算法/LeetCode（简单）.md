@@ -1,7 +1,7 @@
 ---
 title: LeetCode（简单）的笔记
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期三, 九月 21日 2022, 11:07:14 晚上
+修改时间: 星期四, 九月 22日 2022, 11:35:32 晚上
 ---
 
 ---
@@ -3930,3 +3930,47 @@ var modifyString = function(s) {
 ```
 
 
+## [1640. 能否连接形成数组](https://leetcode.cn/problems/check-array-formation-through-concatenation/)
+
+### 题解
+
+使用个容器存二维数据的一维数组，key位每个一维数组的第0个值
+然后遍历arr，判断有没有容器的key跟当前arr下标的值相同的，没有就是顺序乱了
+然后再遍历一维数组，判断顺序
+
+```js
+/**
+ * @param {number[]} arr
+ * @param {number[][]} pieces
+ * @return {boolean}
+ */
+var canFormArray = function(arr, pieces) {
+    const map = new Map()
+    const len = pieces.length
+    for(let i = 0; i < len; i++) {
+        map.set(pieces[i][0], pieces[i])
+    }
+    const arrLen = arr.length
+    let i = 0
+    while(i < arrLen) {
+        if(!map.has(arr[i])){
+            return false
+        }
+        const swap = map.get(arr[i])
+        for(let item of swap) {
+         if(arr[i++] !== item){
+             return false
+         }
+        }
+    }
+    
+    return true
+
+};
+```
+
+
+
+
+
+## TODO
