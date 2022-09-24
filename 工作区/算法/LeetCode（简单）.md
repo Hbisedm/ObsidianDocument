@@ -1,7 +1,7 @@
 ---
 title: LeetCode（简单）的笔记
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期四, 九月 22日 2022, 11:36:02 晚上
+修改时间: 星期六, 九月 24日 2022, 1:04:03 下午
 ---
 
 ---
@@ -3970,6 +3970,47 @@ var canFormArray = function(arr, pieces) {
 ```
 
 
+## [942. 增减字符串匹配](https://leetcode.cn/problems/di-string-match/)
+
+### 题解
+
+使用贪心算法，只关心局部的最佳效果
+
+
+```js
+/**
+ * @param {string} s
+ * @return {number[]}
+ */
+var diStringMatch = function(s) {
+    const greater = 'D'
+    const less = 'I'
+    const len = s.length
+    const res = []
+    const swap = new Array(len+1).fill(0).map((_,index)=> index )
+    
+    for(let i = 0; i < len; i++) {
+        switch(s[i]) {
+            case greater:{
+                res.push( swap[swap.length - 1] )
+                swap.pop()
+                break;
+            }
+            case less: {
+                res.push( swap[0] )
+                swap.shift()
+                break;
+            }
+            default: {
+
+            }
+        }
+    }
+    res.push(swap[0])
+
+    return res
+};
+```
 
 
 
