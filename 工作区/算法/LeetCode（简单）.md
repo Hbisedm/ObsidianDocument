@@ -1,7 +1,7 @@
 ---
 title: LeetCode（简单）的笔记
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期六, 九月 24日 2022, 1:04:03 下午
+修改时间: 星期日, 九月 25日 2022, 10:22:40 晚上
 ---
 
 ---
@@ -4011,6 +4011,53 @@ var diStringMatch = function(s) {
     return res
 };
 ```
+
+## [551. 学生出勤记录 I](https://leetcode.cn/problems/student-attendance-record-i/)
+
+### 题解
+
+```js
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var checkRecord = function(s) {
+    const arr =  s.split('')
+    
+    let j = 0
+
+    const continuous = (i) => {
+        if(arr[i-1] && arr[i+1]) {
+            console.log(arr[i-1], arr[i+1])
+           if( arr[i-1] === 'L' && arr[i+1] ==='L') {
+               return true
+           }
+        }
+        return false
+    }
+
+	for(let i = 0; i < arr.length; i++) {
+	        if(arr[i] === 'A') {
+	            j++
+	            if(j >= 2) {
+	                return false
+	            }
+	        }
+	        if(arr[i] === 'L'){
+	            
+	           if( continuous(i)) {
+	               return false
+	           }
+	        }
+	} 
+
+    return true
+};
+```
+
+
+
+
 
 
 
