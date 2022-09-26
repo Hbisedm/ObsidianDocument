@@ -1,7 +1,7 @@
 ---
 title: LeetCode（简单）的笔记
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期日, 九月 25日 2022, 10:22:40 晚上
+修改时间: 星期一, 九月 26日 2022, 10:34:07 晚上
 ---
 
 ---
@@ -4057,8 +4057,38 @@ var checkRecord = function(s) {
 
 
 
+```js
+function checkRecord(s: string): boolean {
+    return !(s.length - s.split('A').join('').length > 1 || s.includes('LLL'))
+};
+
+```
 
 
+
+## [509. 斐波那契数](https://leetcode.cn/problems/fibonacci-number/)
+
+### 题解
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var fib = function(n) {
+    const f = (n) => {
+        if(n === 1) {
+            return 1
+        }
+        if(n === 0) {
+            return 0
+        }
+        return f(n -1) + f(n-2)
+    }
+
+    return f(n)
+};
+```
 
 
 ## TODO
