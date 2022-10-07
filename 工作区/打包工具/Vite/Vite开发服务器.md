@@ -2,7 +2,7 @@
 title: Vite开发服务器的笔记
 tags: ["Vite开发服务器"]
 创建时间: 星期五, 十月 7日 2022, 8:39:53 晚上
-修改时间: 星期五, 十月 7日 2022, 10:48:21 晚上
+修改时间: 星期五, 十月 7日 2022, 10:55:00 晚上
 ---
 #vite #dev服务器
 
@@ -35,11 +35,11 @@ tags: ["Vite开发服务器"]
 5. 将css文件的内容替换为js脚本，（方便热更新和css模块化） Content-Type 设置为js
 
 
-### 为什么需要CSS模块化
+### CSS模块化
+
+#### 为什么需要CSS模块化
 
 协同开发过程中，使用同一个class类名，A的开发的`footer` 与 B开发的`footer` 同名，导致后面引入的css会覆盖之前的。 出现样式丢失。
-
-
 
 ```js
 import 'xxxA.css'
@@ -49,11 +49,7 @@ divA.className = 'footer'
 divB.className = 'footer'
 ```
 
-
-
-### CSS模块化
-
-解决上述问题
+为了解决上述问题
 
 将A开发的css 改为 `xxxA.module.css`
 将B开发的css 改为 `xxxB.module.css`
@@ -80,12 +76,6 @@ divB.className = componentBCss.footer
 6. 将创建的映射对象默认导出
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202210072135493.png)
-
-
-### 预处理器
-
-> less sass ...
-
 
 `vite.config.js`修改css模块化的行为
 
@@ -116,6 +106,10 @@ console.log(lessTest);
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202210072145072.png)
 
+
+### 预处理器
+
+> less sass ...
 
 编译 预处理css语言
 
@@ -161,8 +155,9 @@ html {
 
 但其实可以有lessc的编译选项中配置全局变量，这样节省写这些引入语句
 
-而在vite webpack中 可以通过配置来引入
+#### Vite中使用预处理器配置选项
 
+而在vite webpack中 可以通过配置来引入
 
 ```js
 
@@ -173,7 +168,7 @@ css: {
       scopeBehaviour: "local",
       hashPrefix: "hbisedm",
     },
-    preprocessorOptions: {
+    preprocessorOptions: { // 对预处理器进行配置
       less: { //配置lessc的配置选项
         
       },
@@ -185,11 +180,12 @@ css: {
 
 例如
 
-`variables.less`
+定义全局变量文件 `variables.less`
 ```less
 @defaultColor: red;
 ```
-`vite.config.js`
+
+vite使用预处理器选项配置全局变量 `vite.config.js`
 
 ```js
 css: {
@@ -210,8 +206,8 @@ css: {
       font-size: 22px;
       margin: (10px * 2);
       padding: 10px * 2;
-      background: @defaultColor;
-      color: @mainColor;
+      background: @defaultColor; // 来自引入的文件
+      color: @mainColor; // 来自配置选项的配置
     }
   }
 }
@@ -221,7 +217,7 @@ css: {
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202210072236187.png)
 
-
+##### 小结
 正常用[全局配置的写法](https://lesscss.org/usage/#less-options-global-variables)即可， 那种使用`@import`频繁的导入没啥必要
 
 ### sourceMap
@@ -250,4 +246,7 @@ css: {
 
 
 ## PostCss
+
+> vite天生对postcss有良好支持， 先了解PostCss
+
 
