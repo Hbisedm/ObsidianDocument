@@ -3,7 +3,7 @@ title: 安装webpack
 tags: ["打包工具", "webpack"]
 excerpt: webpack的配置详解
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期四, 七月 28日 2022, 1:41:12 下午
+修改时间: 星期日, 十一月 13日 2022, 8:14:30 晚上
 ---
 #webpack #打包器
 
@@ -451,14 +451,9 @@ babel与webpack的结合就需要个babel-loader
 
 # 代码分离
 
-
-
 ## 入口起点
 
-
-
 ![image-20220523215248342](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205232152401.png)
-
 
 
 ```js
@@ -574,8 +569,6 @@ console.log(_.join(['index', 'module', 'loaded']));
 
 
 ## 动态引入(异步导入)
-
-
 
 ```js
 // async-module.js
@@ -788,8 +781,6 @@ output: {
 
 ![image-20220524213700813](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205242137883.png)
 
-
-
 上面的操作是操作我们自己写的js文件，而大部分情况，项目需要引入第三方js文件。
 
 ## 缓存第三方库
@@ -818,11 +809,7 @@ output: {
 
 ![image-20220524214650211](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202205242146270.png)
 
-
-
 可以发现第三方的包都打到了一个vendors.[contenthash].js内
-
-
 
 ## 将所有的js文件放到一个文件夹下
 

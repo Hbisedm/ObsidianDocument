@@ -1,7 +1,7 @@
 ---
 title: 自定义组件库的笔记
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期四, 七月 28日 2022, 11:08:13 晚上
+修改时间: 星期四, 十一月 10日 2022, 11:23:43 上午
 ---
 
 ---
@@ -26,29 +26,37 @@ tags: ["自定义组件库"]
 > 因为它简单高效，它没有太多杂乱的配置
 
 ### 安装、初始化
+
 ```shell
 nvm use 16.14.0 //版本16
 npm install pnpm -g
 pnpm init
 ```
+
 ### npmrc文件
+
 **根**目录创建`.npmrc`文件
 输入配置
+
 ```ini
 shamefully-hoist = true
 ```
+
 如果某些工具仅在**根**目录的**node_modules**时才有效，可以将其设置为true来提升那些不在根目录的**node_modules**，就是将你安装的依赖包的依赖包的依赖包的...都放到同一级别（扁平化）。说白了就是不设置为true有些包就有可能会出问题。
 
 ## monorepo的实现
 
 新建配置文件`pnpm-workspace.yaml`
 目的是 为了各个项目直接能够相互引用
+
 ```yml
 packages:
     - 'packages/**'
     - 'examples'
 ```
+
 这样设置后，根目录下的`pageckage`目录与`example`目录就会关联起来。当然未来若需要关联更多目录的话，往这里添加即可。
+
 - packages：存放开发的包
 - examples：调试开发好的组件
 
@@ -74,6 +82,7 @@ npx tsc --init
 ```
 
 tsconfig.json
+
 ```json
 {
   "compilerOptions": {

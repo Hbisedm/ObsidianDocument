@@ -2,7 +2,7 @@
 title: ohMyZsh配置的笔记
 tags: ["ohMyZsh配置"]
 创建时间: 星期五, 八月 5日 2022, 10:32:39 上午
-修改时间: 星期五, 八月 5日 2022, 11:15:52 上午
+修改时间: 星期日, 十一月 20日 2022, 9:50:35 晚上
 ---
 #ohMyZsh
 
@@ -83,10 +83,6 @@ typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION
     (( VCS_STATUS_NUM_STAGED     )) && res+=" ${modified}"$'\uF055'"${VCS_STATUS_NUM_STAGED}"
     (( VCS_STATUS_NUM_UNSTAGED   )) && res+=" ${modified}"$'\uF06A'"${VCS_STATUS_NUM_UNSTAGED}"
 ```
-
-
-
-
 
 [参考链接1](https://blog.51cto.com/u_14415843/2494693)
 [配置p10k](https://www.onejar99.com/zsh-powerlevel10k-custom-config-note/)

@@ -55,8 +55,8 @@ function twoSum(nums: number[], target: number): number[] {
 ```
 
 
-
 ## [回文数](https://leetcode.cn/problems/palindrome-number/)
+
 ### 我的题解：
 1. 先将number类型转为string类型，方便操作下标
 2. 回文数的临界值时length/2，所以我们遍历到length/2即可

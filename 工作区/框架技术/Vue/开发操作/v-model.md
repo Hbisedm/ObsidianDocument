@@ -1,12 +1,13 @@
 ---
-title: v-model的使用
-date: 2022-05-26 12:42:26
+title: v-model
 tags: ["Vue"]
 excerpt: v-model
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期六, 十一月 5日 2022, 6:19:15 晚上
 ---
 
 
-## 概念
+# 概念
 > v-model是语法糖，v-model在内部为不同的输入元素使用不同的属性并抛出不同的事件
 
 - text 和 textarea 元素使用 value 属性和 input 事件
@@ -14,7 +15,7 @@ excerpt: v-model
 - select 字段将 value 作为 prop 并将 change 作为事件
 
 
-## vue3  v-model 的使用
+# vue3 V-model 的使用
 
 vue3中DIY我们自定义组件的v-model
 - 可以有多个`v-model`（vue2只能有一个）
@@ -32,7 +33,7 @@ vue3中DIY我们自定义组件的v-model
   	emits: ['update:description'],
 ```
 
-### 具体例子：
+## 具体例子：
 > Father.vue
 ```vue
 <template>
