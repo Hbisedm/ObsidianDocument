@@ -1,7 +1,8 @@
 ---
-title: Reactive与Ref响应式数据的学习
-date: 2022-06-13 22:27:12
+title: Reactive与Ref响应式数据的学习的笔记
 tags: ["Vue3", "Reactive", "Ref"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期日, 十一月 27日 2022, 8:25:50 晚上
 ---
 #reactive #ref
 
@@ -24,7 +25,7 @@ tags: ["Vue3", "Reactive", "Ref"]
 ## 判断Reactive Api
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206132103436.png)
 
-## Ref api
+## Ref Api
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206132114738.png)
 
@@ -119,3 +120,18 @@ export default function (value, delay = 200) {
 </script>
 ```
 
+## 使用层面
+
+`ref` API 虽然在 `<template />` 里使用起来方便，但是在 `<script />` 里进行读取 / 赋值的时候，要一直记得加上 `.value` ，否则 BUG 就来了
+
+`reactive` API 虽然在使用的时候，因为知道它本身是一个对象，所以不会忘记通过 `foo.bar` 这样的格式去操作，但是在 `<template />` 渲染的时候，又因此不得不每次都使用 `foo.bar` 的格式去渲染
+
+那么有没有办法，既可以在编写 `<script />` 的时候不容易出错，在写 `<template />` 的时候又比较简单呢？
+
+于是， `toRef` 和 `toRefs` 因此诞生。
+
+### 什么场景下比较适合使用它们
+
+从便利性和可维护性来说，最好只在功能单一、代码量少的组件里使用，比如一个表单组件，通常表单的数据都放在一个对象里。
+
+当然也可以把所有的数据都定义到一个 `data` 里，再去 `data` 里面取值，但是没有必要为了转换而转换，否则不如使用 Options API 风格。
