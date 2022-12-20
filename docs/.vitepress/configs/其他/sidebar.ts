@@ -22,7 +22,7 @@ const readSourceSidebar = [walk(path, readSource)];
 const packageToolSidebar = [
   walk(path, packageTool),
   walk(path, packageTool + "/Vite"),
-  walk(path, packageTool + "/Webpack"),
+  walk(path, packageTool + "/webpack"),
 ];
 const designPatternsSidebar = [walk(path, designPatterns)];
 
