@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/工作区/开发工具/Obsidian同步.md",
+                "file": "docs/index.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -79,22 +79,15 @@
       {
         "id": "a892601c59dca2f6",
         "type": "tabs",
+        "dimension": 63.45338983050848,
         "children": [
-          {
-            "id": "94c807371241354e",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {}
-            }
-          },
           {
             "id": "b78ee34682b5388c",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/工作区/开发工具/Obsidian同步.md",
+                "file": "docs/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +104,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/工作区/开发工具/Obsidian同步.md"
+                "file": "docs/index.md"
               }
             }
           },
@@ -129,10 +122,26 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/工作区/开发工具/Obsidian同步.md",
+                "file": "docs/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "f4b17061b4a92ba4",
+        "type": "tabs",
+        "dimension": 36.54661016949153,
+        "children": [
+          {
+            "id": "94c807371241354e",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
             }
           }
         ]
@@ -143,15 +152,15 @@
   },
   "active": "a93f1ef449d54b0f",
   "lastOpenFiles": [
-    "docs/工作区/开发工具/CI与CD.md",
+    "docs/工作区/开发工具/git.md",
     "docs/工作区/开发工具/github.md",
+    "docs/工作区/开发工具/Obsidian同步.md",
+    "docs/工作区/开发工具/CI与CD.md",
     "docs/工作区/开发工具/Vim的学习使用.md",
     "docs/工作区/开发工具/ohMyZsh配置.md",
-    "docs/工作区/开发工具/Obsidian同步.md",
     "docs/工作区/工程化/工程化基础II.md",
     "docs/工作区/框架技术/公众号/README.md",
     "docs/学习技术路线.md",
-    "docs/index.md",
-    "模版/笔记模板.md"
+    "docs/index.md"
   ]
 }

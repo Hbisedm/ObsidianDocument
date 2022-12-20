@@ -15,17 +15,21 @@ hero:
       text: 快速开始
       link: /工作区/基本知识/HTML/README
     - theme: alt
-      text: View on GitHub
+      text: GitHub
       link: https://github.com/hbisedm
 
 features:
   - title: 一个代码爱好者
-    details: coding make a great world.
+    details: coding can make a great world.
     icon: 🚀
   - title: 玩过的语言
-    details: Java、JavaScript、Typescript、Dart...
+    details: Java、JavaScript、Typescript...
     icon: ☁️
   - title: 玩过的框架
     details: Vue、React、SpringBoot、Nuxt...
     icon: ⚡
+  - title: 兴趣与爱好
+    details: EDM、RAP、Cooking...
+    icon: 🚣
+
 ---
