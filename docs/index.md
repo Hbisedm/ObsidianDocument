@@ -31,5 +31,4 @@ features:
   - title: 兴趣与爱好
     details: EDM、RAP、Cooking...
     icon: 🚣
-
 ---
