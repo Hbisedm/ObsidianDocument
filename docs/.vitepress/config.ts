@@ -12,6 +12,7 @@ export default defineConfig({
   lang: "zh-CN",
   outDir: "../dist",
   base: "/ObsidianDocument/",
+  // base: "/",
   title: "Hbisedm的博客",
   srcDir: ".",
   description: "Hbisedm的博客",

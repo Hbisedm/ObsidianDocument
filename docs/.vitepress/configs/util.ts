@@ -41,7 +41,7 @@ export const generateNavItem = (
   const items = dirNames.reduce((prev, curr) => {
     const item = {
       text: curr,
-      link: commonPath + curr + "/readme",
+      link: commonPath + curr + "/README",
     };
     prev.push(item);
     return prev;
