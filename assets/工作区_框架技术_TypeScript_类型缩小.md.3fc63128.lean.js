@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as i,d as o}from"./app.0b246d93.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"工作区/框架技术/TypeScript/类型缩小.md"}'),_={name:"工作区/框架技术/TypeScript/类型缩小.md"},l=o("",3),r=[l];function n(a,c,p,s,d,u){return i(),t("div",null,r)}const T=e(_,[["render",n]]);export{m as __pageData,T as default};
