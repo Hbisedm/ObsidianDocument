@@ -33,6 +33,9 @@ jobs:
       # 运行构建脚本
       - name: Build vitepress site
         run: pnpm docs:build
+        env:
+          DOC_ENV: preview
+          NODE_OPTIONS: --max-old-space-size=4096
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
