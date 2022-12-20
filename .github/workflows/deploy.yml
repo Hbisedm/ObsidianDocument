@@ -26,6 +26,11 @@ jobs:
           node-version: "16"
           cache: "pnpm"
 
+      # 如果缓存没有命中，安装依赖
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
+
+      # 运行构建脚本
       - name: Build vitepress site
         run: pnpm docs:build
 
