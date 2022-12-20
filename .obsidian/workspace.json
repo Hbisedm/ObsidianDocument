@@ -1,0 +1,157 @@
+{
+  "main": {
+    "id": "ca7b7cde97d0e39b",
+    "type": "split",
+    "children": [
+      {
+        "id": "f89c0ccfeb9ac4d0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a93f1ef449d54b0f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/工作区/开发工具/Obsidian同步.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5230f94dc6a4e37f",
+    "type": "split",
+    "children": [
+      {
+        "id": "0ea5ce33e68b4e77",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0be20153fcbf2c23",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3777e046875eaf99",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "定义类型",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3a43a5bff99aa902",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 324
+  },
+  "right": {
+    "id": "d92e80b3109f9130",
+    "type": "split",
+    "children": [
+      {
+        "id": "a892601c59dca2f6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "94c807371241354e",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "b78ee34682b5388c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/工作区/开发工具/Obsidian同步.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e950265ce1108e4f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/工作区/开发工具/Obsidian同步.md"
+              }
+            }
+          },
+          {
+            "id": "39b3cc99050e72be",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "621c6356f99f1678",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "docs/工作区/开发工具/Obsidian同步.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 270.5
+  },
+  "active": "a93f1ef449d54b0f",
+  "lastOpenFiles": [
+    "docs/工作区/开发工具/CI与CD.md",
+    "docs/工作区/开发工具/github.md",
+    "docs/工作区/开发工具/Vim的学习使用.md",
+    "docs/工作区/开发工具/ohMyZsh配置.md",
+    "docs/工作区/开发工具/Obsidian同步.md",
+    "docs/工作区/工程化/工程化基础II.md",
+    "docs/工作区/框架技术/公众号/README.md",
+    "docs/学习技术路线.md",
+    "docs/index.md",
+    "模版/笔记模板.md"
+  ]
+}

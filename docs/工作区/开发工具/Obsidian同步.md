@@ -12,15 +12,24 @@ tags: ["Obsidian同步"]
 
 > 完成同步以及一些插件的使用配置
 
-### 配置一些快捷键
+## 配置一些快捷键
+
+### 配置git
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202207281002509.png)
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202207281002470.png)
 
+> 后面个人工作流加入了Manico 所以`option`键经常用到，把git的快捷键改成了`control`键
+
 ### 配置文章输入模板
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202207281004723.png)
+
+配置快捷键使用
+
+![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202212201723495.png)
+
 
 ### 配置日记
 
@@ -42,6 +51,11 @@ picGo启动后会有个本地的服务器，安装picGo插件即可，默认配�
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202207281013002.png)
 
+### 切换达到vscode的快捷键`command + p`
+
+> 将原来的`comand + p` 改为其他的 比如 `command + o`
+
+![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202212201709424.png)
 
 
 ## Ipad
@@ -70,8 +84,7 @@ ish里面可以使用mount 挂载命令 去指定挂载ipad的目录
 
 后续找其他方法取代一下。
 
-
-
+目前使用vitePress 部署整个obsidian 方便看
 
 
 ### 参考链接

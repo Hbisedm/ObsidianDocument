@@ -13,7 +13,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /工作区/基本知识/HTML/readme
+      link: /工作区/基本知识/HTML/README
     - theme: alt
       text: View on GitHub
       link: https://github.com/hbisedm
