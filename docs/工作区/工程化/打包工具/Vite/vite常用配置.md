@@ -8,11 +8,10 @@ tags: ["打包工具", "vite"]
 excerpt: vite的配置详解
 ---
 
-
-
 #vite #打包器
 
 # vite.config.js
+
 ```javascript
 
 import { defineConfig } from 'vite' // 帮手函数，这样不用 jsdoc 注解也可以获取类型提示
@@ -65,7 +64,7 @@ export default () => defineConfig({
   conditions: [],
   // 导入时想要省略的扩展名列表
   // 不建议使用 .vue 影响IDE和类型支持
-  extensions:['.mjs','.js','.ts','.jsx','.tsx','.json']  
+  extensions:['.mjs','.js','.ts','.jsx','.tsx','.json']
  },
  // css
  css: {
@@ -108,7 +107,7 @@ export default () => defineConfig({
    ignored:["!**/node_modules/your-package-name/**"]
   },
   // 反向代理配置
-  proxy: { 
+  proxy: {
    '/api': {
     target: "https://xxxx.com/",
     changeOrigin: true,
@@ -168,8 +167,6 @@ export default () => defineConfig({
 
 ```
 
-
-
-
 #### 参考链接
+
 [](https://juejin.cn/post/7039879176534360077)[https://juejin.cn/post/7039879176534360077](https://juejin.cn/post/7039879176534360077)
