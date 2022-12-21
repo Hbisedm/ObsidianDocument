@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"4a7811e07ebc136d","x":-188,"y":-377,"width":324,"height":133,"type":"text","text":"# 性能调优\n- 保证资源更快的 加载速度\n- 保证视图更快的 渲染速度/交互速度"},
+		{"id":"2e3b861a11dd8a49","x":-151,"y":-105,"width":250,"height":150,"type":"text","text":"抛出问题：\n\n从输入 `URL` 到页面加载完成发生了什么？"}
+	],
+	"edges":[
+		{"id":"5b2940f56f1b1cc7","fromNode":"4a7811e07ebc136d","fromSide":"bottom","toNode":"2e3b861a11dd8a49","toSide":"top"}
+	]
+}
