@@ -2,11 +2,13 @@
 title: Reactive与Ref响应式数据的学习的笔记
 tags: ["Vue3", "Reactive", "Ref"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期日, 十一月 27日 2022, 8:25:50 晚上
+修改时间: 星期三, 十二月 21日 2022, 1:26:25 下午
 ---
 #reactive #ref
 
 # Reactive与Ref响应式数据的学习的笔记
+
+
 ## Reactive
 
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206131724030.png)
@@ -19,7 +21,10 @@ tags: ["Vue3", "Reactive", "Ref"]
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206131752774.png)
 
 
+
 ## readOnly
+
+
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206131748017.png)
 
 ## 判断Reactive Api
@@ -68,11 +73,15 @@ import { reactive, toRefs, toRef } from 'vue'
     }
 </script>
 ```
+
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206132124990.png)
 
 ## customRef
+
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206132218797.png)
+
 > 自定义ref
+
 - track 用于收集依赖
 - trigger 用于触发更新
 
@@ -98,6 +107,7 @@ export default function (value, delay = 200) {
   });
 }
 ```
+
 ```vue
 <template>
     <div>

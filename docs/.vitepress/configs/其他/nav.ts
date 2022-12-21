@@ -10,9 +10,10 @@ const develop = [devTool, devQuestion, experienceQuestion, skills];
 
 export const performance = "性能调优";
 export const readSource = "阅读源码";
-export const packageTool = "打包工具"
+export const packageTool = "打包工具";
+export const engineering = "工程化";
 export const designPatterns = "设计模式";
-const up = [performance, readSource, packageTool, designPatterns];
+const up = [performance, readSource, engineering, packageTool, designPatterns];
 
 const a = generateNavItem("开发", commonPath, develop);
 const b = generateNavItem("提升", commonPath, up);

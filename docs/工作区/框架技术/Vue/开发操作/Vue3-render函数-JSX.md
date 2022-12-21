@@ -8,7 +8,6 @@ tags: ["Vue3"]
 
 # Vue3-render函数的笔记
 
-
 ![](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202206142213052.png)
 
 ## render的基本使用

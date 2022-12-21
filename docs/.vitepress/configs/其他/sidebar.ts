@@ -2,6 +2,7 @@ import {
   designPatterns,
   devQuestion,
   devTool,
+  engineering,
   experienceQuestion,
   packageTool,
   performance,
@@ -26,6 +27,14 @@ const packageToolSidebar = [
 ];
 const designPatternsSidebar = [walk(path, designPatterns)];
 
+const engineeringSub = ["打包工具/Vite", "打包工具/webpack"];
+
+const engineeringSidebar = [walk(path, engineering)];
+
+engineeringSub.forEach((item) => {
+  engineeringSidebar.push(walk(path, engineering + "/" + item));
+});
+
 export const otherSidebar = {
   [commonPath + devTool]: devToolSidebar,
   [commonPath + devQuestion]: devQuestionSidebar,
@@ -35,4 +44,5 @@ export const otherSidebar = {
   [commonPath + readSource]: readSourceSidebar,
   [commonPath + packageTool]: packageToolSidebar,
   [commonPath + designPatterns]: designPatternsSidebar,
+  [commonPath + engineering]: engineeringSidebar,
 };

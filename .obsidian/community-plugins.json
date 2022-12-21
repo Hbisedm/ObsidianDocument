@@ -6,5 +6,6 @@
   "obsidian-image-auto-upload-plugin",
   "obsidian-vimrc-support",
   "obsidian-plugin-prettier",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-linter"
 ]
