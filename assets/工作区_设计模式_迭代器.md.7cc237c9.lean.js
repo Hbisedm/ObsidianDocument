@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./app.64cc5612.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"工作区/设计模式/迭代器.md"}'),r={name:"工作区/设计模式/迭代器.md"};function o(s,c,n,_,p,d){return a(),t("div")}const f=e(r,[["render",o]]);export{m as __pageData,f as default};
