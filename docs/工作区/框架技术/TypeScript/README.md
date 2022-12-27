@@ -3,7 +3,7 @@ title: README
 date: "2022-06-01 12:42:26"
 tags: ["TypeScript"]
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期二, 十二月 27日 2022, 4:45:13 下午
+修改时间: 星期二, 十二月 27日 2022, 10:19:43 晚上
 ---
 
 # README
@@ -828,8 +828,255 @@ type DeepPromiseValueType<P extends Promise<unknown>> = {
 这样，我们就提取到了最里层的 Promise 的 value 类型，也就是索引类型
 
 ```typescript
-type DeepPromiseResult = DeepPromiseValueType<>
+type DeepPromiseResult = 
+	DeepPromiseValueType<Promise<Promise<Promise<Record<string, any>>>>> 
+// { [x: string]: any }
 ```
+
+进一步简化，不约束类型参数必须是Promise，少一层判断
+
+```typescript
+type DeepPromiseValueType<T> = {
+	T extends Promise<inter ValueType>
+	? DeepPromiseValueType<ValueType>
+	: T
+}
+```
+
+### 数组类型的递归
+
+ReverseArr
+
+```typescript
+	type arr = [1,2,3,4,5]
+
+	type arr = [5,4,3,2,1]
+
+	type ReverseArr<Arr extends unknown[]> = 
+	Arr extends [infer One, infer Two, infer Three, infer Four, infer Five]
+	 ? [Five, Four, Three, Two, One] : never;
+```
+
+学完前面很容易就写出这个，但是没有通用性，需要使用递归
+
+```typescript
+	type ReverseArr<Arr extends unknown[]> = 
+		Arr extends [infer First, ...infer Rest]
+		? [ReverseArr<Rest>, First]
+		: Arr
+```
+
+类型参数 Arr 为待处理的数组类型，元素类型不确定，也就是 unknown。
+
+每次只处理一个元素的提取，放到 infer 声明的局部变量 First 里，剩下的放到 Rest 里。
+
+用 First 作为最后一个元素构造新数组，其余元素递归的取。
+
+结束条件就是取完所有的元素，也就是不再满足模式匹配的条件，这时候就返回 Arr。
+
+Include
+
+比如查找` [1, 2, 3, 4, 5] `中是否存在 4，是就返回 true，否则返回 false。
+
+从长度不固定的数组中查找某个元素，数量不确定，这时候就应该想到递归。
+
+```typescript
+	type Include<Arr extends unknown[], FindItem> =
+	  Arr extends [infer First, ...infer Rest]
+	    ? IsEqual<First, FindItem> extends true
+		    ? true
+		    : Include<Rest, FindItem>
+		: false
+	type IsEqual<A, B> = 
+		(A extends B? true: false) & (B extends A? true: false)
+```
+
+RemoveItem
+
+可以查找自然就可以删除，只需要改下返回结果，构造一个新的数组返回。
+
+```typescript
+	type RemoveItem<
+		Arr extends unknown[],
+		Item,
+		Result extends unknown[] = []
+	> = Arr extends [infer First, ...infer Rest]
+	? IsEqual<First, Item> extends true
+		? RemoveItem<Rest, Item, Result>
+		: RemoveItem<Rest, Item, [...Result, First]>
+	: Result
+
+	type IsEqual<A, B> = 
+		(A extends B? true: false) & (B extends A? true: false)
+
+```
+
+类型参数 Arr 是待处理的数组，元素类型任意，也就是 unknown[]。类型参数 Item 为待查找的元素类型。类型参数 Result 是构造出的新数组，默认值是 []。
+
+通过模式匹配提取数组中的一个元素的类型，如果是 Item 类型的话就删除，也就是不放入构造的新数组，直接返回之前的 Result。
+
+否则放入构造的新数组，也就是再构造一个新的数组 [...Result, First]。
+
+直到模式匹配不再满足，也就是处理完了所有的元素，返回这时候的 Result。
+
+这样我们就完成了不确定元素个数的数组的某个元素的删除：
+
+```typescript
+type RemoveItemResult = type RemoveItem<[1,2,2,3], 2> // [1, 3]
+```
+
+BuildArray
+
+我们学过数组类型的构造，如果构造的数组类型元素个数不确定，也需要递归。
+
+比如传入 5 和元素类型，构造一个长度为 5 的该元素类型构成的数组。
+
+```typescript
+	type BuildArray<
+		Length extends number, 
+		Ele = unknown, 
+		Arr extends unknown[] = []
+	> = Arr['length'] extends length?
+	    Arr:
+	    BuildArray<Length, Ele, [...Arr, Ele]>
+	// arr['length'] === Length ? arr: 递归
+```
+
+类型参数 Length 为数组长度，约束为 number。类型参数 Ele 为元素类型，默认值为 unknown。类型参数 Arr 为构造出的数组，默认值是 []。
+
+每次判断下 Arr 的长度是否到了 Length，是的话就返回 Arr，否则在 Arr 上加一个元素，然后递归构造。
+
+### 字符串的递归
+
+ReplaceAll
+
+```typescript
+	type ReplaceAll<
+		Str extends string,
+		Form extends string,
+		To extends string
+	> = Str extends `${infer Prefix}${infer Form}${infer Subffix}`
+	? ReplaceAll<`${Prefix}${To}${Subffix}`, Form, To>
+	: Str
+```
+
+类型参数 Str 是待处理的字符串类型，From 是待替换的字符，To 是替换到的字符。
+
+通过模式匹配提取 From 左右的字符串到 infer 声明的局部变量 Left 和 Right 里。
+
+用 Left 和 To 构造新的字符串，剩余的 Right 部分继续递归的替换。
+
+结束条件是不再满足模式匹配，也就是没有要替换的元素，这时就直接返回字符串 Str。
+
+
+StringToUnion
+
+`'Sam'` => `'S' | 'a' | 'm'`
+
+```typescript
+	type StringToUnion<Str extends string>
+	= Str extends <infer First, ...infer Rest>
+	? First | StringToUnion<Rest>
+	: never
+```
+
+类型参数 Str 为待处理的字符串类型，通过 extends 约束为 string。
+
+通过模式匹配提取第一个字符到 infer 声明的局部变量 First，其余的字符放到局部变量 Rest。
+
+用 First 构造联合类型，剩余的元素递归的取。
+
+这样就完成了不确定长度的字符串的提取和联合类型的构造：
+
+ReverseStr
+
+```typescript
+type ReverseStr<
+	Str extends string,
+	Result extents string = ''
+	> = Str extends <infer First, ...infer Rest>
+	? ReverseStr<Rest, `${First}${Result}`>
+	: Result
+```
+
+类型参数 Str 为待处理的字符串。类型参数 Result 为构造出的字符，默认值是空串。
+
+通过模式匹配提取第一个字符到 infer 声明的局部变量 First，其余字符放到 Rest。
+
+用 First 和之前的 Result 构造成新的字符串，把 First 放到前面，因为递归是从左到右处理，那么不断往前插就是把右边的放到了左边，完成了反转的效果。
+
+直到模式匹配不满足，就处理完了所有的字符。
+
+### 对象类型的递归
+
+DeepReadonly
+
+对象类型的递归，也可以叫做索引类型的递归。
+
+我们之前实现了索引类型的映射，给索引加上了 readonly 的修饰：
+
+```typescript
+type ToReadonly<T> = {
+	readonly [Key in keyof T]: T[Key]
+}
+```
+
+如果这个索引类型层数不确定呢？
+
+比如这样：
+
+```typescript
+type obj = { a: { b: { c: { f: () => 'dong', d: { e: { guang: string } } } } } }
+```
+
+数量（层数）不确定，类型体操中应该自然的想到递归。
+
+```typescript
+type DeepReadonly<Obj extends Record<string, any>> = {
+	readonly [Key in keyof Obj]: 
+		Obj[Key] extends object //判断是不是Object
+			? Obj[Key] extends Function // 判断是不是function
+				? Obj[Key]
+				: DeepReadonly<Obj[Key]>
+			: Obj[Key]
+}
+```
+
+类型参数 Obj 是待处理的索引类型，约束为 Record<string, any>，也就是索引为 string，值为任意类型的索引类型。
+
+索引映射自之前的索引，也就是 Key in keyof Obj，只不过加上了 readonly 的修饰。
+
+值要做下判断，如果是 object 类型并且还是 Function，那么就直接取之前的值`Obj[Key]`。
+
+如果是 object 类型但不是 Function，那就是说也是一个索引类型，就递归处理 `DeepReadonly<Obj[Key]>`。
+
+否则，值不是 object 就直接返回之前的值 `Obj[Key]`。
+
+![image.png](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202212272219337.png)
+
+为啥这里没有计算呀？
+
+因为 ts 的类型只有被用到的时候才会做计算。
+
+所以可以在前面加上一段 Obj extends never ? never 或者 Obj extends any 等，从而触发计算：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
