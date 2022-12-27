@@ -8,7 +8,6 @@ tags: ["Function", "JavaScript"]
 
 # Function的笔记
 
-
 ## 如何创建执行环境 (执行函数时做了哪些事)
 
 我们现在知道每次调用函数时，javascript 引擎都会创建一个新的执行环境，而如何创建这一系列的执行环境呢，

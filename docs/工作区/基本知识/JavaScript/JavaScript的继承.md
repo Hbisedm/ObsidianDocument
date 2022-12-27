@@ -1,16 +1,43 @@
 ---
-title: JavaScript的继承
-date: 2022-07-01 17:08:18
+title: JavaScript的继承的笔记
 tags: ["JavaScript的继承"]
+创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
+修改时间: 星期五, 十二月 23日 2022, 1:31:29 下午
 ---
 #继承 #JavaScript
 
 # JavaScript的继承的笔记
-更新：谢谢大家的支持，最近折腾了一个博客官网出来，方便大家系统阅读，后续会有更多内容和更多优化，[猛戳这里查看](https://link.juejin.cn/?target=https%3A%2F%2Fmuyiy.vip "https://muyiy.vip")
 
 更新：在常用七种继承方案的基础之上增加了ES6的类继承，所以现在变成八种啦。
 
------- 以下是正文 ------
+#### 面试用
+
+原型链 => 
+对象的`prototype` 设置为父类  
+缺点: **篡改可能**
+
+借用构造函数 => 
+构造函数定义时 使用`Super.call`  
+缺点: **父类的实例属性和方法，没有父类原型属性和方法，无法实现复用，每次都要创建父类实例的副本**
+
+组合继承 => 
+结合上面2种  
+缺点: **重复属性**
+
+原型式 => 
+使用第三方函数 传入super参数 将super直接赋值给构造函数的原型 返回构造函数 
+缺点: **篡改可能**
+
+寄生式 => 
+原型式继承的基础上，增强对象 
+缺点: **篡改可能**
+
+寄生组合式 => 
+借用构造函数 和 寄生式 的组合  也是最佳效果
+
+es6类继承 => 
+最常用
+
 
 #### 1、原型链继承
 
@@ -18,7 +45,7 @@ tags: ["JavaScript的继承"]
 
 继承的本质就是**复制，即重写原型对象，代之以一个新类型的实例**。
 
-```
+```js
 function SuperType() {
     this.property = true;
 }
@@ -40,14 +67,13 @@ SubType.prototype.getSubValue = function() {
 
 var instance = new SubType();
 console.log(instance.getSuperValue()); // true
-
 ```
 
 ![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/10/30/166c2c0107fd80c7~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp)
 
 原型链方案存在的缺点：多个实例对引用类型的操作会被篡改。
 
-```
+```js
 function SuperType(){
   this.colors = ["red", "blue", "green"];
 }
@@ -68,7 +94,7 @@ alert(instance2.colors); //"red,blue,green,black"
 
 使用父类的构造函数来增强子类**实例**，等同于复制父类的实例给子类（不使用原型）
 
-```
+```js
 function SuperType(){
     this.color=["red","green","blue"];
 }
@@ -96,7 +122,7 @@ alert(instance2.color);//"red,green,blue"
 
 组合上述两种方法就是组合继承。用原型链实现对**原型**属性和方法的继承，用借用构造函数技术来实现**实例**属性的继承。
 
-```
+```js
 function SuperType(name){
   this.name = name;
   this.colors = ["red", "blue", "green"];
@@ -143,23 +169,22 @@ instance2.sayAge(); //27
 *   第二次调用`SuperType()`：给`instance1`写入两个属性name，color。
 
 实例对象`instance1`上的两个属性就屏蔽了其原型对象SubType.prototype的两个同名属性。所以，组合模式的缺点就是在使用子类创建实例对象时，其原型中会存在两份相同的属性/方法。
-
+	
 #### 4、原型式继承
 
 利用一个空对象作为中介，将某个对象直接赋值给空对象构造函数的原型。
 
-```
+```js
 function object(obj){
   function F(){}
   F.prototype = obj;
   return new F();
 }
-
 ```
 
 object()对传入其中的对象执行了一次`浅复制`，将构造函数F的原型直接指向传入的对象。
 
-```
+```js
 var person = {
   name: "Nicholas",
   friends: ["Shelby", "Court", "Van"]
@@ -188,7 +213,7 @@ alert(person.friends);   //"Shelby,Court,Van,Rob,Barbie"
 
 核心：在原型式继承的基础上，增强对象，返回构造函数
 
-```
+```js
 function createAnother(original){
   var clone = object(original); // 通过调用 object() 函数创建一个新对象
   clone.sayHi = function(){  // 以某种方式来增强对象
@@ -201,7 +226,7 @@ function createAnother(original){
 
 函数的主要作用是为构造函数新增属性和方法，以**增强函数**
 
-```
+```js
 var person = {
   name: "Nicholas",
   friends: ["Shelby", "Court", "Van"]
@@ -220,7 +245,7 @@ anotherPerson.sayHi(); //"hi"
 
 结合借用构造函数传递参数和寄生模式实现继承
 
-```
+```js
 function inheritPrototype(subType, superType){
   var prototype = Object.create(superType.prototype); // 创建对象，创建父类原型的一个副本
   prototype.constructor = subType;                    // 增强对象，弥补因重写原型而失去的默认的constructor 属性
@@ -266,7 +291,7 @@ instance1.colors.push("3"); // ["red", "blue", "green", "3"]
 
 #### 7、混入方式继承多个对象
 
-```
+```js
 function MyClass() {
      SuperClass.call(this);
      OtherSuperClass.call(this);
@@ -291,7 +316,7 @@ MyClass.prototype.myMethod = function() {
 
 `extends`关键字主要用于类声明或者类表达式中，以创建一个类，该类是另一个类的子类。其中`constructor`表示构造函数，一个类中只能有一个构造函数，有多个会报出`SyntaxError`错误,如果没有显式指定构造方法，则会添加默认的 `constructor`方法，使用例子如下。
 
-```
+```js
 class Rectangle {
     // constructor
     constructor(height, width) {
@@ -338,7 +363,7 @@ console.log(square.area);
 
 `extends`继承的核心代码如下，其实现和上述的寄生组合式继承方式一样
 
-```
+```js
 function _inherits(subType, superType) {
   
     // 创建对象，创建父类原型的一个副本
@@ -368,7 +393,7 @@ function _inherits(subType, superType) {
 
 函数声明会提升，类声明不会。首先需要声明你的类，然后访问它，否则像下面的代码会抛出一个ReferenceError。
 
-```
+```js
 let p = new Rectangle(); 
 // ReferenceError
 
@@ -397,22 +422,23 @@ class Rectangle {}
 
 ![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/11/17/167212b58a521ead~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp)
 
-
-
-
-
-
-
+> [参考](https://juejin.cn/post/6844903823471804429)
 
 # 总结 寄生组合
 
-
 寄生组合（有点难理解）
 
-使用`Object.create`创建父类原型对应的实例A[object.create](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)创建的目的是，让父类的实例属性不会过多的创建，浪费空间。
+使用`Object.create`创建父类原型对应的实例A， [object.create](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)创建的目的是，让父类的实例属性不会过多的创建，浪费空间。
 父类的实例成员使用call进行复制实例属性到子类中 
 然后修改子类原型的construct的指向子类，也就是上面的实例A。目的是让它走正常的对象原型链的走向。
 然后修改子类的原型的指向，目的是继承。
 然后写父类原型的函数
 最后new 子类就可以了
 
+> 几个重要的点
+> 子类原型 也就是 一个父类原型的实例对象(Object.create创建出来的)
+> 那么一个子实例要顺利继承的话，需要它的`construct`指向自己的构造，`__proto__`  指向子类原型(父类原型实例对象)
+> 父类的成员方法要在子类中运行
+> 父类的原型要给子类继承
+
+![image.png](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202212231331902.png)

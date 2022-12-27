@@ -1,9 +1,33 @@
 {
 	"nodes":[
-		{"id":"4a7811e07ebc136d","x":-188,"y":-377,"width":324,"height":133,"type":"text","text":"# 性能调优\n- 保证资源更快的 加载速度\n- 保证视图更快的 渲染速度/交互速度"},
-		{"id":"2e3b861a11dd8a49","x":-151,"y":-105,"width":250,"height":150,"type":"text","text":"抛出问题：\n\n从输入 `URL` 到页面加载完成发生了什么？"}
+		{"id":"2e3b861a11dd8a49","x":-195,"y":-179,"width":338,"height":87,"color":"6","type":"text","text":"## 抛出问题：\n\n从输入 `URL` 到页面加载完成发生了什么？"},
+		{"id":"23c1dea0c0e27cac","x":266,"y":121,"width":250,"height":218,"type":"text","text":"## RAIL模型\n\n-   **`Response` 响应**\n-   **`Animation` 动画**\n-   **`Idle` 空闲**\n-   **`Load` 加载**\n"},
+		{"id":"f1a3e7533d5567aa","x":-222,"y":79,"width":393,"height":300,"color":"3","type":"text","text":"## 主要回答: \n进行 DNS 解析\n建立 TCP 连接\n客户端发送 HTTP 请求\n服务端响应 HTTP 资源\n浏览器获取响应内容，进行解析和渲染\n\n前3点为网络层面，后2点为浏览器层面\n\n以上任意一点都可进行无限扩展、延伸，但点到为止才是现在真正需要的。\n"},
+		{"id":"c10d84f6404b7e51","x":1087,"y":-217,"width":250,"height":150,"type":"text","text":"## 性能指标工具\n\n- performance面板\n- lighthouse面板"},
+		{"id":"7d26476b875d4b98","x":516,"y":-217,"width":287,"height":137,"type":"text","text":"## 性能指标\n\n- RAIL模型\n- 常规性能指标\n"},
+		{"id":"f67041ee7a8a6756","x":153,"y":496,"width":476,"height":415,"type":"text","text":"![image.png](https://raw.githubusercontent.com/Hbisedm/my-blob-picGo/main/img/202212212231578.png)\n"},
+		{"id":"6d9ec86539424a9e","x":717,"y":110,"width":495,"height":229,"color":"6","type":"text","text":"## 常规性能指标\n\n- 首次绘制(First Paint FP)\n- 首次内容绘制(First Contentful Paint FCP)\n- 首屏时间/最大内容绘制(Largest Contentful Paint LCP)\n- 首次输入延迟(First Input Deply FID)\n- 累积布局偏移(Cumulative Layout Shift CLS)\n- 首字节达到时间(Time to First Byte, TTFB)"},
+		{"id":"c5644bd6fd0bd891","x":1011,"y":-521,"width":247,"height":50,"type":"text","text":"## 需要知道的前置知识"},
+		{"id":"4e769b74418fb15c","x":716,"y":496,"width":919,"height":617,"type":"text","text":"-   **首次绘制（`First Paint，FP`）**  ⭐️⭐️⭐️\n    -   在渲染进程确认要渲染当前响应资源后，渲染进程会先创建一个空白页面，通常把创建空白页面的这个时间点称为 `First Paint`，简称 `FP`\n    -   所谓的 **白屏时间** 其实指的就是创建这个空白页面到浏览器开始渲染非空白内容的时间，比如页面背景发生变化等\n-   **首次内容绘制（`First Contentful Paint，FCP`）** [fcp](https://web.dev/fcp/) ⭐️⭐️⭐️\n    -   当用户看见一些 \"内容\" 元素被绘制在页面上的时间点，和白屏是不一样，它可以是 **`文本`** 首次绘制，或 `SVG` 首次出现，或 `Canvas` 首次绘制等，即当页面中绘制了第一个 **像素** 时，这个时间点称为 `First Content Paint`，简称 `FCP`\n-   **首屏时间 / 最大内容绘制（`Largest Contentful Paint, LCP`）**  ⭐️⭐️⭐️\n    -   `LCP` 是一种新的性能度量标准，`LCP` 侧重于用户体验的性能度量标准，与现有度量标准相比，更容易理解与推理，当首屏内容完全绘制完成时，这个时间点称为 `Largest Content Paint`，简称 `LCP`\n    -   **最大内容绘制应在 `2.5s` 内完成**\n-   **首次输入延迟（`First Input Delay, FID`）**\n    -   `FID` 测量的是当用户第一次在页面上交互的时候（**点击链接**、**点击按钮** 或 **自定义基于 `js` 的事件**），到浏览器实际开始处理这个事件的时间\n\t    -   **首次输入延迟应在 `100ms` 内完成**\n-   **累积布局偏移（`Cumulative Layout Shift, CLS`)**\n    -   `CLS` 是为了测量 **视觉稳定性**，以便提供良好的用户体验\n    -   **累积布局偏移应保持在 `0.1` 或更少**\n-   **首字节达到时间（`Time to First Byte，TTFB`）**  ⭐️⭐️⭐️\n    -   指的是浏览器开始收到服务器响应数据的时间（**后台处理时间 + 重定向时间**），是反映服务端响应速度的重要指标\n    -   **`TTFB` 时间如果超过 `500ms`，用户在打开网页的时就会感觉到明显的等待**\n\n  \n"},
+		{"id":"074c03c34726caa3","x":1711,"y":518,"width":392,"height":287,"type":"text","text":"## 白屏时间\n\n从输入地址请求开始 到 页面开始渲染非空白内容 \n\n## 首屏时间\n\n从输入地址请求请求 到 页面内容最大渲染完毕\n"},
+		{"id":"1606022df9a3aee9","x":1527,"y":-217,"width":250,"height":145,"type":"text","text":"## 收集性能数据\n\n- Performance API\n- Web Vitals "},
+		{"id":"4a7811e07ebc136d","x":1568,"y":-947,"width":418,"height":229,"type":"text","text":"# 性能调优\n\n> 调优核心目的就2点\n\n- 保证资源更快的 加载速度\n- 保证视图更快的 渲染速度/交互速度\n\n[具体看这篇](https://juejin.cn/post/7139661845182300191)"},
+		{"id":"f8bdc80a9f956b80","x":1886,"y":-290,"width":547,"height":281,"type":"text","text":"## 保证资源更快的加载速度\n\n使用`dns-prefetchc` 减少DNS的查询时间\n使用`preconnect`提前建立连接\n使用`preload/prefetch`预先加载资源\n压缩资源体积\n减少HTTP请求量\n减少不必要的cookie\nCDN托管静态资源 + HTTP资源\nHTTP协议提升为2.0"},
+		{"id":"8dc535a26847da7e","x":2521,"y":-290,"width":537,"height":135,"type":"text","text":"## 如何保证视图更快的渲染和交互\n\n- 渲染层面\n- 交互层面"}
 	],
 	"edges":[
-		{"id":"5b2940f56f1b1cc7","fromNode":"4a7811e07ebc136d","fromSide":"bottom","toNode":"2e3b861a11dd8a49","toSide":"top"}
+		{"id":"e9e0754a6c7deb08","fromNode":"2e3b861a11dd8a49","fromSide":"bottom","toNode":"f1a3e7533d5567aa","toSide":"top"},
+		{"id":"6960030a997303c8","fromNode":"7d26476b875d4b98","fromSide":"bottom","toNode":"23c1dea0c0e27cac","toSide":"top"},
+		{"id":"7cf864af55f26c46","fromNode":"7d26476b875d4b98","fromSide":"bottom","toNode":"6d9ec86539424a9e","toSide":"top"},
+		{"id":"616b3e93a098e5cc","fromNode":"23c1dea0c0e27cac","fromSide":"bottom","toNode":"f67041ee7a8a6756","toSide":"top"},
+		{"id":"f7287e48888a84ee","fromNode":"6d9ec86539424a9e","fromSide":"bottom","toNode":"4e769b74418fb15c","toSide":"top"},
+		{"id":"dc9c50c53ec3dab5","fromNode":"4a7811e07ebc136d","fromSide":"bottom","toNode":"c5644bd6fd0bd891","toSide":"top"},
+		{"id":"4907126c16e7da8f","fromNode":"c5644bd6fd0bd891","fromSide":"bottom","toNode":"2e3b861a11dd8a49","toSide":"top"},
+		{"id":"f532e3a35558118f","fromNode":"c5644bd6fd0bd891","fromSide":"bottom","toNode":"7d26476b875d4b98","toSide":"top"},
+		{"id":"949a47775b70d048","fromNode":"c5644bd6fd0bd891","fromSide":"bottom","toNode":"c10d84f6404b7e51","toSide":"top"},
+		{"id":"0e36c7f7ab1dc64f","fromNode":"c5644bd6fd0bd891","fromSide":"bottom","toNode":"1606022df9a3aee9","toSide":"top"},
+		{"id":"1e5a1e89be0c57a1","fromNode":"4a7811e07ebc136d","fromSide":"bottom","toNode":"f8bdc80a9f956b80","toSide":"top"},
+		{"id":"98db34fd66226f12","fromNode":"4a7811e07ebc136d","fromSide":"bottom","toNode":"8dc535a26847da7e","toSide":"top"},
+		{"id":"dd2cb93eb34fbaf4","fromNode":"4e769b74418fb15c","fromSide":"right","toNode":"074c03c34726caa3","toSide":"left"}
 	]
 }
