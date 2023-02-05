@@ -1,7 +1,8 @@
 ---
+tags: 
 title: LeetCode（简单）的笔记
 创建时间: 星期三, 七月 27日 2022, 8:58:57 晚上
-修改时间: 星期一, 九月 26日 2022, 10:34:07 晚上
+修改时间: 星期三, 一月 18日 2023, 2:57:42 下午
 ---
 
 ---
@@ -4089,6 +4090,137 @@ var fib = function(n) {
     return f(n)
 };
 ```
+
+## [购物单](https://www.nowcoder.com/practice/f9c6f980eeec43ef85be20755ddbeaf4?tpId=37&tags=593&title=&difficulty=&judgeStatus=&rp=1&sourceUrl=%2Fexam%2Foj%2Fta%3FtpId%3D37&gioEnter=menu)
+
+一道dp算法
+
+先整理出每个条件出来 主件搭配的配件的总价格和总价值都列出来
+
+然后使用dp
+
+从后往前遍历
+
+只遍历当前价格的最大总价值出来。
+
+```js
+const strArr = ["800 2 0", "400 5 1", "300 5 1", "400 3 0", "500 2 0"];
+
+const [totalPrice, num] = [1000, 5];
+function main(tp, num) {
+  // 主件
+  const mains = {};
+  // 副件
+  const subParts = {};
+  for (let i = 1; i <= num; i++) {
+    const [v, p, q] = strArr[i - 1].split(" ").map(Number);
+    // 主件
+    if (q == 0) {
+      mains[i] = [v, p];
+    } else {
+      // 副件
+      if (q in subParts) {
+        // 第二个副件
+        subParts[q].push([v, p]);
+      } else {
+        // 第一个副件
+        subParts[q] = [[v, p]];
+      }
+    }
+  }
+  // w[i][j] 表示 i 号主件的第j种组合情况时的价格，j有4个值，表示主件及其副件可能的以下四种组合方式：
+  // 1. 主件
+  // 2. 主件+副件1
+  // 3. 主件+副件2
+  // 4. 主件+副件1+副件2
+  const w = [];
+  // v[i][j] 和 w[i][j] 对应，表示i号主件的第j种组合情况时的满意度，即价格*重要度
+  const v = [];
+  for (const i in mains) {
+    // 只有主件时
+    const _w = [mains[i][0]];
+    const _v = [mains[i][0] * mains[i][1]];
+    if (i in subParts) {
+      const sub = subParts[i];
+      // 主件+副件1
+      _w.push(mains[i][0] + sub[0][0]);
+      _v.push(mains[i][0] * mains[i][1] + sub[0][0] * sub[0][1]);
+      if (sub.length > 1) {
+        // 主件+副件2
+        _w.push(mains[i][0] + sub[1][0]);
+        _v.push(mains[i][0] * mains[i][1] + sub[1][0] * sub[1][1]);
+        // 主件+副件1+副件2
+        _w.push(mains[i][0] + sub[0][0] + sub[1][0]);
+        _v.push(
+          mains[i][0] * mains[i][1] +
+            sub[0][0] * sub[0][1] +
+            sub[1][0] * sub[1][1]
+        );
+      }
+    }
+    w.push(_w);
+    v.push(_v);
+  }
+
+  console.log("w => ");
+  console.log(w);
+  console.log("v =>");
+  console.log(v);
+
+  const dp = new Array(tp + 1).fill(0);
+  for (let i = 0; i < w.length; i++) {
+    for (let j = tp; j >= 0; j -= 10) {
+      let max = dp[j]; // 这个东西最关键
+      for (let k = 0; k < w[i].length; k++) {
+        if (j >= w[i][k]) {
+          max = Math.max(max, dp[j - w[i][k]] + v[i][k]);
+        }
+      }
+      dp[j] = max;
+    }
+  }
+  console.log(dp);
+  return dp[tp];
+}
+console.log(main(totalPrice, num));
+
+```
+
+
+## [密码截取](https://www.nowcoder.com/practice/3cd4621963e8454594f00199f4536bb1?tpId=37&tqId=21255&rp=1&ru=/exam/oj/ta&qru=/exam/oj/ta&sourceUrl=%2Fexam%2Foj%2Fta%3Fdifficulty%3D3%26page%3D1%26pageSize%3D50%26search%3D%26tpId%3D37%26type%3D37&difficulty=3&judgeStatus=undefined&tags=&title=)
+
+一道回文数的题目
+
+```js
+const rl = require("readline").createInterface({ input: process.stdin });
+var iter = rl[Symbol.asyncIterator]();
+const readline = async () => (await iter.next()).value;
+void async function () {
+	const line = await readline()
+	let max = 1
+	let length = line.length
+	for(let i = 0; i < length; i++) {
+		let low = i
+		let high = i + 1
+		// AABB
+		while(low >= 0 && high < length && line[low] === line[high]) {
+			low--
+			high++
+		}
+		max = Math.max(max, high - low - 1)
+		low = i
+		high = i+2
+		// AABAA
+		while(low >= 0 && high < length && line[low] === line[high]) {
+			low--
+			high++
+		}
+		max = Math.max(max, high - low - 1)
+	}
+	console.log(max)
+}()
+```
+
 
 
 ## TODO

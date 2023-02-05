@@ -1,4 +1,5 @@
 {
   "communityThemeSortOrder": "download",
-  "vimMode": true
+  "vimMode": true,
+  "alwaysUpdateLinks": true
 }
