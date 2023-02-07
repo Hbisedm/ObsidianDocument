@@ -45,9 +45,35 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "f935bbd2285e6594",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/工作区/基本知识/JavaScript/隐式转换.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9d310585ea6aacfc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/工作区/阅读源码/plimitJs.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -76,7 +102,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "defer",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -114,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/工作区/关于面试/笔试题/README.md",
+                "file": "docs/工作区/阅读源码/plimitJs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +157,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/工作区/关于面试/笔试题/README.md"
+                "file": "docs/工作区/阅读源码/plimitJs.md"
               }
             }
           },
@@ -149,7 +175,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/工作区/关于面试/笔试题/README.md",
+                "file": "docs/工作区/阅读源码/plimitJs.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -191,17 +217,17 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "70c87ee63146ad48",
+  "active": "9d310585ea6aacfc",
   "lastOpenFiles": [
-    "docs/工作区/关于面试/笔试题/深拷贝与浅拷贝.md",
-    "docs/工作区/关于面试/笔试题/README.md",
-    "docs/工作区/关于面试/笔试题/数组扁平化.md",
-    "docs/工作区/关于面试/笔试题/Promise.md",
-    "docs/工作区/关于面试/笔试题/手写call&apply&bind.md",
+    "docs/工作区/阅读源码/omitJs.md",
+    "docs/工作区/阅读源码/arrifyJs.md",
+    "docs/工作区/阅读源码/plimitJs.md",
+    "docs/工作区/基本知识/JavaScript/隐式转换.md",
+    "docs/工作区/基本知识/JavaScript/异步、非异步IO与阻塞、非阻塞IO.md",
+    "docs/工作区/基本知识/JavaScript/原型、原型链.md",
     "docs/工作区/基本知识/JavaScript/垃圾收集.md",
-    "docs/工作区/基本知识/JavaScript/Script里async与defer的区别.md",
-    "docs/工作区/关于面试/笔试题/手写new.md",
-    "docs/工作区/基本知识/JavaScript/JavaScript的继承.md",
-    "docs/工作区/性能调优/前端性能优化.md"
+    "docs/工作区/基本知识/JavaScript/高阶函数的使用.md",
+    "docs/工作区/基本知识/JavaScript/构造函数、对象实例、原型的关系.md",
+    "docs/工作区/基本知识/JavaScript/词法环境.md"
   ]
 }
