@@ -1,1 +1,0 @@
-import{_ as t,c as e,o as a}from"./app.6426b36b.js";const m=JSON.parse('{"title":"模块说明","description":"","frontmatter":{"title":"模块说明","date":"2022-05-31T12:42:26.000Z","tags":["常用开发技巧"]},"headers":[],"relativePath":"工作区/技巧操作/README.md"}'),r={name:"工作区/技巧操作/README.md"};function o(s,c,n,p,_,d){return a(),e("div")}const f=t(r,[["render",o]]);export{m as __pageData,f as default};
